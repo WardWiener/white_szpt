@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+
+<struts>
+	<constant name="struts.objectFactory" value="spring" />
+	<constant name="struts.devMode" value="true" />
+	<constant name="struts.multipart.maxSize" value="400000000" />
+
+
+	<include file="struts/struts-*.xml" />
+	<include file="struts/*/struts-*.xml" />
+	<include file="strutsconfig/*/struts-*.xml" />
+
+	<package name="szpt-web-dagl" extends="json-default" namespace="/">
+		<interceptors>
+			<!-- 定义多个拦截器 -->
+			<interceptor name="exceptionInterceptor"
+				class="com.taiji.pubsec.szpt.util.ExceptionInterceptor">
+			</interceptor>
+			<!-- 拦截器栈 -->
+			<interceptor-stack name="defaultInterceptors">
+				<interceptor-ref name="defaultStack" />
+				<interceptor-ref name="exceptionInterceptor" />
+			</interceptor-stack>
+		</interceptors>
+
+		<!-- 定义默认拦截器 -->
+		<default-interceptor-ref name="defaultInterceptors" />
+
+		<!-- 定义全局result -->
+		<global-results>
+			<result name="errorException">/WEB-INF/exception/exception.jsp</result>
+		</global-results>
+		<global-exception-mappings>
+			<exception-mapping result="errorException"
+				exception="java.lang.Exception">
+			</exception-mapping>
+		</global-exception-mappings>
+
+	</package>
+
+	<package name="szpt-web-common" extends="szpt-web-dagl"
+		namespace="/" />
+	<package name="szpt-web-zhzats" extends="szpt-web-dagl"
+		namespace="/" />
+	<package name="szpt-web-instruction" extends="szpt-web-dagl"
+		namespace="/" />
+	<!-- <package name="szpt-web-xsfxts" extends="szpt-web-dagl"
+		namespace="/" /> -->
+</struts>

@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+ <package name="personManage" extends="szpt-web-xtgl" namespace="/personManage">
+		<action name="toPerson">
+			<result name="success">/WEB-INF/view/xtgl/person/personManage.jsp</result>
+		</action>
+		<action name="showPaNewPage">
+			<result name="success">/WEB-INF/view/xtgl/person/addPerson.jsp</result>
+		</action>
+		<action name="showPaFindUnitPage" >
+			<result name="success">/WEB-INF/view/xtgl/person/newpersonFindUnit.jsp</result>
+		</action>
+		<action name="synchronousUser" class="personManageAction" method="synchronousUser">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag</param> 
+			</result>
+		</action>
+		<action name="checkPersonHasAccount" class="personManageAction" method="checkPersonHasAccount">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="searchUnitList" class="personManageAction" method="searchUnitList">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="initNewPersonPage" class="personManageAction" method="initNewPersonPage">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showPaLookPage" >
+			<result name="success">/WEB-INF/view/xtgl/person/lookPerson.jsp</result>
+		</action>
+		<action name="deletePerson" class="personManageAction" method="deletePerson">
+			<result name="success" type="json">
+			      <param name="ignoreHierarchy" >false</param>
+			      <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="savePerson" class="personManageAction" method="savePerson">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg,personBean.*</param> 
+			</result>
+		</action>
+		<action name="updatePerson" class="personManageAction" method="updatePerson">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg,personBean.*</param> 
+			</result>
+		</action>
+		<action name="searchPersonList" class="personManageAction" method="searchPersonList">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">personAdminBeanList.*,totalNum,length</param>
+			</result>
+		</action>
+		<action name="initPersonManagePage" class="personManageAction" method="initPersonManagePage">
+			<result name="success" type="json"></result>
+		</action>
+    </package>
+</struts>

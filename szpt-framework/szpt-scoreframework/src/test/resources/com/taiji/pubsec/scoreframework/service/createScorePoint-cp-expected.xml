@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_scoreframework_scorepoint ceid="ce123" description="测试用的检查点" cetype="com.taiji.pubsec.scoreframework.MokeExecutor"/>
+</dataset>

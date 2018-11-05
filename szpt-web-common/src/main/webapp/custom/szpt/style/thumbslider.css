@@ -1,0 +1,41 @@
+
+.thumbslider-prev,.thumbslider-next{float:left;padding:105px 9px 0;}
+.thumbslider-prev,.thumbslider-prev a,.thumbslider-next,.thumbslider-next a{width:21px;height:60px; display:block;}
+.thumbslider-prev a,.thumbslider-next a{ background:url(../../../images/nb-icon-slide-btn.png) no-repeat 0 0;}
+.thumbslider-next a{ background-position:-65px 0;}
+.thumbslider-prev a:hover{ background-position:0 -75px;}
+.thumbslider-next a:hover{ background-position:-65px -75px;}
+
+.thumbslider{
+	width:500px;overflow:hidden;
+	position:relative;overflow:visible;
+}
+.thumbslider-show{
+	width:380px;overflow:hidden;position:relative;height:280px;float:left;
+}
+
+.thumbslider-show-container{
+	width:6650px;position:absolute;left:0px;top:0px;
+}
+
+.thumbslider-show-ul{
+	float:left;text-align:center;line-height:50px;
+}
+
+.thumbslider-show-ul li{
+	width: 390px;
+    height: 420px;
+    background: #f8f8f8;
+    float: left;
+    margin-top: 3px;
+}
+
+.thumbslider-show-ul li img{
+	width:100%;
+}
+
+.thumbslider-circle{width:380px;overflow:hidden;position:relative;height:60px;float:left;margin-left:39px;margin-top:10px}
+.thumbslider-circle-ul{position:absolute;width:6650px;}
+.thumbslider-circle-ul li{width:60px;height:60px;float:left;margin-right:20px;background:#fff; overflow:hidden; text-align:center;}
+.thumbslider-circle-ul li img{height:100%;}
+.thumbslider-circle-ul .thumbslider-circle-ul-li.curr{border:5px solid #54d3f3; width:50px; height:50px; }

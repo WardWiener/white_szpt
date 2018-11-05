@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+ <package name="resource" extends="szpt-web-xtgl" namespace="/resource">
+        <!-- 跳转到权限管理 -->
+		<action name="toResource">
+			<result name="success">/WEB-INF/view/xtgl/resource/resource.jsp</result>
+		</action>
+		<action name="displayNewResource" >
+			<result name="success">/WEB-INF/view/xtgl/resource/addResource.jsp</result>
+		</action>
+		<action name="veryResource" class="resourceAction" method="veryResource">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			<param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="queryResourceType" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="deleteResource" class="resourceAction" method="deleteResource">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			<param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="updateResource" class="resourceAction" method="updateResource">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			<param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="saveResource" class="resourceAction" method="saveResource">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			<param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="queryResourceById" class="resourceAction" method="queryResourceById">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryResource" class="resourceAction" method="queryResource">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			 <param name = "includeProperties">resourceBeanList.*,totalNum,length</param> 
+			</result>
+		</action>
+    </package>
+</struts>

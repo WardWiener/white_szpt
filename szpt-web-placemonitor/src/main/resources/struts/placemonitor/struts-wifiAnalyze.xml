@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<package name="wifiAnalyze" extends="szpt-web-placemonitor" namespace="/wifiAnalyze">
+		
+		<!-- wifi分析页面 -->
+		<action name="showWifiAnalyzePage">
+			<result name="success">/WEB-INF/view/placemonitor/wifiAnalyze/wifiAnalyze.jsp</result>
+		</action>
+		
+		<!-- 查看高危人列表页面 -->
+		<action name="showHighriskPersonListPage">
+			<result name="success">/WEB-INF/view/placemonitor/wifiAnalyze/lookHighriskPersonList.jsp</result>
+		</action>
+		
+		<!-- 根据时间段和前科类型统计监测结果（分页查询） -->
+		<action name="countMonitorResultByTimeAndCriminalType" class="wifiAnalyzeAction" method="countMonitorResultByTimeAndCriminalType">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 根据时间段和前科类型统计监测结果（饼图） -->
+		<action name="findCriminalTypeScale" class="wifiAnalyzeAction" method="findCriminalTypeScale">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据条件查询监测点命中记录(统计前科类型百分比接口) -->
+		<action name="querySurveillanceByCondition" class="surveillanceAction" method="querySurveillanceByCondition">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 组装人员类型树 -->
+		<action name="queryPersonTypeTree" class="wifiAnalyzeAction" method="queryPersonTypeTree">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据mac地址集合查询高危人 -->
+		<action name="findHighriskPersonByMacList" class="wifiAnalyzeAction" method="findHighriskPersonByMacList">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+  <t_og_cj id="001" mc="小区1" bm="sq001" dwid="pcsbm1" gxsj="2016-10-10 10:10:10" dsq_id="0001" ></t_og_cj>
+  <t_og_cj id="002" mc="小区2" bm="sq002" dwid="pcsbm1" gxsj="2016-10-10 10:10:10" dsq_id="0002" ></t_og_cj>
+  <t_og_cj id="003" mc="小区3" bm="sq003" dwid="pcsbm1" gxsj="2016-10-10 10:10:10" dsq_id="0003" ></t_og_cj>
+  <t_og_cj id="004" mc="小区4" bm="sq004" dwid="pcsbm1" gxsj="2016-10-10 10:10:10" dsq_id="0004" ></t_og_cj>
+
+  <t_ty_jwzh_cq id="001" bm="sq001" mc="小区1" sqbm="sqbm001" sqmc="社区1" pcsbm="pcsbm1" pcsmc="金开分局" lv="1" ></t_ty_jwzh_cq>
+  <t_ty_jwzh_cq id="002" bm="sq002" mc="小区2" sqbm="sqbm001" sqmc="社区1" pcsbm="pcsbm1" pcsmc="金开分局" lv="1" ></t_ty_jwzh_cq>
+  <t_ty_jwzh_cq id="003" bm="sq003" mc="小区3" sqbm="sqbm001" sqmc="社区1" pcsbm="pcsbm1" pcsmc="金开分局" lv="1" ></t_ty_jwzh_cq>
+  <t_ty_jwzh_cq id="004" bm="sq004" mc="小区4" sqbm="sqbm001" sqmc="社区1" pcsbm="pcsbm1" pcsmc="金开分局" lv="1" ></t_ty_jwzh_cq>
+  <t_ty_jwzh_cq id="005" bm="sq005" mc="小区5" sqbm="sqbm001" sqmc="社区1" pcsbm="pcsbm1" pcsmc="金开分局" lv="1" ></t_ty_jwzh_cq>
+
+
+</dataset>
+
+
+
+
+
+
+
+
+
+
+

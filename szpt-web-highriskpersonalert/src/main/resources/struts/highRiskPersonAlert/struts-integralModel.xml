@@ -1,0 +1,48 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="integralModel" extends="szpt-web-highRiskPersonAlert" namespace="/integralModel">
+		<action name="showIntegralModelPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/integralModel/integralModel.jsp</result>
+		</action>
+		<action name="showAddAndModifyPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/integralModel/addAndModifyIntegralModel.jsp</result>
+		</action>
+		<action name="showLookPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/integralModel/lookIntegralModel.jsp</result>
+		</action>
+	
+       <action name="findIntegralModel" class="integralModelAction" method="findIntegralModel">
+         	<result name="success" type="json">
+         		 <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">integarlModelBeanList.*,totalNum</param> 
+			</result>
+        </action>
+        
+         <action name="saveIntegralModel" class="integralModelAction" method="saveIntegralModel">
+         	<result name="success" type="json">
+			</result>
+        </action>
+        
+         <action name="delete" class="integralModelAction" method="delete">
+         	<result name="success" type="json">
+			</result>
+        </action>
+        
+         <action name="updateState" class="integralModelAction" method="updateState">
+         	<result name="success" type="json">
+			</result>
+        </action>
+        
+         <action name="updateIntegralModel" class="integralModelAction" method="updateIntegralModel">
+         	<result name="success" type="json">
+			</result>
+        </action>
+        
+        <action name="generateNumber" class="integralModelAction" method="generateNumber">
+         	<result name="success" type="json">
+			</result>
+        </action>
+    
+	</package>
+</struts>

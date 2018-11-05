@@ -1,0 +1,58 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd" >
+<struts>
+	<package name="instructionReceive" extends="szpt-web-instruction" namespace="/instructionReceive">
+	
+		<action name="showInstructionReceiveListPage">
+			<result name="success">/WEB-INF/view/instruction/instruction/instructionReceiveList.jsp</result>
+		</action>
+		
+		<action name="showFeedbackInstructionPage">
+			<result name="success">/WEB-INF/view/instruction/instruction/feedbackInstruction.jsp</result>
+		</action>
+		
+		<action name="showInstructionSign">
+			<result name="success">/WEB-INF/view/loginHomePage/instructionSign/instructionSign.jsp</result>
+		</action>
+	
+		<action name="signInstruction" class="instructionAction" method="signInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="queryInstructionReceiveList" class="instructionAction" method="queryInstructionReceiveList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findInstructionReceiveSubject" class="instructionAction" method="findInstructionReceiveSubject">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findFeedbackBeanList" class="instructionAction" method="findFeedbackBeanList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findOperationRecordBeanListByReceiveSubjectId" class="instructionAction" method="findOperationRecordBeanListByReceiveSubjectId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="feedbackInstruction" class="instructionAction" method="feedbackInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findInstruction" class="instructionAction" method="findInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		        <param name="actionName">export</param>
+			    <param name="namespace">/</param>
+	        </result> 
+		</action>
+		
+	</package>
+</struts>

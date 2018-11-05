@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+   <t_gwry_fj id="001" rymc="张三" rysfzh="130425199001263419" hjdz="河北省邯郸市大名县旧治乡东范庄村" jd="44" wd="45" gxsj="2016-10-14 10:10:10" hbh="hbh001" zwh="58c" lgdd="北京" dgdd="上海" lgsj="2016-10-11 10:10:10" dgsj="2016-10-12 10:10:10" mddjd="41" mddwd="42"/>
+   <t_gwry_fj id="002" rymc="李四" rysfzh="130425199001263419" hjdz="河北省邯郸市大名县旧治乡东范庄村" jd="44" wd="45" gxsj="2016-10-14 10:10:10" hbh="hbh001" zwh="58c" lgdd="北京" dgdd="上海" lgsj="2016-10-11 10:10:10" dgsj="2016-10-19 10:10:10" mddjd="41" mddwd="42"/>
+   <t_gwry_fj id="003" rymc="王五" rysfzh="130425199001263419" hjdz="河北省邯郸市大名县旧治乡东范庄村" jd="44" wd="45" gxsj="2016-10-14 10:10:10" hbh="hbh001" zwh="58c" lgdd="北京" dgdd="上海" lgsj="2016-10-10 10:10:10" dgsj="2016-10-14 10:10:10" mddjd="41" mddwd="42"/>
+   <t_gwry_fj id="004" rymc="赵六" rysfzh="130425199001263419" hjdz="河北省邯郸市大名县旧治乡东范庄村" jd="44" wd="45" gxsj="2016-10-14 10:10:10" hbh="hbh001" zwh="58c" lgdd="北京" dgdd="上海" lgsj="2016-10-11 10:10:10" dgsj="2016-10-11 10:10:10" mddjd="41" mddwd="42"/>
+   <t_gwry_fj id="005" rymc="杨七" rysfzh="130425199041263419" hjdz="河北省邯郸市大名县旧治乡东范庄村" jd="44" wd="45" gxsj="2016-10-14 10:10:10" hbh="hbh001" zwh="58c" lgdd="北京" dgdd="上海" lgsj="2016-10-10 10:10:10" dgsj="2016-10-11 10:10:10" mddjd="41" mddwd="42"/>
+</dataset>

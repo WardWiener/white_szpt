@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+    <bean id="savePersonExecuteControlStatusHandler" class="com.taiji.pubsec.szpt.highriskpersonalert.personexecutecontrol.aop.SavePersonExecuteControlStatusHandler" />
+    <bean id="createHighriskPersonMarkHandler" class="com.taiji.pubsec.szpt.highriskpersonalert.service.aop.CreateHighriskPersonMarkHandler" />
+
+    <aop:config>
+        <aop:aspect id="savePersonExecuteControlStatusHandlerAspect" ref="savePersonExecuteControlStatusHandler" order="-1">
+            <aop:pointcut id="savePersonExecuteControlStatusHandlerAspectPointer" expression="execution(* com.taiji.pubsec.szpt.highriskpersonalert.personexecutecontrol.service.impl.PersonExecuteControlServiceImpl.updatePersonExecuteControlStatus(..))" />
+            <aop:after-returning method="doAfterReturning" returning="retVal"  pointcut-ref="savePersonExecuteControlStatusHandlerAspectPointer"/>
+        </aop:aspect>
+        <aop:aspect id="createHighriskPersonMarkHandlerAspect" ref="createHighriskPersonMarkHandler" order="-1">
+            <aop:pointcut id="createHighriskPersonMarkHandlerAspectPointer" expression="execution(* com.taiji.pubsec.szpt.highriskpersonalert.service.impl.HighriskPersonServiceImpl.createHighriskPersonMark(..))" />
+            <aop:after-returning method="doAfterReturning" returning="retVal"  pointcut-ref="createHighriskPersonMarkHandlerAspectPointer"/>
+        </aop:aspect>
+    </aop:config>  
+</beans>
+	

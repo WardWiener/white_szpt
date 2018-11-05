@@ -1,0 +1,69 @@
+package com.taiji.pubsec.szpt.surveillance.util;
+
+public class SurveillanceUtilConstant {
+	
+	/**
+	 * 布控单操作类型-新增或更新
+	 */
+	public static final String SURVEILLIST_MSG_OPERATION_TYPE_ADD_OR_UPDATE = "add_or_update" ;
+	/**
+	 * 布控单操作类型-取消
+	 */
+	public static final String SURVEILLIST_MSG_OPERATION_TYPE_CANCEL = "cancel" ;
+	
+	public static final String DICT_ON = "1"; 
+	public static final String DICT_OFF = "0"; 
+	public static final String DICT_XTZT_INIT = "init" ;//"系统状态类型：初始化"
+	
+	//操作状态-新增
+	public static final String CZZT_XZ = "0000000033000";
+	
+	//操作状态-待审批
+	public static final String CZZT_DSP = "0000000033001";
+	
+	//操作状态-审批通过
+	public static final String CZZT_SPTG = "0000000033002";
+	
+	//操作状态-审批驳回
+	public static final String CZZT_SPBH = "0000000033003";
+	
+	public static final String DICT_OPERATE_STATUS_PASS = CZZT_SPTG; 
+	
+	private static String TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS ;
+	
+	private static String TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL ;
+	
+	private static String TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE ;
+	
+	private static String TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL ;
+	
+	private static String TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL ;
+	
+	public static String TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS(){
+		return TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS;
+	}
+	
+	public static String TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL(){
+		return TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL;
+	}
+	
+	public static String TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE(){
+		return TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE ;
+	}
+	
+	public static String TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL(){
+		return TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL ;
+	}
+	
+	public static String TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL(){
+		return TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL ;
+	}
+	
+	private SurveillanceUtilConstant(String TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS, String TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL, String TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE, String TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL, String TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL){
+		SurveillanceUtilConstant.TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS = TOPIC_SURVEILLANCE_RESULT_TO_BUSINESS.trim() ;
+		SurveillanceUtilConstant.TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL = TOPIC_SURVEILLANCE_BUSINESS_TO_SURVEIL.trim() ;
+		SurveillanceUtilConstant.TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE = TOPIC_SURVEILLANCE_IMG_CLUE_DEPLOY_TO_DATAGATE.trim() ;
+		SurveillanceUtilConstant.TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL = TOPIC_SURVEILLANCE_IMG_RESULT_DATAGATE_TO_SURVEIL.trim() ;
+		SurveillanceUtilConstant.TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL = TOPIC_SURVEILLANCE_DEFAULT_CLUE_TO_SURVEIL.trim() ;
+	}
+}

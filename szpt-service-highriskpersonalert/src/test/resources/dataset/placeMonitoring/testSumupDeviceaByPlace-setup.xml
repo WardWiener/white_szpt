@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <t_csjcxx id="id1" swfwcsmc="swfwcsmca" />
+  <t_csjcxx id="id2" swfwcsmc="swfwcsmcb" />
+  <t_csjkrs id="id1" cs_id="id1" csrs="10" />
+  <t_csjkrs id="id2" cs_id="id2" csrs="5" />
+</dataset>

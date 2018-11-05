@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- 检查点 -->
+    <t_scoreframework_scorepoint id="cp1" ceid="ce123" description="测试用的检查点" cetype="com.taiji.pubsec.scoreframework.MokeExecutor"/>
+    <!-- 规则 -->
+    <t_scoreframework_scorerule id="rule1" scoreframework_scorepoint_id="cp1" ruleid="a123" description="测试用的规则a。" type="com.taiji.pubsec.scoreframework.MokeRuleA"/>
+	<t_scoreframework_scorerule id="rule2" scoreframework_scorepoint_id="cp1" ruleid="b123" description="测试用的规则b。" type="com.taiji.pubsec.scoreframework.MokeRuleB"/>
+</dataset>

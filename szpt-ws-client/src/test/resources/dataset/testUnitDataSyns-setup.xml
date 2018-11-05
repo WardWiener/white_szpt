@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <t_zdlx id="a9e23b30-3a62-46da-a796-1cf73f39df2f" fl="系统管理" bm="SJ0007" bz="描述系统状态"
+  mc="状态" zt="SJ0007001" sjc="2016-02-22 14:47:27"/>
+  <t_zdx id="68fcb171-5af5-41a5-9f0b-ef88ea020529" bm="SJ0007001" bz="" mc="启用" sx="1"
+  zt="SJ0007001" sjc="2016-02-22 14:49:45" zdlx_id="a9e23b30-3a62-46da-a796-1cf73f39df2f"
+  sjzdx_id=""/>
+  <t_zdx id="cd393ec3-3425-4907-b5be-16a0b7cc7eca" bm="SJ0007002" bz="" mc="停用" sx="2"
+  zt="SJ0007001" sjc="2016-02-22 14:50:44" zdlx_id="a9e23b30-3a62-46da-a796-1cf73f39df2f"
+  sjzdx_id=""/>
+</dataset>

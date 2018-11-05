@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="trackAnalyze" extends="szpt-web-highRiskPersonAlert" namespace="/trackAnalyze">
+		
+		<!-- 查看轨迹信息 -->
+		<action name="showTrackAnalyzePage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/trackAnalyze/trackAnalyze.jsp</result>
+		</action>
+		
+		
+		<action name="showNewTrackAnalyzeSnapshot">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/trackAnalyze/newTrackAnalyzeSnapshot.jsp</result>
+		</action>
+		
+		<!-- 根据身份证号和时间段查询人员轨迹 -->
+		<action name="findPersonTrackByIdCodeAndTime" class="trackAnalyzeAction" method="findPersonTrackByIdCodeAndTime">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据身份证号和时间段查询人员轨迹 大数据 -->
+		<action name="findPersonTrackByIdCodeAndTimeBD" class="trackAnalyzeBigDataAction" method="findPersonTrackByIdCodeAndTime">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 生成快照 -->
+		<action name="generateSnapshot" class="trackAnalyzeAction" method="generateSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据类型和id查询发给当前单位的指令 -->
+		<action name="findInstructionByUnitId" class="trackAnalyzeAction" method="findInstructionByUnitId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<!-- 生成快照 -->
+		<action name="generateControlSnapshot" class="trackAnalyzeAction" method="generateControlSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showAllTrackPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/trackAnalyze/allTrack.jsp</result>
+		</action>
+		
+		<action name="showTrackAnalyzeSnapshotPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/trackAnalyze/trackAnalyzeSnapshot.jsp</result>
+		</action>
+		
+	</package>
+</struts>

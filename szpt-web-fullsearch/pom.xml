@@ -1,0 +1,67 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>szpt-parent</artifactId>
+		<groupId>com.taiji.pubsec.szpt</groupId>
+		<relativePath>../szpt-parent/pom.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>szpt-web-fullsearch</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-fullsearch</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+
+		<!-- org.apache.httpcomponents -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>commons-codec</groupId>
+			<artifactId>commons-codec</artifactId>
+		</dependency>
+		<dependency>
+			<artifactId>commons-logging</artifactId>
+			<groupId>commons-logging</groupId>
+		</dependency>
+		<!-- org.apache.httpcomponents -->
+
+		<!-- 基础common依赖 -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-common</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<classifier>classes</classifier>
+		</dependency>
+		<dependency>
+      		<groupId>com.taiji.pubsec.szpt</groupId>
+     	 	<artifactId>szpt-service-highriskpersonalert</artifactId>
+     	<version>${project.version}</version>
+    </dependency>  
+    
+    <dependency>
+      <groupId>com.taiji.pubsec.szpt</groupId>
+      <artifactId>szpt-service-xsfxts</artifactId>
+      <version>${project.version}</version>
+    </dependency>
+		<!-- 基础common依赖 -->
+	</dependencies>
+</project>

@@ -1,0 +1,29 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="zllxgl" extends="szpt-web-zagl" namespace="/zllxgl">
+		<action name="showZaDataMaintenance">
+			<result name="success">/WEB-INF/view/zaData/zaDataMaintenance.jsp</result>
+		</action>
+
+    <action name="findAllZaData" class="zaDataMaintenanceAction" method="findAllZaData">
+      <result name="success" type="json"></result>
+    </action>
+     <action name="addZaData" class="zaDataMaintenanceAction" method="addZaData">
+      <result name="success" type="json"></result>
+    </action>
+     <action name="removeZaData" class="zaDataMaintenanceAction" method="removeZaData">
+      <result name="success" type="json"></result>
+    </action>
+     <action name="updateZaData" class="zaDataMaintenanceAction" method="updateZaData">
+      <result name="success" type="json"></result>
+    </action>
+     <action name="startUseZaData" class="zaDataMaintenanceAction" method="startUseZaData">
+      <result name="success" type="json"></result>
+    </action>
+     <action name="stopUseZaData" class="zaDataMaintenanceAction" method="stopUseZaData">
+      <result name="success" type="json"></result>
+    </action>
+	</package>
+</struts>

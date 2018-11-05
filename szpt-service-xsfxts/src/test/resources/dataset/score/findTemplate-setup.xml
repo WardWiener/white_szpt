@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_xsajfx_cbajfmb id="1" bm="01" mc="name1" ajlx="0001" ajxzyj="0001001" ajxzej="0001001001" zt="1" bz="remark1" zxfs="60" cjr="cjr1"  cjsj="2016-10-10 13:10:10" gxr="gxr1" gxsj="2016-12-10 10:10:10" jsrw_id="jsrw1"></t_xsajfx_cbajfmb>
+	<t_xsajfx_cbajfmb id="2" bm="02" mc="name2" ajlx="0001" ajxzyj="0001002" zt="1" bz="remark1" zxfs="60" cjr="cjr2"  cjsj="2016-10-10 10:10:10" gxr="gxr2" gxsj="2016-12-10 10:10:10" jsrw_id="jsrw2"></t_xsajfx_cbajfmb>
+
+	<t_xsajfx_cbafxjg id="1" zajbh="01" bdajbh="02" fs="11" sfpa="1" sfhl="1" mbid="1" jssj="2016-10-10 10:10:10" ></t_xsajfx_cbafxjg>
+
+	<t_scoreframework_scoretask id="jsrw1" description="name2" warnscore="80.0" />
+	<t_scoreframework_scorepoint id="sp1" description="key_communities" cetype="com.taiji.pubsec.scoreframework.MokeExcutor" ceid="ce123"/>
+	<t_scoreframework_scorepointcfg id="spf1" description="key_communities" scoreframework_scorepoint_id="sp1" scoreframework_scoretask_id="jsrw1" weight="2"/>
+	<t_scoreframework_groovyrule id="groovyrule1" value="45,85,90" script='if("不相邻社区"==x0) return 45 else if("相邻社区"==x0) return 85 else if("相同社区"==x0) return 90' />
+	<t_scoreframework_scorerule id="rule1" scoreframework_scorepoint_id="sp1" description="key_communities" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"  ruleid="groovyrule1"/>
+</dataset>

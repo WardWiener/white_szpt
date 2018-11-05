@@ -1,0 +1,49 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="yanpan" extends="szpt-web-zhzats" namespace="/yanpan">
+		
+		<action name="showZhzatsYanpan">
+			<result name="success">/WEB-INF/view/zhzats/yanpan.jsp</result>
+		</action>
+		
+		<action name="showJqDetail">
+			<result name="success">/WEB-INF/view/zhzats/showJqDetail.jsp</result>
+		</action>
+		
+		<!-- 研判  警情基本信息    -->                                                                                              
+        <action name="jqBasicMessageQuery" class="yanpanAction" method="jqBasicMessageQuery">
+          	<result name="success" type="json"></result>
+        </action>
+		
+		<!--  研判   刑事警情研判    -->                                                                                              
+        <action name="xsjqYanpanQuery" class="yanpanAction" method="xsjqYanpanQuery">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <!--  反馈 情况   -->                                                                                              
+        <action name="feedbackCaseQuery" class="yanpanAction" method="feedbackCaseQuery">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <!-- 研判  警情视频    -->                                                                                              
+        <action name="jqVideoQuery" class="yanpanAction" method="jqVideoQuery">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <!-- 根据主体id查询指令列表(分页) -->
+		<action name="queryInstructionPagerByBodyId" class="instructionAction" method="queryInstructionPagerByBodyId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="queryYanPanJudeResultFeedback" class="instructionAction" method="queryYanPanJudeResultFeedback">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 研判  警情处置记录    -->                                                                                              
+        <action name="jqDisposeRecordQuery" class="yanpanAction" method="jqDisposeRecordQuery">
+          	<result name="success" type="json"></result>
+        </action>
+		
+		
+	</package>
+</struts>

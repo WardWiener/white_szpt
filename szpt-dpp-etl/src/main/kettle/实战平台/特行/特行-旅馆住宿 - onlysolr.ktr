@@ -1,0 +1,844 @@
+<transformation>
+  <info>
+    <name>&#x7279;&#x884c;-&#x65c5;&#x9986;&#x4f4f;&#x5bbf; - onlysolr</name>
+    <description/>
+    <extended_description/>
+    <trans_version/>
+    <trans_type>Normal</trans_type>
+    <trans_status>0</trans_status>
+    <directory>&#x2f;&#x7279;&#x884c;</directory>
+    <parameters>
+    </parameters>
+    <log>
+<trans-log-table><connection/>
+<schema/>
+<table/>
+<size_limit_lines/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STATUS</id><enabled>Y</enabled><name>STATUS</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name><subject/></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name><subject/></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name><subject/></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name><subject/></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name><subject/></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name><subject/></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>STARTDATE</id><enabled>Y</enabled><name>STARTDATE</name></field><field><id>ENDDATE</id><enabled>Y</enabled><name>ENDDATE</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>DEPDATE</id><enabled>Y</enabled><name>DEPDATE</name></field><field><id>REPLAYDATE</id><enabled>Y</enabled><name>REPLAYDATE</name></field><field><id>LOG_FIELD</id><enabled>Y</enabled><name>LOG_FIELD</name></field><field><id>EXECUTING_SERVER</id><enabled>N</enabled><name>EXECUTING_SERVER</name></field><field><id>EXECUTING_USER</id><enabled>N</enabled><name>EXECUTING_USER</name></field><field><id>CLIENT</id><enabled>N</enabled><name>CLIENT</name></field></trans-log-table>
+<perf-log-table><connection/>
+<schema/>
+<table/>
+<interval/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>SEQ_NR</id><enabled>Y</enabled><name>SEQ_NR</name></field><field><id>LOGDATE</id><enabled>Y</enabled><name>LOGDATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>INPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>INPUT_BUFFER_ROWS</name></field><field><id>OUTPUT_BUFFER_ROWS</id><enabled>Y</enabled><name>OUTPUT_BUFFER_ROWS</name></field></perf-log-table>
+<channel-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>LOGGING_OBJECT_TYPE</id><enabled>Y</enabled><name>LOGGING_OBJECT_TYPE</name></field><field><id>OBJECT_NAME</id><enabled>Y</enabled><name>OBJECT_NAME</name></field><field><id>OBJECT_COPY</id><enabled>Y</enabled><name>OBJECT_COPY</name></field><field><id>REPOSITORY_DIRECTORY</id><enabled>Y</enabled><name>REPOSITORY_DIRECTORY</name></field><field><id>FILENAME</id><enabled>Y</enabled><name>FILENAME</name></field><field><id>OBJECT_ID</id><enabled>Y</enabled><name>OBJECT_ID</name></field><field><id>OBJECT_REVISION</id><enabled>Y</enabled><name>OBJECT_REVISION</name></field><field><id>PARENT_CHANNEL_ID</id><enabled>Y</enabled><name>PARENT_CHANNEL_ID</name></field><field><id>ROOT_CHANNEL_ID</id><enabled>Y</enabled><name>ROOT_CHANNEL_ID</name></field></channel-log-table>
+<step-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>TRANSNAME</id><enabled>Y</enabled><name>TRANSNAME</name></field><field><id>STEPNAME</id><enabled>Y</enabled><name>STEPNAME</name></field><field><id>STEP_COPY</id><enabled>Y</enabled><name>STEP_COPY</name></field><field><id>LINES_READ</id><enabled>Y</enabled><name>LINES_READ</name></field><field><id>LINES_WRITTEN</id><enabled>Y</enabled><name>LINES_WRITTEN</name></field><field><id>LINES_UPDATED</id><enabled>Y</enabled><name>LINES_UPDATED</name></field><field><id>LINES_INPUT</id><enabled>Y</enabled><name>LINES_INPUT</name></field><field><id>LINES_OUTPUT</id><enabled>Y</enabled><name>LINES_OUTPUT</name></field><field><id>LINES_REJECTED</id><enabled>Y</enabled><name>LINES_REJECTED</name></field><field><id>ERRORS</id><enabled>Y</enabled><name>ERRORS</name></field><field><id>LOG_FIELD</id><enabled>N</enabled><name>LOG_FIELD</name></field></step-log-table>
+<metrics-log-table><connection/>
+<schema/>
+<table/>
+<timeout_days/>
+<field><id>ID_BATCH</id><enabled>Y</enabled><name>ID_BATCH</name></field><field><id>CHANNEL_ID</id><enabled>Y</enabled><name>CHANNEL_ID</name></field><field><id>LOG_DATE</id><enabled>Y</enabled><name>LOG_DATE</name></field><field><id>METRICS_DATE</id><enabled>Y</enabled><name>METRICS_DATE</name></field><field><id>METRICS_CODE</id><enabled>Y</enabled><name>METRICS_CODE</name></field><field><id>METRICS_DESCRIPTION</id><enabled>Y</enabled><name>METRICS_DESCRIPTION</name></field><field><id>METRICS_SUBJECT</id><enabled>Y</enabled><name>METRICS_SUBJECT</name></field><field><id>METRICS_TYPE</id><enabled>Y</enabled><name>METRICS_TYPE</name></field><field><id>METRICS_VALUE</id><enabled>Y</enabled><name>METRICS_VALUE</name></field></metrics-log-table>
+    </log>
+    <maxdate>
+      <connection/>
+      <table/>
+      <field/>
+      <offset>0.0</offset>
+      <maxdiff>0.0</maxdiff>
+    </maxdate>
+    <size_rowset>10000</size_rowset>
+    <sleep_time_empty>50</sleep_time_empty>
+    <sleep_time_full>50</sleep_time_full>
+    <unique_connections>N</unique_connections>
+    <feedback_shown>Y</feedback_shown>
+    <feedback_size>50000</feedback_size>
+    <using_thread_priorities>Y</using_thread_priorities>
+    <shared_objects_file/>
+    <capture_step_performance>N</capture_step_performance>
+    <step_performance_capturing_delay>1000</step_performance_capturing_delay>
+    <step_performance_capturing_size_limit>100</step_performance_capturing_size_limit>
+    <dependencies>
+    </dependencies>
+    <partitionschemas>
+    </partitionschemas>
+    <slaveservers>
+    </slaveservers>
+    <clusterschemas>
+    </clusterschemas>
+  <created_user>-</created_user>
+  <created_date>2016&#x2f;12&#x2f;29 15&#x3a;02&#x3a;59.273</created_date>
+  <modified_user>-</modified_user>
+  <modified_date>2017&#x2f;03&#x2f;28 10&#x3a;39&#x3a;47.374</modified_date>
+    <key_for_session_key>H4sIAAAAAAAAAAMAAAAAAAAAAAA&#x3d;</key_for_session_key>
+    <is_key_private>N</is_key_private>
+  </info>
+  <notepads>
+  </notepads>
+  <connection>
+    <name>&#x5b9e;&#x6218;&#x4e1a;&#x52a1;&#x5e93;</name>
+    <server>mysql.master.szpt.jk</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>szpt</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.characterEncoding</code><attribute>utf-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <connection>
+    <name>&#x7279;&#x884c;source&#x5e93;</name>
+    <server>127.0.0.1</server>
+    <type>MYSQL</type>
+    <access>Native</access>
+    <database>source_th</database>
+    <port>3306</port>
+    <username>root</username>
+    <password>Encrypted 2be98afc86aa7f2e4cb79ce10cc9da0ce</password>
+    <servername/>
+    <data_tablespace/>
+    <index_tablespace/>
+    <attributes>
+      <attribute><code>EXTRA_OPTION_MYSQL.characterEncoding</code><attribute>utf-8</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.defaultFetchSize</code><attribute>500</attribute></attribute>
+      <attribute><code>EXTRA_OPTION_MYSQL.useCursorFetch</code><attribute>true</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_LOWERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>FORCE_IDENTIFIERS_TO_UPPERCASE</code><attribute>N</attribute></attribute>
+      <attribute><code>IS_CLUSTERED</code><attribute>N</attribute></attribute>
+      <attribute><code>PORT_NUMBER</code><attribute>3306</attribute></attribute>
+      <attribute><code>PRESERVE_RESERVED_WORD_CASE</code><attribute>Y</attribute></attribute>
+      <attribute><code>QUOTE_ALL_FIELDS</code><attribute>N</attribute></attribute>
+      <attribute><code>STREAM_RESULTS</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_BOOLEAN_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>SUPPORTS_TIMESTAMP_DATA_TYPE</code><attribute>Y</attribute></attribute>
+      <attribute><code>USE_POOLING</code><attribute>N</attribute></attribute>
+    </attributes>
+  </connection>
+  <order>
+  <hop> <from>&#x53d6;&#x76ee;&#x6807;&#x5e93;&#x6700;&#x65b0;&#x6570;&#x636e;&#x65f6;&#x95f4;</from><to>&#x66ff;&#x6362;NULL&#x503c;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x66ff;&#x6362;NULL&#x503c;</from><to>&#x83b7;&#x53d6;&#x6e90;&#x5e93;&#x6700;&#x65b0;&#x6570;&#x636e;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x67e5;&#x8be2;&#x4eba;&#x5458;&#x7c7b;&#x578b;</from><to>&#x67e5;&#x8be2;&#x5211;&#x4e8b;&#x524d;&#x79d1;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x67e5;&#x8be2;&#x9ad8;&#x5371;&#x4eba;id</from><to>&#x67e5;&#x8be2;&#x4eba;&#x5458;&#x7c7b;&#x578b;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x67e5;&#x8be2;&#x5211;&#x4e8b;&#x524d;&#x79d1;</from><to>solr</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x8ba1;&#x7b97;hbase&#x76f8;&#x5173;&#x5b57;&#x6bb5;</from><to>&#x65e5;&#x671f;&#x8f6c;&#x6362;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x65e5;&#x671f;&#x8f6c;&#x6362;</from><to>&#x83b7;&#x53d6;solr&#x5730;&#x5740;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x83b7;&#x53d6;solr&#x5730;&#x5740;</from><to>&#x67e5;&#x8be2;&#x9ad8;&#x5371;&#x4eba;id</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x67e5;&#x8be2;&#x65c5;&#x9986;&#x5730;&#x5740;</from><to>&#x8bc6;&#x522b;&#x6d41;&#x7684;&#x6700;&#x540e;&#x4e00;&#x884c;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x589e;&#x52a0;&#x65f6;&#x95f4;&#x6233;&#x7c7b;&#x578b;&#x5e38;&#x91cf;</from><to>&#x8fc7;&#x6ee4;&#x8bb0;&#x5f55;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x8fc7;&#x6ee4;&#x8bb0;&#x5f55;</from><to>&#x66f4;&#x65b0;&#x65f6;&#x95f4;&#x6233;</to><enabled>Y</enabled> </hop>
+  <hop> <from>solr</from><to>&#x589e;&#x52a0;&#x65f6;&#x95f4;&#x6233;&#x7c7b;&#x578b;&#x5e38;&#x91cf;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x8bc6;&#x522b;&#x6d41;&#x7684;&#x6700;&#x540e;&#x4e00;&#x884c;</from><to>&#x8ba1;&#x7b97;hbase&#x76f8;&#x5173;&#x5b57;&#x6bb5;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x8fc7;&#x6ee4;&#x8bb0;&#x5f55;</from><to>&#x7a7a;&#x64cd;&#x4f5c;</to><enabled>Y</enabled> </hop>
+  <hop> <from>&#x83b7;&#x53d6;&#x6e90;&#x5e93;&#x6700;&#x65b0;&#x6570;&#x636e;</from><to>&#x67e5;&#x8be2;&#x65c5;&#x9986;&#x5730;&#x5740;</to><enabled>Y</enabled> </hop>
+  </order>
+  <step>
+    <name>solr</name>
+    <type>UserDefinedJavaClass</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+
+    <definitions>
+        <definition>
+        <class_type>TRANSFORM_CLASS</class_type>
+
+        <class_name>Processor</class_name>
+
+        <class_source><![CDATA[
+import java.util.HashMap;
+import java.util.Map;
+import com.taiji.pubsec.szpt.solr.SolrHelper;
+import java.text.SimpleDateFormat;
+import org.apache.commons.lang3.StringUtils;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
+public boolean processRow(StepMetaInterface smi, StepDataInterface sdi) throws Exception
+{
+	if (first){
+	  first = false;
+
+	  /* TODO: Your code here. (Using info fields)
+
+	  FieldHelper infoField = get(Fields.Info, "info_field_name");
+
+	  RowSet infoStream = findInfoRowSet("info_stream_tag");
+
+	  Object[] infoRow = null;
+
+	  int infoRowCount = 0;
+
+	  // Read all rows from info step before calling getRow() method, which returns first row from any
+	  // input rowset. As rowMeta for info and input steps varies getRow() can lead to errors.
+	  while((infoRow = getRowFrom(infoStream)) != null){
+
+	    // do something with info data
+	    infoRowCount++;
+	  }
+	  */
+	}
+
+	Object[] r = getRow();
+
+	if (r == null) {
+	  setOutputDone();
+	  return false;
+	}
+
+	// It is always safest to call createOutputRow() to ensure that your output row's Object[] is large
+    // enough to handle any new fields you are creating in this step.
+    r = createOutputRow(r, data.outputRowMeta.size());
+	
+    /* TODO: Your code here. (See Sample)
+    
+    // Get the value from an input field
+    String foobar = get(Fields.In, "a_fieldname").getString(r);
+
+    foobar += "bar";
+    
+    // Set a value in a new output field
+    get(Fields.Out, "output_fieldname").setValue(r, foobar);
+
+	*/
+
+	System.setProperty("solr.zkhost",get(Fields.In, "system_property").getString(r));
+
+	SimpleDateFormat sdfdst = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss'Z'");
+	//SimpleDateFormat sdfsrc_f = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+
+
+	String idcard = get(Fields.In, "idcard").getString(r);
+	String hotelname = get(Fields.In, "hotelname").getString(r);
+    String hotelcode = get(Fields.In, "hotelcode").getString(r);
+
+	String entertime_f = null;
+	String entertime_l = get(Fields.In, "entertime").getString(r);
+	if(get(Fields.In, "date_e").getDate(r) != null){
+		entertime_f = sdfdst.format(get(Fields.In, "date_e").getDate(r));
+	}
+
+	String leavetime_f = null;
+	String leavetime_l = get(Fields.In, "leavetime").getString(r);
+	if(get(Fields.In, "date_l").getDate(r) != null){
+		leavetime_f = sdfdst.format(get(Fields.In, "date_l").getDate(r));
+	}
+	
+	
+	String id = idcard+entertime_l+leavetime_l+hotelcode;
+
+
+	String persontypecode = get(Fields.In, "gwrylx_code").getString(r);
+	String criminaltypecode = get(Fields.In, "qklx_code").getString(r);
+	List  persontypecodeList = new ArrayList();
+	List  criminaltypecodeList = new ArrayList();
+	if(StringUtils.isNotBlank(persontypecode)){
+		String[] arr = persontypecode.split(",");
+		persontypecodeList =  Arrays.asList(arr);
+	}
+
+	if(StringUtils.isNotBlank(criminaltypecode)){
+		String[] arr = criminaltypecode.split(",");
+		criminaltypecodeList =  Arrays.asList(arr);
+	}
+
+
+	Map map = new HashMap();
+	map.put("idcard",idcard);
+	map.put("hotelname",hotelname);
+	map.put("hotelcode",hotelcode);
+	map.put("hoteladdress",get(Fields.In, "hoteladdress").getString(r));
+    if(entertime_f!=null){
+		map.put("entertime",entertime_f);
+	}
+	
+    if(leavetime_f!=null){
+		map.put("leavetime",leavetime_f);
+	}
+	
+	map.put("persontypecode",persontypecodeList);	//人员类型
+	map.put("criminaltypecode",criminaltypecodeList);	//刑事前科
+
+	map.put("id",id);
+	SolrHelper solr = SolrHelper.getInstance();
+	solr.addIndex("accommodation", "id",map);
+    logBasic(id);
+
+
+	// Send the row on to the next step.
+    putRow(data.outputRowMeta, r);
+
+	return true;
+}
+]]></class_source>
+        </definition>
+    </definitions>
+    <fields>
+    </fields><clear_result_fields>N</clear_result_fields>
+<info_steps></info_steps><target_steps></target_steps><usage_parameters></usage_parameters>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>384</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x53d6;&#x76ee;&#x6807;&#x5e93;&#x6700;&#x65b0;&#x6570;&#x636e;&#x65f6;&#x95f4;</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>&#x5b9e;&#x6218;&#x4e1a;&#x52a1;&#x5e93;</connection>
+    <sql>SELECT max&#x28;sjc&#x29; as updateTime FROM t_etl_sjc WHERE type&#x3d;&#x22;&#x4f4f;&#x5bbf;&#x8bb0;&#x5f55;&#x22;&#x3b;</sql>
+    <limit>0</limit>
+    <lookup/>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>N</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>208</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x589e;&#x52a0;&#x65f6;&#x95f4;&#x6233;&#x7c7b;&#x578b;&#x5e38;&#x91cf;</name>
+    <type>Constant</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>sjctype</name>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <nullif>&#x4f4f;&#x5bbf;&#x8bb0;&#x5f55;</nullif>
+        <length>-1</length>
+        <precision>-1</precision>
+        <set_empty_string>N</set_empty_string>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>656</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x65e5;&#x671f;&#x8f6c;&#x6362;</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;	var date_e &#x3d; null&#x3b;&#xd;&#xa;&#xd;&#xa;	if&#x28;entertime&#x21;&#x3d;0&#x29;&#x7b;&#xd;&#xa;		date_e &#x3d; new Date&#x28;entertime&#x29;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#xd;&#xa;	var date_l &#x3d; null&#x3b;&#xd;&#xa;&#xd;&#xa;	if&#x28;leavetime&#x21;&#x3d;0&#x29;&#x7b;&#xd;&#xa;		date_l &#x3d; new Date&#x28;leavetime&#x29;&#x3b;&#xd;&#xa;	&#x7d;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;	</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>date_e</name>
+        <rename>date_e</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>date_l</name>
+        <rename>date_l</rename>
+        <type>Date</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>560</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x66f4;&#x65b0;&#x65f6;&#x95f4;&#x6233;</name>
+    <type>InsertUpdate</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>&#x5b9e;&#x6218;&#x4e1a;&#x52a1;&#x5e93;</connection>
+    <commit>100</commit>
+    <update_bypassed>N</update_bypassed>
+    <lookup>
+      <schema/>
+      <table>t_etl_sjc</table>
+      <key>
+        <name>sjctype</name>
+        <field>type</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>sjc</name>
+        <rename>HCK_GXSJ</rename>
+        <update>Y</update>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>976</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x66ff;&#x6362;NULL&#x503c;</name>
+    <type>IfNull</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+      <replaceAllByValue/>
+      <replaceAllMask/>
+      <selectFields>Y</selectFields>
+      <selectValuesType>N</selectValuesType>
+      <setEmptyStringAll>N</setEmptyStringAll>
+    <valuetypes>
+      </valuetypes>
+    <fields>
+      <field>
+        <name>updateTime</name>
+        <value>1970-01-01 00&#x3a;00&#x3a;00</value>
+        <mask>yyyy-MM-dd HH&#x3a;mm&#x3a;ss</mask>
+        <set_empty_string>N</set_empty_string>
+        </field>
+      </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>352</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x67e5;&#x8be2;&#x4eba;&#x5458;&#x7c7b;&#x578b;</name>
+    <type>Mapping</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>rep_name</specification_method>
+    <trans_object_id/>
+    <trans_name>&#x5b50;&#x8f6c;&#x6362;-&#x4eba;&#x5458;&#x7c7b;&#x578b;</trans_name>
+    <filename/>
+    <directory_path>&#x2f;&#x5b50;&#x8f6c;&#x6362;</directory_path>
+    <mappings>
+      <input>
+    <mapping>    <input_step/>
+    <output_step>&#x6620;&#x5c04;&#x8f93;&#x5165;&#x89c4;&#x8303;</output_step>
+    <main_path>Y</main_path>
+    <rename_on_output>Y</rename_on_output>
+    <description/>
+    </mapping>      </input>
+      <output>
+    <mapping>    <input_step>&#x6620;&#x5c04;&#x8f93;&#x51fa;&#x89c4;&#x8303;</input_step>
+    <output_step/>
+    <main_path>Y</main_path>
+    <rename_on_output>N</rename_on_output>
+    <description/>
+    </mapping>      </output>
+          <parameters>    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    </mappings>
+    <allow_multiple_input>Y</allow_multiple_input>
+    <allow_multiple_output>Y</allow_multiple_output>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>128</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x67e5;&#x8be2;&#x5211;&#x4e8b;&#x524d;&#x79d1;</name>
+    <type>Mapping</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <specification_method>rep_name</specification_method>
+    <trans_object_id/>
+    <trans_name>&#x5b50;&#x8f6c;&#x6362;-&#x5211;&#x4e8b;&#x524d;&#x79d1;</trans_name>
+    <filename/>
+    <directory_path>&#x2f;&#x5b50;&#x8f6c;&#x6362;</directory_path>
+    <mappings>
+      <input>
+    <mapping>    <input_step/>
+    <output_step>&#x6620;&#x5c04;&#x8f93;&#x5165;&#x89c4;&#x8303;</output_step>
+    <main_path>Y</main_path>
+    <rename_on_output>Y</rename_on_output>
+    <description/>
+    </mapping>      </input>
+      <output>
+    <mapping>    <input_step>&#x6620;&#x5c04;&#x8f93;&#x51fa;&#x89c4;&#x8303;</input_step>
+    <output_step/>
+    <main_path>Y</main_path>
+    <rename_on_output>N</rename_on_output>
+    <description/>
+    </mapping>      </output>
+          <parameters>    <inherit_all_vars>Y</inherit_all_vars>
+    </parameters>
+    </mappings>
+    <allow_multiple_input>Y</allow_multiple_input>
+    <allow_multiple_output>Y</allow_multiple_output>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>240</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x67e5;&#x8be2;&#x65c5;&#x9986;&#x5730;&#x5740;</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>&#x5b9e;&#x6218;&#x4e1a;&#x52a1;&#x5e93;</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>t_gwry_lgjd</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>QIYEBIANMA</name>
+        <field>lgjdbm</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>dz</name>
+        <rename>hoteladdress</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>912</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x67e5;&#x8be2;&#x9ad8;&#x5371;&#x4eba;id</name>
+    <type>DBLookup</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>&#x5b9e;&#x6218;&#x4e1a;&#x52a1;&#x5e93;</connection>
+    <cache>N</cache>
+    <cache_load_all>N</cache_load_all>
+    <cache_size>0</cache_size>
+    <lookup>
+      <schema/>
+      <table>t_gwry_ryxx</table>
+      <orderby/>
+      <fail_on_multiple>N</fail_on_multiple>
+      <eat_row_on_failure>N</eat_row_on_failure>
+      <key>
+        <name>idcard</name>
+        <field>sfzh</field>
+        <condition>&#x3d;</condition>
+        <name2/>
+      </key>
+      <value>
+        <name>id</name>
+        <rename>ry_id</rename>
+        <default/>
+        <type>String</type>
+      </value>
+    </lookup>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>128</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x7a7a;&#x64cd;&#x4f5c;</name>
+    <type>Dummy</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>928</xloc>
+      <yloc>624</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x83b7;&#x53d6;solr&#x5730;&#x5740;</name>
+    <type>GetVariable</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <fields>
+      <field>
+        <name>system_property</name>
+        <variable>&#x24;&#x7b;zookeeper.solr.url&#x7d;</variable>
+        <type>String</type>
+        <format/>
+        <currency/>
+        <decimal/>
+        <group/>
+        <length>-1</length>
+        <precision>-1</precision>
+        <trim_type>none</trim_type>
+      </field>
+    </fields>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>352</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x83b7;&#x53d6;&#x6e90;&#x5e93;&#x6700;&#x65b0;&#x6570;&#x636e;</name>
+    <type>TableInput</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <connection>&#x7279;&#x884c;source&#x5e93;</connection>
+    <sql>SELECT ZHENGJIANHM,XINGMING,RUZHUSJ,QIYEBIANMA,QIYEMC,TUIFANGSJ,FANGJIANHAO,LASTEDITTIME,GNLKID,HCK_GXSJ,XIANGXIDIZHI FROM t_gnlk WHERE HCK_GXSJ &#x3e;&#x3d; &#x3f; order by HCK_GXSJ</sql>
+    <limit>&#x24;&#x7b;max_query_size&#x7d;</limit>
+    <lookup>&#x66ff;&#x6362;NULL&#x503c;</lookup>
+    <execute_each_row>N</execute_each_row>
+    <variables_active>Y</variables_active>
+    <lazy_conversion_active>N</lazy_conversion_active>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>512</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x8ba1;&#x7b97;hbase&#x76f8;&#x5173;&#x5b57;&#x6bb5;</name>
+    <type>ScriptValueMod</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <compatible>N</compatible>
+    <optimizationLevel>9</optimizationLevel>
+    <jsScripts>      <jsScript>        <jsScript_type>0</jsScript_type>
+        <jsScript_name>Script 1</jsScript_name>
+        <jsScript_script>&#x2f;&#x2f;Script here&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var entertime &#x3d; 0&#x3b;&#xd;&#xa;var leavetime &#x3d; 0&#x3b;&#xd;&#xa;if&#x28;RUZHUSJ &#x21;&#x3d; null&#x29;&#x7b;&#xd;&#xa;	 entertime &#x3d; RUZHUSJ.getTime&#x28;&#x29;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;if&#x28;TUIFANGSJ &#x21;&#x3d; null&#x29;&#x7b;&#xd;&#xa;	 leavetime &#x3d; TUIFANGSJ.getTime&#x28;&#x29;&#x3b;&#xd;&#xa;&#x7d;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;&#xd;&#xa;var key &#x3d; ZHENGJIANHM&#x2b;entertime&#x2b;leavetime&#x2b;QIYEBIANMA&#x3b;&#xd;&#xa;var hotelcode &#x3d; QIYEBIANMA&#x3b;&#xd;&#xa;var idcard &#x3d; ZHENGJIANHM&#x3b;&#xd;&#xa;var hotelname &#x3d; QIYEMC&#x3b;&#xd;&#xa;var hoteladdress &#x3d; hoteladdress&#x3b;&#xd;&#xa;</jsScript_script>
+      </jsScript>    </jsScripts>    <fields>      <field>        <name>key</name>
+        <rename>key</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>hotelcode</name>
+        <rename>hotelcode</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>leavetime</name>
+        <rename>leavetime</rename>
+        <type>BigNumber</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>hoteladdress</name>
+        <rename>hoteladdress</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>idcard</name>
+        <rename>idcard</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>entertime</name>
+        <rename>entertime</rename>
+        <type>BigNumber</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>      <field>        <name>hotelname</name>
+        <rename>hotelname</rename>
+        <type>String</type>
+        <length>-1</length>
+        <precision>-1</precision>
+        <replace>N</replace>
+      </field>    </fields>     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>784</xloc>
+      <yloc>416</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x8bc6;&#x522b;&#x6d41;&#x7684;&#x6700;&#x540e;&#x4e00;&#x884c;</name>
+    <type>DetectLastRow</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+    <resultfieldname>isLast</resultfieldname>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>1056</xloc>
+      <yloc>160</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step>
+    <name>&#x8fc7;&#x6ee4;&#x8bb0;&#x5f55;</name>
+    <type>FilterRows</type>
+    <description/>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+         <partitioning>
+           <method>none</method>
+           <schema_name/>
+           </partitioning>
+<send_true_to>&#x66f4;&#x65b0;&#x65f6;&#x95f4;&#x6233;</send_true_to>
+<send_false_to>&#x7a7a;&#x64cd;&#x4f5c;</send_false_to>
+    <compare>
+<condition>
+ <negated>N</negated>
+ <leftvalue>isLast</leftvalue>
+ <function>&#x3d;</function>
+ <rightvalue/>
+ <value><name>constant</name><type>Boolean</type><text>Y</text><length>-1</length><precision>-1</precision><isnull>N</isnull><mask/></value> </condition>
+    </compare>
+     <cluster_schema/>
+ <remotesteps>   <input>   </input>   <output>   </output> </remotesteps>    <GUI>
+      <xloc>816</xloc>
+      <yloc>544</yloc>
+      <draw>Y</draw>
+      </GUI>
+    </step>
+
+  <step_error_handling>
+  </step_error_handling>
+   <slave-step-copy-partition-distribution>
+</slave-step-copy-partition-distribution>
+   <slave_transformation>N</slave_transformation>
+
+</transformation>

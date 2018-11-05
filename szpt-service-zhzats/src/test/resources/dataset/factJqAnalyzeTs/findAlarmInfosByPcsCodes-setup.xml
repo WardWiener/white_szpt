@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+  <t_zhzats_jwzh_jq id="001" bm="bm001" jqmc="南广场抢劫" jqdz="南广场" ty_jqlx_mc="抢劫" ty_jqlx_bm="jqlx001" jqly="举报" jqgy="晚上南广场飞车抢劫" jjcd="十分紧急" bjr="王林林" bjrdh="18310222345" bjsj="2016-10-10 10:10:10" jjsj="2016-10-10 11:10:10" ty_dw_pcs_bm="jkfj001" ty_dw_pcs_mc="经开分局" ty_cq_bm="tlw001" ty_cq_mc="腾龙湾" jd="48.1" wd="45" fssj="2016-10-10 09:09:10"></t_zhzats_jwzh_jq>
+  <t_zhzats_jwzh_jq id="002" bm="bm002" jqmc="南广场抢劫" jqdz="南广场" ty_jqlx_mc="盗窃" ty_jqlx_bm="jqlx002" jqly="报警" jqgy="晚上南广场盗窃" jjcd="紧急" bjr="王林林" bjrdh="18310222345" bjsj="2016-10-10 11:10:10" jjsj="2016-10-11 11:10:10" ty_dw_pcs_bm="jkfj001" ty_dw_pcs_mc="经开分局" ty_cq_bm="tlw001" ty_cq_mc="腾龙湾" jd="48.1" wd="45" fssj="2016-10-11 09:09:10"></t_zhzats_jwzh_jq>
+  <t_zhzats_jwzh_jq id="003" bm="bm003" jqmc="南广场抢劫" jqdz="南广场" ty_jqlx_mc="杀人" ty_jqlx_bm="jqlx003" jqly="报警" jqgy="晚上南广场杀人" jjcd="十分紧急" bjr="王林林" bjrdh="18310222345" bjsj="2016-10-12 10:10:10" jjsj="2016-10-12 11:10:10" ty_dw_pcs_bm="jkfj001" ty_dw_pcs_mc="经开分局" ty_cq_bm="tlw001" ty_cq_mc="腾龙湾" jd="48.1" wd="45" fssj="2016-10-12 09:09:10"></t_zhzats_jwzh_jq>
+  <t_zhzats_jwzh_jq id="004" bm="bm004" jqmc="南广场抢劫" jqdz="南广场" ty_jqlx_mc="放火" ty_jqlx_bm="jqlx004" jqly="报警" jqgy="晚上南广场放火" jjcd="十分紧急" bjr="王林林" bjrdh="18310222345" bjsj="2016-10-13 10:10:10" jjsj="2016-10-13 11:10:10" ty_dw_pcs_bm="jkfj001" ty_dw_pcs_mc="经开分局" ty_cq_bm="tlw001" ty_cq_mc="腾龙湾" jd="48.1" wd="45" fssj="2016-10-13 09:09:10"></t_zhzats_jwzh_jq>
+  <t_zhzats_jwzh_jq id="005" bm="bm005" jqmc="南广场抢劫" jqdz="南广场" ty_jqlx_mc="强奸" ty_jqlx_bm="jqlx005" jqly="报警" jqgy="晚上南广场强奸" jjcd="十分紧急" bjr="王林林" bjrdh="18310222345" bjsj="2016-10-14 10:10:10" jjsj="2016-10-14 11:10:10" ty_dw_pcs_bm="jkfj001" ty_dw_pcs_mc="经开分局" ty_cq_bm="tlw001" ty_cq_mc="腾龙湾" jd="48.1" wd="45" fssj="2016-10-14 09:09:10"></t_zhzats_jwzh_jq>
+
+  <t_ty_jwzh_zhdy id="001" lx="pcs" bm="jkfj001" mc="经开分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="002" lx="pcs" bm="xhfj001" mc="小河分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="003" lx="pcs" bm="sjfj001" mc="三江分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="004" lx="pcs" bm="pqfj001" mc="平桥分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+</dataset>

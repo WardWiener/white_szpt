@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<t_zdlx id="zaxzId" bm="xsajfx-ajxz" mc="mc" zt="1" sjc="2010-10-10 10:10:10"></t_zdlx>
+	<t_zdx id="zdxId10" bm="ajlb" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zaxzId"></t_zdx>
+	<t_zdx id="zdxId11" bm="ajxzyj" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zaxzId"></t_zdx>
+	<t_zdx id="zdxId12" bm="ajxzej" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zaxzId"></t_zdx>
+
+	<t_xsajfx_ajjbxx ajbh="ajbh1" ajmc="ajmc1" ajztmc="ajztmc1" afsjqs="2010-10-10 10:10:10" bar="bar1"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh2" ajmc="ajmc2" ajztmc="ajztmc2" afsjqs="2010-10-10 10:10:10" bar="bar2"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh3" ajmc="ajmc3" ajztmc="ajztmc3" afsjqs="2010-10-10 10:10:10" bar="bar3"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh4" ajmc="ajmc4" ajztmc="ajztmc4" afsjqs="2010-10-10 10:10:10" bar="bar4"></t_xsajfx_ajjbxx>
+	
+	<t_xsajfx_dbjc id="dbId1" xsajfx_ajjbxx_id="ajbh1" ajlb="ajlb" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="dbId2" xsajfx_ajjbxx_id="ajbh2" ajlb="ajlb" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="dbId3" xsajfx_ajjbxx_id="ajbh3" ajlb="ajlb" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="dbId4" xsajfx_ajjbxx_id="ajbh4" ajlb="ajlb" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	
+	<t_xsajfx_cbafxjgxx id="xxId1" ajbh="ajbh1" cjsj="2010-10-10 10:10:10" sfyd="0" jsr_id="jsr_id"></t_xsajfx_cbafxjgxx>
+	<t_xsajfx_cbafxjgxx id="xxId2" ajbh="ajbh2" cjsj="2010-10-10 10:10:10" sfyd="0" jsr_id="jsr_id"></t_xsajfx_cbafxjgxx>
+	<t_xsajfx_cbafxjgxx id="xxId3" ajbh="ajbh3" cjsj="2010-10-10 10:10:10" sfyd="0" jsr_id="jsr_id"></t_xsajfx_cbafxjgxx>
+	<t_xsajfx_cbafxjgxx id="xxId4" ajbh="ajbh4" cjsj="2010-10-10 10:10:10" sfyd="0" jsr_id="jsr_id"></t_xsajfx_cbafxjgxx>
+</dataset>

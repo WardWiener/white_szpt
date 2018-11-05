@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+
+	<Appenders>
+		<Console name="Console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+		</Console>
+		<RollingFile name="infofile" fileName="logs/app.log"
+			filePattern="logs/app-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="debugfile" fileName="logs/app-debug.log"
+			filePattern="logs/app-debug-%d{MM-dd-yyyy}.log.gz">
+			<PatternLayout>
+				<Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+			</PatternLayout>
+			<Policies>
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+
+	<Loggers>
+<!-- 
+		<logger name="com.taiji" level="trace" additivity="false">additivity="false"
+			<AppenderRef ref="debugfile" />
+		</logger>
+ -->		<!-- <logger name="org.apache.activemq" level="debug" additivity="false" 
+			> <AppenderRef ref="debugfile" /> </logger> <logger name="org.springframework" 
+			level="debug"> </logger> -->
+
+		<Root level="debug">
+			<AppenderRef ref="Console" />
+		</Root>
+
+	</Loggers>
+
+</Configuration>

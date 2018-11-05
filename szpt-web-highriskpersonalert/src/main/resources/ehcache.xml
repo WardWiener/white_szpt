@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ehcache xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="ehcache.xsd">
+	<diskStore path="java.io.tmpdir" />
+	    <!-- 内存中最多放置1000个对象 -->
+		<!-- Element是否永久有效，一但设置了，timeout将不起作用 -->
+		<!-- 设置Element在失效前的允许闲置时间。仅当element不是永久有效时使用，
+		可选属性，默认值是0，也就是可闲置时间无穷大。 -->
+		<!-- 设置Element在失效前允许存活时间。最大时间介于创建时间和失效时间之间。
+		仅当element不是永久有效时使用，默认是0.，也就是element存活时间无穷大。 -->
+		<!-- 内存溢出是否保存到磁盘 -->
+	<defaultCache 
+		maxElementsInMemory="10000" 
+		eternal="false"
+		timeToIdleSeconds="120" 
+		timeToLiveSeconds="120" 
+		overflowToDisk="false"
+		diskPersistent="false" 
+		diskExpiryThreadIntervalSeconds="120"
+		memoryStoreEvictionPolicy="LRU" 
+	/>
+	<cache 
+		name="commonCache" 
+		maxElementsInMemory="10000" 
+		eternal="false"
+		overflowToDisk="false" 
+		timeToIdleSeconds="0" 
+		timeToLiveSeconds="0"
+		memoryStoreEvictionPolicy="LRU" />
+
+</ehcache>
+
+
+
+
+	
+
+

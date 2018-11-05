@@ -1,0 +1,64 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="zalyfk" extends="szpt-web-zagl" namespace="/zalyfk">
+       <action name="showZaFeedbackUserLayer">
+          <result name="success">/WEB-INF/view/zalyfk/zaFeedbackUserLayer.jsp</result>
+       </action>
+        <action name="showZaFeedbackUserLayerTextarea">
+          <result name="success">/WEB-INF/view/zalyfk/zaFeedbackUserLayerTextarea.jsp</result>
+       </action>
+
+     <action name="findDepartmentLstAndLiuYanPerson" class="zaFeedbackUserLayerAction" method="findDepartmentLstAndLiuYanPerson">
+         <result name="success" type="json"></result>
+       </action> 
+
+       <action name="topOrUntopBtn" class="zaFeedbackUserLayerAction" method="topOrUntopBtn">
+         <result name="success" type="json"></result>
+       </action> 
+       
+      <action name="deleteLiuYan" class="zaFeedbackUserLayerAction" method="deleteLiuYan">
+         <result name="success" type="json"></result>
+       </action> 
+          
+      <action name="deleteLiuYan" class="zaFeedbackUserLayerAction" method="deleteLiuYan">
+         <result name="success" type="json"></result>
+       </action> 
+       
+      <action name="addLiuYan" class="zaFeedbackUserLayerAction" method="addLiuYan">
+         <result name="success" type="json"></result>
+       </action> 
+       
+      <action name="findLiuYanByPersonIdAndCaseId" class="zaFeedbackUserLayerAction" method="findLiuYanByPersonIdAndCaseId">
+         <result name="success" type="json"></result>
+       </action>
+       
+      <action name="findLiuYanByCondition" class="zaFeedbackUserLayerAction" method="findLiuYanByCondition">
+         <result name="success" type="json"></result>
+       </action>
+       
+      <action name="findLiuYanByRoleIdAndCaseId" class="zaFeedbackUserLayerAction" method="findLiuYanByRoleIdAndCaseId">
+         <result name="success" type="json"></result>
+       </action>
+       
+         <action name="queryLiuYanByCondition" class="zaFeedbackUserLayerAction" method="queryLiuYanByCondition">
+         <result name="success" type="json"></result>
+       </action>
+       
+       <action name="findDepartmentLst" class="zaFeedbackUserLayerAction" method="findDepartmentLst">
+         <result name="success" type="json"></result>
+       </action>
+      
+       <action name="findAllTopMessages" class="zaFeedbackUserLayerAction" method="findAllTopMessages">
+         <result name="success" type="json"></result>
+       </action>
+       <!-- 到出excel -->
+      <action name="exportExcel" class="zaFeedbackUserLayerAction" method="exportExcel">
+        <result name="done" type="chain">
+          <param name="actionName">export</param>
+          <param name="namespace">/</param>
+        </result> 
+      </action>
+	</package>
+</struts>

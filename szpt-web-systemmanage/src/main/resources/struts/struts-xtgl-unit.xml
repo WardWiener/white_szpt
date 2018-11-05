@@ -1,0 +1,54 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+<!-- *****************************************************单位管理************************************************************ -->
+	<package name="unit" extends="szpt-web-xtgl" namespace="/unit">
+		<!-- 跳转单位管理 -->
+		<action name="toUnit">
+			<result name="success">/WEB-INF/view/xtgl/unit/unit.jsp</result>
+		</action>
+		<!-- 加载单位树 -->
+		<action name="initUnitTree" class="unitAction" method="initUnitTree">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findUnitById" class="unitAction" method="findUnitById">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="synchronousUnit" class="unitAction" method="synchronousUnit">
+			<result name="success" type="json">
+			  	<param name="ignoreHierarchy" >false</param>
+			  	<param name = "includeProperties">flag</param> 
+			</result>
+		</action>
+		<action name="initInfo" class="unitAction" method="initInfo">
+			<result name="success" type="json">
+			  	<param name="ignoreHierarchy" >false</param>
+				<param name = "includeProperties">unitLevelList.*,stateList.*,propertyList.*,typeList.*</param> 
+			</result>
+		</action>
+		<action name="addUnit" class="unitAction" method="addUnit">
+			<result name="success" type="json">
+			  	<param name="ignoreHierarchy" >false</param>
+			  	<param name = "includeProperties">flag,msg,unitBean.*</param> 
+			</result>
+		</action>
+		<action name="deleteUnit" class="unitAction" method="deleteUnit">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="disableControl" class="unitAction" method="disableControl">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="enableControl" class="unitAction" method="enableControl">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="modifyUnit" class="unitAction" method="modifyUnit">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg,unitBean.*</param> 
+			</result>
+		</action>
+	</package>
+</struts>

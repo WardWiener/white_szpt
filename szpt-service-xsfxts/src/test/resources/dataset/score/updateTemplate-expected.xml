@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_xsajfx_cbajfmb id="template1" bm="02" mc="name2" ajlx="0002" ajxzyj="0002001" ajxzej="0002001001" zt="0" bz="remark2" zxfs="80.0" cjr="cjr2"  gxr="gxr2"  jsrw_id="task1"></t_xsajfx_cbajfmb>
+	<t_scoreframework_scoretask id="task1" description="name2" warnscore="80.0" />
+	
+	<t_scoreframework_scorepoint id="sp1" description="key_communities" cetype="com.taiji.pubsec.szpt.caseanalysis.score.executor.CaseScoreSimilarCommunityExecutor" ceid="key_communities"/>
+	<t_scoreframework_scorepointcfg id="spf1" description="key_communities" scoreframework_scorepoint_id="sp1" scoreframework_scoretask_id="task1" weight="2"/>
+	<t_scoreframework_groovyrule id="groovyrule1" value="45,85,90" script='if("不相邻社区"==x0) return 45 else if("相邻社区"==x0) return 85 else if("相同社区"==x0) return 90' />
+	<t_scoreframework_scorerule id="rule1" scoreframework_scorepoint_id="sp1" description="key_communities" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"  ruleid="groovyrule1"/>
+	
+	<t_scoreframework_scorepoint id="sp2"  description="key_occurPlace"  cetype="com.taiji.pubsec.szpt.caseanalysis.score.executor.CaseScoreSimilarPlaceExecutor" ceid="key_occurPlace" />
+	<t_scoreframework_scorepointcfg id="spf2"  description="key_occurPlace" scoreframework_scorepoint_id="sp2" scoreframework_scoretask_id="task1"   weight="1.5"/>
+	<t_scoreframework_groovyrule id="groovyrule2" value="23,57,79,90" script="if(x0 &gt;= 0 &amp;&amp; x0 &lt;= 0.25) return 23 else if(x0 &gt; 0.25 &amp;&amp; x0 &lt;= 0.5 ) return 57 else if(x0 &gt; 0.5 &amp;&amp; x0 &lt;= 0.75) return 79 else return 90" />
+	<t_scoreframework_scorerule id="rule2" scoreframework_scorepoint_id="sp2" description="key_occurPlace" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule" ruleid="groovyrule2"/>
+	
+</dataset>

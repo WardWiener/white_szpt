@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="szpt-common" extends="szpt-web-common" namespace="/">
+        <action name="download" class="downloadAction" method="download">
+          <result name="done" type="chain">
+                <param name="actionName">export</param>
+              <param name="namespace">/</param>         
+              </result>   
+        </action>        
+        
+        <action name="export" class="exportAction" method="export">
+          <result name="success" type="stream">
+            <param name="contentType">${docType}</param>
+            <param name="contentDisposition">attachment;filename="${docName}"</param>
+            <param name="inputName">docFile</param>
+            <param name="contentLength">${contLength}</param>
+          </result>
+        </action>  
+        
+        <action name="analyzeInitInfo" class="szptAnalyzeAction" method="analyzeInitInfo">
+          <result name="success" type="json">
+          </result>
+        </action>
+
+		<action name="businessInitInfo" class="szptBusinessAction" method="businessInitInfo">
+          <result name="success" type="json">
+          </result>
+        </action>
+		<action name="queryAjxz" class="szptBusinessAction" method="queryAjxz">
+          <result name="success" type="json">
+          </result>
+        </action> 
+        <action name="queryJqlx" class="szptBusinessAction" method="queryJqlx">
+          <result name="success" type="json">
+          </result>
+        </action>
+        <action name="queryXsjq" class="szptBusinessAction" method="queryXsjq">
+          <result name="success" type="json">
+          </result>
+        </action>
+        <!-- 查询派出所村居树 -->
+        <action name="queryCunJu" class="szptBusinessAction" method="queryCunJu">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <action name="queryDictionaryTree" class="szptBusinessAction" method="queryDictionaryTree">
+          <result name="success" type="json">
+          </result>
+        </action> 
+        <!-- 根据字典类型Code获取字典项 -->
+        <action name="findDictionaryItemsByType" class="dictionaryItemAction" method="findDictionaryItemsByType">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 根据父级字典项id查询所有下级字典项 -->
+        <action name="findAllSubDictionaryItemsByParentItemId" class="dictionaryItemAction" method="findAllSubDictionaryItemsByParentItemId">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 根据父级字典项code和字典类型code查询所有下级字典项 -->
+        <action name="findAllSubDictionaryItemsByParentItemCodeAndTypeCode" class="dictionaryItemAction" method="findAllSubDictionaryItemsByParentItemCodeAndTypeCode">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+         <!-- 根据父级字典项code和字典类型code集合list查询所有下级字典项 -->
+        <action name="findAllSubDictionaryItemsByParentItemCodeAndTypeCodeList" class="dictionaryItemAction" method="findAllSubDictionaryItemsByParentItemCodeAndTypeCodeList">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 查询多级字典项 -->
+        <action name="findCascadedDicItem" class="dictionaryItemAction" method="findCascadedDicItem">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 查询所有的单位-->
+        <action name="queryUnit" class="unitUtilAction" method="queryUnit">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 根据单位code查询下一级 -->
+        <action name="findOrderCellByCode" class="unitUtilAction" method="findOrderCellByCode">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 根据单位type查询 unit表 -->
+        <action name="queryUnitAllByType" class="unitUtilAction" method="queryUnitAllByType">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+        <!-- 根据单位type查询指挥单元表-->
+        <action name="findOrderCellByType" class="unitUtilAction" method="findOrderCellByType">
+        	<result name="success" type="json"></result>
+        </action> 
+        
+	</package>
+</struts>

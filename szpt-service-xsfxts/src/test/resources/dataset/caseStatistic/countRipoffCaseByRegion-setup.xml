@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<t_og_zzjg id="pcs1" bm="pcs1" mc ="mc" jc="pcs1"></t_og_zzjg>
+	<t_og_dw id="pcs1"></t_og_dw>
+	<t_og_cj id="cjId" mc="mc" gxsj="2010-10-10 10:10:10" bm="facq" dwid="pcs1"></t_og_cj>
+
+	<t_zdlx id="facsId" bm="xsajfx-afcs" mc="mc" zt="1" sjc="2010-10-10 10:10:10"></t_zdlx>
+	<t_zdx id="zdxId1" bm="facs1" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="facsId"></t_zdx>
+	<t_zdx id="zdxId2" bm="facs2" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="facsId"></t_zdx>
+	<t_zdx id="zdxId3" bm="facs3" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="facsId"></t_zdx>
+	
+	<t_zdlx id="zatdId" bm="xsajfx-zatd" mc="mc" zt="1" sjc="2010-10-10 10:10:10"></t_zdlx>
+	<t_zdx id="zdxId4" bm="zatd1" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zatdId"></t_zdx>
+	<t_zdx id="zdxId5" bm="zatd2" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zatdId"></t_zdx>
+	<t_zdx id="zdxId6" bm="zatd3" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zatdId"></t_zdx>
+	
+	<t_zdlx id="zasdId" bm="xsajfx-zasd" mc="mc" zt="1" sjc="2010-10-10 10:10:10"></t_zdlx>
+	<t_zdx id="zdxId7" bm="zasd1" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zasdId"></t_zdx>
+	<t_zdx id="zdxId8" bm="zasd2" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zasdId"></t_zdx>
+	<t_zdx id="zdxId9" bm="zasd3" mc="mc" zt="1" sjc="2010-10-10 10:10:10" zdlx_id="zasdId"></t_zdx>
+	
+	<t_xsajfx_ajjbxx ajbh="ajbh1" lasj="2010-10-10 10:10:10"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh2" lasj="2010-10-10 10:10:10"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh3" lasj="2010-10-20 10:10:10"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh4" lasj="2010-10-20 10:10:10"></t_xsajfx_ajjbxx>
+	<t_xsajfx_ajjbxx ajbh="ajbh5" lasj="2010-10-20 10:10:10"></t_xsajfx_ajjbxx>
+	<t_xsajfx_dbjc id="id1" xsajfx_ajjbxx_id="ajbh1" facs="facs1" zasd="zasd1" facq="facq" ajlb="001" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="id2" xsajfx_ajjbxx_id="ajbh2" facs="facs2" zasd="zasd2" facq="facq" ajlb="001" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="id3" xsajfx_ajjbxx_id="ajbh3" facs="facs1" zasd="zasd1" facq="facq" ajlb="001" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="id4" xsajfx_ajjbxx_id="ajbh4" facs="facs2" zasd="zasd2" facq="facq" ajlb="001" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+	<t_xsajfx_dbjc id="id5" xsajfx_ajjbxx_id="ajbh5" facs="facs3" zasd="zasd3" facq="facq" ajlb="001" ajxzyj="ajxzyj" ajxzej="ajxzej"></t_xsajfx_dbjc>
+
+	<t_xsajfx_dbzatd id="zatdId1" zatd="zatd1" xsajfx_dbjc_id="id1"></t_xsajfx_dbzatd>
+	<t_xsajfx_dbzatd id="zatdId2" zatd="zatd2" xsajfx_dbjc_id="id2"></t_xsajfx_dbzatd>
+	<t_xsajfx_dbzatd id="zatdId3" zatd="zatd1" xsajfx_dbjc_id="id3"></t_xsajfx_dbzatd>
+	<t_xsajfx_dbzatd id="zatdId4" zatd="zatd2" xsajfx_dbjc_id="id4"></t_xsajfx_dbzatd>
+	<t_xsajfx_dbzatd id="zatdId5" zatd="zatd3" xsajfx_dbjc_id="id5"></t_xsajfx_dbzatd>
+</dataset>

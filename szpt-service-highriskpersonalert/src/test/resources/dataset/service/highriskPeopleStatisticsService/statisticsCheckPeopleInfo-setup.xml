@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_gwry_hcrytj id="001" dwbm="dwbm001" dwmc="经开分局" hcsj="2016-10-14 11:10:10" sfsd="是否字典项" sfxsqk="刑事前科" wsyjlx="预警类型" zjhm="10010" ryxm="张三" zjlx="证件类型" ryxb="未知" hldz="北京" yjxx="无" />
+	<t_gwry_hcrytj id="002" dwbm="dwbm002" dwmc="小河分局" hcsj="2016-10-14 12:10:10" sfsd="是否字典项" sfxsqk="刑事前科" wsyjlx="预警类型" zjhm="10010" ryxm="张三" zjlx="证件类型" ryxb="未知" hldz="北京" yjxx="无" />
+	<t_gwry_hcrytj id="003" dwbm="dwbm001" dwmc="经开分局" hcsj="2016-10-14 13:10:10" sfsd="是否字典项" sfxsqk="刑事前科" wsyjlx="预警类型" zjhm="10010" ryxm="张三" zjlx="证件类型" ryxb="未知" hldz="北京" yjxx="无" />
+	<t_gwry_hcrytj id="004" dwbm="dwbm001" dwmc="经开分局" hcsj="2016-10-14 14:10:10" sfsd="是否字典项" sfxsqk="刑事前科" wsyjlx="预警类型" zjhm="10010" ryxm="张三" zjlx="证件类型" ryxb="未知" hldz="北京" yjxx="无" />
+	<t_gwry_hcrytj id="005" dwbm="dwbm001" dwmc="经开分局" hcsj="2016-12-14 14:10:10" sfsd="是否字典项" sfxsqk="刑事前科" wsyjlx="预警类型" zjhm="10010" ryxm="张三" zjlx="证件类型" ryxb="未知" hldz="北京" yjxx="无" />
+</dataset>

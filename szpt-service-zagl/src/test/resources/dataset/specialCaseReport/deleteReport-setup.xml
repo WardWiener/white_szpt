@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<t_zagl_za id="zaId"></t_zagl_za>
+	<t_og_ry id="ryId" zt="1" sjc="2016-10-10 10:10:10"></t_og_ry>
+	<t_zagl_zabg id="bgId" attachmentId="attachmentId" zagl_za_id="zaId" cjsj="2016-10-10 10:10:10" cjr_id="ryId" mc="mc" lx="lx"></t_zagl_zabg>
+</dataset>

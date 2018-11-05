@@ -1,0 +1,17 @@
+scanner.ftp.server=58.42.241.253
+scanner.ftp.port=21
+scanner.ftp.username=renzixing
+scanner.ftp.password=renzixing
+scanner.ftp.ftpfolder=/
+scanner.ftp.workfolder=d:/wifiwork
+scanner.ftp.backupdir=/bak
+scanner.ftp.timeout=10000
+scanner.ftp.dataTimeout=300000
+scanner.ftp.retry=3
+
+// move or delete
+scanner.ftp.operate=move
+
+activemq.url=tcp://localhost:61616
+
+kafka.brokers=192.168.19.121:9092,192.168.19.122:9092,192.168.19.123:9092

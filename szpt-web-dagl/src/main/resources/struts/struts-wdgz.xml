@@ -1,0 +1,38 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="wdgz" extends="szpt-web-dagl" namespace="/wdgz">
+		<!-- 创建关注人 -->
+		<action name="followInterestedPerson" class="wdgzAction" method="followInterestedPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查找符合条件的关注人 -->
+		<action name="findInterestedPersonList" class="wdgzAction" method="findInterestedPersonList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 取消关注人 -->
+		<action name="cancelInterestedPerson" class="wdgzAction" method="cancelInterestedPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 关注人置顶 -->
+		<action name="stickInterestedPerson" class="wdgzAction" method="stickInterestedPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 取消置顶 -->
+		<action name="unstickInterestedPerson" class="wdgzAction" method="unstickInterestedPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<!-- 一人一档详情页取消置顶 -->
+		<action name="yrydDetailCancelInterestedPerson" class="wdgzAction" method="yrydDetailCancelInterestedPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

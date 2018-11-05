@@ -1,0 +1,81 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="highriskPerson" extends="szpt-web-highRiskPersonAlert" namespace="/highriskPerson">
+		<action name="showHomePage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/home/home.jsp</result>
+		</action>
+		<action name="showPersonListPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personList/personList.jsp</result>
+		</action>
+		<action name="showPersonApproveListPage">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personList/personApproveList.jsp</result>
+        </action>
+        <action name="showApprovePersonPage">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personList/approvePerson.jsp</result>
+        </action>
+        <action name="showAccumulatePointsDetails">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/home/accumulatePointsDetails.jsp</result>
+        </action>
+        <action name="showIntegralInfo">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personList/integralInfo.jsp</result>
+        </action>
+		<action name="queryPersonList" class="highriskPersonAction" method="queryPersonList">
+			<result name="success" type="json">
+			</result>
+		</action>
+		<!-- 积分详情-->
+		<action name="queryIntegralInfo" class="highriskPersonAction" method="queryIntegralInfo">
+			<result name="success" type="json">
+			</result>
+		</action>
+		
+		<!-- 查找最新创建的5个重点人信息-->
+		<action name="findCreatedPersonLately" class="highriskPersonAction" method="findCreatedPersonLately">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 按预警类型统计重点人员数量-->
+		<action name="sumupByWarnType" class="highriskPersonAction" method="sumupByWarnType">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="sumupByPepleType" class="highriskPersonAction" method="sumupByPepleType">
+			<result name="success" type="json"></result>
+		</action>
+    <!--   人员时段统计 -->
+		<action name="highriskPeopleShiduan" class="highriskPersonAction" method="highriskPeopleShiduan">
+			<result name="success" type="json"></result>
+		</action>
+    <!--   人员处所统计 -->
+		<action name="highriskPeopleChusuo" class="highriskPersonAction" method="highriskPeopleChusuo">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findPersonByIdcode" class="highriskPersonAction" method="findPersonByIdcode">
+			<result name="success" type="json"></result>
+		</action>
+        <action name="findPersonByPersonId" class="highriskPersonAction" method="findPersonByPersonId">
+          <result name="success" type="json"></result>
+        </action>
+		<action name="findPersonCheckStatistics" class="highriskPersonAction" method="findPersonCheckStatistics">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findPersonChangeRecord" class="highriskPersonAction" method="findPersonChangeRecord">
+			<result name="success" type="json"></result>
+		</action>
+        <action name="applyApprove" class="highriskPersonAction" method="applyApprove">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="approvePerson" class="highriskPersonAction" method="approvePerson">
+          <result name="success" type="json"></result>
+        </action>
+       <action name="findOperationRecord" class="highriskPersonAction" method="findOperationRecord">
+          <result name="success" type="json"></result>
+        </action>
+        <!-- 积分预警人员数据载入 -->
+        <action name="findHPersonScoreByPage" class="highriskPersonAction" method="findHPersonScoreByPage">
+          <result name="success" type="json"></result>
+        </action>
+    
+	</package>
+</struts>

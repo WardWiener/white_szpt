@@ -1,0 +1,63 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="personExecuteControl" extends="szpt-web-highRiskPersonAlert" namespace="/personExecuteControl">
+		
+		<action name="showPersonExecuteControlListPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/personExecuteControlList.jsp</result>
+		</action>
+        <action name="showPersonExecuteControlApproveListPage">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/personExecuteControlApproveList.jsp</result>
+        </action>
+		<action name="showNewPersonExecuteControlPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/newPersonExecuteControl.jsp</result>
+		</action>
+		<action name="showPersonExecuteControlDetailPage">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/personExecuteControlDetail.jsp</result>
+        </action>
+        <action name="showPersonExecuteControlResultPage">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/personExecuteControlResult.jsp</result>
+        </action>
+        <action name="showPersonExecuteControlDetail">
+          <result name="success">/WEB-INF/view/highRiskPersonAlert/personExecuteControl/showPersonExecuteControlDetail.jsp</result>
+        </action>
+        
+		<action name="queryPersonExecuteControlList" class="personExecuteControlAction" method="queryPersonExecuteControlList">
+			<result name="success" type="json"></result>
+		</action>
+        <action name="findPersonExecuteControlById" class="personExecuteControlAction" method="findPersonExecuteControlById">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="savePersonExecuteControl" class="personExecuteControlAction" method="savePersonExecuteControl">
+          <result name="success" type="json"></result>
+        </action>
+       <action name="stopPersonExecuteControl" class="personExecuteControlAction" method="stopPersonExecuteControl">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="approvePersonExecuteControl" class="personExecuteControlAction" method="approvePersonExecuteControl">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="findOperationRecord" class="personExecuteControlAction" method="findOperationRecord">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="findPersonExecuteControlResult" class="personExecuteControlAction" method="findPersonExecuteControlResult">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <action name="saveIgnore" class="personExecuteControlAction" method="saveIgnore">
+          <result name="success" type="json"></result>
+        </action>
+        <action name="saveConfirm" class="personExecuteControlAction" method="saveConfirm">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <!-- 生成布控快照 -->
+        <action name="generateExecuteControlSnapshot" class="personExecuteControlAction" method="generateExecuteControlSnapshot">
+          <result name="success" type="json"></result>
+        </action>
+    	<!-- 获取布控单编号 -->
+        <action name="acquireNum" class="personExecuteControlAction" method="acquireNum">
+          <result name="success" type="json"></result>
+        </action>
+	</package>
+</struts>

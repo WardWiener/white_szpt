@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <t_ty_dw id="001" bm="zhuge001" lx="zg" mc="主格1" ty_dw_id="003" ></t_ty_dw>
+  <t_ty_dw id="002" bm="zhuge002" lx="zg" mc="主格2" ty_dw_id="003" ></t_ty_dw>
+  <t_ty_dw id="003" bm="pcs001" lx="pcs" mc="长江分局" ty_dw_id="005" ></t_ty_dw>
+  <t_ty_dw id="004" bm="pcs002" lx="pcs" mc="经开分局" ty_dw_id="005" ></t_ty_dw>
+  <t_ty_dw id="005" bm="pcs003" lx="pcs" mc="平桥分局" ty_dw_id="003" ></t_ty_dw>
+	
+</dataset>
+
+
+
+
+
+
+
+
+
+
+

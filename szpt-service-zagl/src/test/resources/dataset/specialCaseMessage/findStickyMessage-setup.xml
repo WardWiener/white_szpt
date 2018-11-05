@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<t_zagl_za id="zazlId"></t_zagl_za>
+	<t_zagl_zajs id="zagl000401"></t_zagl_zajs>
+	<t_og_ry id="ryId" zt="1" sjc="2016-10-10 10:10:10"></t_og_ry>
+	<t_zagl_zaly id="zalyId" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	<t_zagl_zaly id="zalyId2" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	<t_zagl_zaly id="zalyId3" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	<t_zagl_zaly id="zalyId4" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	<t_zagl_zaly id="zalyId5" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	<t_zagl_zaly id="zalyId6" zagl_zabg_id="zazlId" nr="nr" lysj="2016-10-10 10:10:10" lyr_id="ryId"></t_zagl_zaly>
+	
+	<t_zagl_zaryjsfp id="fpId" ryid="ryId" zagl_zajs_id="zagl000401" zagl_za_id="zazlId"></t_zagl_zaryjsfp>
+	
+	<t_zagl_lyzdjl id="zdId" zalyId="zalyId"></t_zagl_lyzdjl>
+	<t_zagl_lyzdjl id="zdId2" zalyId="zalyId"></t_zagl_lyzdjl>
+	<t_zagl_lyzdjl id="zdId3" zalyId="zalyId2"></t_zagl_lyzdjl>
+	<t_zagl_lyzdjl id="zdId4" zalyId="zalyId3"></t_zagl_lyzdjl>
+</dataset>

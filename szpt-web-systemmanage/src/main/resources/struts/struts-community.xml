@@ -1,0 +1,47 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="community" extends="szpt-web-xtgl" namespace="/community">
+		<!-- 显示社区主页面 -->
+		<action name="showCommunityJsp">
+			<result name="success">/WEB-INF/view/xtgl/community/community.jsp</result>
+		</action>
+		<!-- 弹出新建页面  -->
+		<action name="showNewCommunityJsp">
+			<result name="success">/WEB-INF/view/xtgl/community/newCommunity.jsp</result>
+		</action>
+		<!-- 弹出修改页面  -->
+		<action name="showUpdateCommunityJsp">
+			<result name="success">/WEB-INF/view/xtgl/community/updateCommunity.jsp</result>
+		</action>
+		<!-- 分页查询 -->
+		<action name="findAllCommunity" class="communityAction" method="findAllCommunity">
+			<result name="success" type="json">
+			    <param name="ignoreHierarchy" >false</param>
+			     <param name = "includeProperties">totalNum,communityBeanList.*</param> 
+			</result>
+		</action>
+		<!-- 新增 -->
+		<action name="creadCommunity" class="communityAction" method="creadCommunity">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 修改 -->
+		<action name="uodateCommunity" class="communityAction" method="uodateCommunity">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 根据id查询 -->
+		<action name="findCommunityById" class="communityAction" method="findCommunityById">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 删除 -->
+		<action name="deleteCommunityById" class="communityAction" method="deleteCommunityById">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 初始化大社区 -->
+		<action name="initSelect" class="communityAction" method="initSelect">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

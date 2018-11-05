@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+  <Properties>
+    <Property name="pathRoot">d:</Property>
+  </Properties>
+  <Appenders>
+    <Console name="Console" target="SYSTEM_OUT">
+      <PatternLayout
+        pattern="%d{HH:mm:ss.SSS} [%t] %-5level %logger{36} - %msg%n" />
+    </Console>
+    <RollingFile name="RollingFile" fileName="${pathRoot}/logs/app.log"
+      filePattern="${pathRoot}/logs/app-%d{MM-dd-yyyy}.log.gz">
+      <PatternLayout>
+        <Pattern>%d %p %c{1.} [%t] %m%n</Pattern>
+      </PatternLayout>
+      <Policies>
+        <TimeBasedTriggeringPolicy />
+      </Policies>
+    </RollingFile>
+  </Appenders>
+
+  <Loggers>
+
+    <logger name="com.taiji" level="debug"></logger>
+    <logger name="org.hibernate" level="debug"></logger>
+    <logger name="org.springframework" level="debug"></logger>
+    <logger name="org.dbunit" level="debug"></logger>
+    <logger name="org.apache.zookeeper" level="error"></logger>
+
+    <Root level="debug">
+      <AppenderRef ref="Console" />
+    </Root>
+
+  </Loggers>
+
+</Configuration>

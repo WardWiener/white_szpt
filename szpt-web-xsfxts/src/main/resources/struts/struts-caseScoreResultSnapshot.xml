@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="snapshot" extends="szpt-web-xsfxts" namespace="/snapshot">
+		<!-- 显示快照记录列表页面 -->
+		<action name="showLookSnapshotListPage">
+			<result name="success">/WEB-INF/view/score/lookSnapshotList.jsp</result>
+		</action>
+		
+		<!-- 显示快照详情页面 -->
+		<action name="showLookSnapshotDetailPage">
+			<result name="success">/WEB-INF/view/score/lookSnapshotDetail.jsp</result>
+		</action>
+		
+		<!-- 新建快照信息 -->
+		<action name="createSnapshot" class="caseScoreResultSnapshotAction" method="createSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询快照信息 -->
+		<action name="querySnapshotById" class="caseScoreResultSnapshotAction" method="querySnapshotById">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询快照记录列表信息 -->
+		<action name="querySnapshotListByCaseCode" class="caseScoreResultSnapshotAction" method="querySnapshotListByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

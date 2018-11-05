@@ -1,0 +1,22 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="gaofa" extends="szpt-web-zhzats" namespace="/gaofa">
+		
+		<action name="showZhzatsGaofa">
+			<result name="success">/WEB-INF/view/zhzats/gaofa.jsp</result>
+		</action>
+		
+		<action name="queryJqlxTree" class="szptAnalyzeAction" method="queryJqlxTree">
+          	<result name="success" type="json"></result>
+        </action>
+		
+		<action name="findGaofaJq" class="factJqtsAnalyzeAction" method="findGaofaJq">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findGaofaJqlx" class="factJqtsAnalyzeAction" method="findGaofaJqlx">
+          	<result name="success" type="json"></result>
+        </action>
+		
+	</package>
+</struts>

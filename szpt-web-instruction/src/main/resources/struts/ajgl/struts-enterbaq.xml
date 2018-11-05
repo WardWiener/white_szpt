@@ -1,0 +1,44 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd" >
+<struts>
+	<package name="enterbaq" extends="szpt-web-instruction" namespace="/enterbaq">
+		<!--  研判页面-->
+		<action name="showResearchMessage">
+			<result name="success">/WEB-INF/view/ajgl/result.jsp</result>
+		</action>
+		<!--  研判页面数据加载-->
+		<action name="findResearchMessage" class="researchMessageByAGTAction" method="findResearchMessage">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findResearchMessage" class="researchMessageByAGTAction" method="findResearchMessage">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="showTrackAnalyzeSnapshot">
+			<result name="success">/WEB-INF/view/ajgl/ajglInstruction/trackAnalyzeSnapshot.jsp</result>
+		</action>
+		
+		<action name="showWifiLocusAnalyzeSnapshot">
+			<result name="success">/WEB-INF/view/ajgl/ajglInstruction/wifiLocusAnalyzeSnapshot.jsp</result>
+		</action>		
+		
+		<action name="snapshotNavi" class="instructionAction">
+			<result name="success">/WEB-INF/view/ajgl/snapshotNavi.jsp</result>
+		</action>		
+		
+		<!-- 查看实时wifi快照页面 -->
+		<action name="showLookRealTimeWifiSnapshotPage">
+			<result name="success">/WEB-INF/view/ajgl/ajglInstruction/lookRealTimeWifiSnapshot.jsp</result>
+		</action>
+
+		<!-- 根据id查询快照 -->
+		<action name="findSnapshotById" class="szptSnapshotAction" method="findSnapshotById">
+			<result name="success" type="json"></result>
+		</action>
+		
+    	<!-- 根据指令主体id查询所有带已推送单位的反馈 -->
+		<action name="queryJudeResultFeedback" class="instructionAction" method="queryJudeResultFeedback">
+			<result name="success" type="json"></result>
+		</action>				
+	</package>
+</struts>

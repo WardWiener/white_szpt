@@ -1,0 +1,5 @@
+URL=jdbc:mysql://mysql.master.szpt.jk:3306/szpt?useUnicode=true&characterEncoding=utf8
+USERNAME=root
+PASSWORD=root
+BROKER=zookeeper01.szpt.jk:9092,zookeeper02.szpt.jk:zookeeper03.szpt.jk:9092
+ZOOKEEPER=zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/kafkaroot

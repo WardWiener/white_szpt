@@ -1,0 +1,56 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="interface" extends="szpt-web-highRiskPersonAlert" namespace="/interface">
+
+		
+		<!-- 新建五色预警人员 -->
+		<action name="saveFiveColorPerson" class="fiveColorPersonAction" method="saveFiveColorPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 修改五色预警人员 -->
+		<action name="updateFiveColorPerson" class="fiveColorPersonAction" method="updateFiveColorPerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 手机端按条件查询五色预警人员列表（分页查询） -->
+		<action name="searchAllFiveColorPersonListByConditionPhone" class="fiveColorPersonAction" method="searchAllFiveColorPersonListByConditionPhone">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据id查询五色预警人员 -->
+		<action name="searchFiveColorPersonById" class="fiveColorPersonAction" method="searchFiveColorPersonById">
+			<result name="success" type="json"></result>
+		</action>
+				
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		        <param name="actionName">export</param>
+			    <param name="namespace">/</param>
+	        </result> 
+		</action>
+		
+		<!-- 查找字典类型下的一级字典项 -->
+		<action name="findDictionaryItemByType" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据字典项id查询下级子字典项 -->
+		<action name="findAllSubDictionaryItemsByParentItemId" class="dictionaryItemAction" method="findAllSubDictionaryItemsByParentItemId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据字典类型code查询所有子字典项 -->
+		<action name="findAllSubDictionaryItemsByTypeCode" class="dictionaryItemAction" method="findAllSubDictionaryItemsByTypeCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

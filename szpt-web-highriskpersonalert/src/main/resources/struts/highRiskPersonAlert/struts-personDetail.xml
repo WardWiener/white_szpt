@@ -1,0 +1,78 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="personDetail" extends="szpt-web-highRiskPersonAlert" namespace="/personDetail">
+		
+		<action name="showPersonDetailPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personDetail/personDetail.jsp</result>
+		</action>
+		
+		<action name="showPersonEditPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personDetail/editPerson.jsp</result>
+		</action>
+		
+		<action name="showImportExcelPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personList/importByExcel.jsp</result>
+		</action>
+		
+		<!-- 根据高危人身份证查询查控情况 -->
+		<action name="findPersonCheckInfoByPersonIdcode" class="personDetailAction" method="findPersonCheckInfoByPersonIdcode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据mac地址查询轨迹列表（分页查询） -->
+		<action name="findLocusByMacs" class="personDetailAction" method="findLocusByMacs">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findLocusMapByMacs" class="personDetailAction" method="findLocusMapByMacs">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询某人员某时间段经过次数最多的场所 -->
+		<action name="findPlaceSumByMacAndTime" class="personDetailAction" method="findPlaceSumByMacAndTime">
+			<result name="success" type="json"></result>
+		</action>
+			<!-- 查询人员前科信息 -->
+		<action name="findCriminalRecordBysfzh" class="personDetailAction" method="findCriminalRecordBysfzh">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询某人员某时间段驻留时间最长的场所 -->
+		<action name="findMaxTimePlaceByMacAndTime" class="personDetailAction" method="findMaxTimePlaceByMacAndTime">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findSubDics" class="personDetailAction" method="findSubDics">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="updateHighriskPerson" class="personDetailAction" method="updateHighriskPerson">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findPersonTypeAndMobile" class="personDetailAction" method="findPersonTypeAndMobile">
+			<result name="success" type="json"></result>
+		</action>
+    
+        <!-- 上传文件 -->
+        <action name="uploadFile" class="uploadAction" method="uploadFile">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <!-- 下载文件 -->
+        <action name="downloadFile" class="downloadAction" method="download">
+          <result name="done" type="chain">
+                <param name="actionName">export</param>
+              <param name="namespace">/</param>
+              </result> 
+        </action>
+        
+        <!-- 上传文件 -->
+        <action name="uploadExcel" class="personDetailAction" method="uploadExcel">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <action name="deleteAttachment" class="personDetailAction" method="deleteAttachment">
+          <result name="success" type="json"></result>
+        </action>
+        
+	</package>
+</struts>

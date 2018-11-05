@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+ <package name="role" extends="szpt-web-xtgl" namespace="/role">
+		<action name="toRole">
+			<result name="success">/WEB-INF/view/xtgl/role/role.jsp</result>
+		</action>
+		<action name="modifyRoleStatus" class="roleAction" method="modifyRoleStatus">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryRole" class="roleAction" method="queryRole">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">roleBeanList.*,totalNum</param> 
+			</result>
+		</action>
+		<action name="seeRole">
+			<result name="success">/WEB-INF/view/xtgl/role/seeRole.jsp</result>
+		</action>
+		<action name="displayNewRole">
+			<result name="success">/WEB-INF/view/xtgl/role/addNewRole.jsp</result>
+		</action>
+		<action name="queryRoleById" class="roleAction" method="queryRoleById">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="saveRole" class="roleAction" method="saveRole">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg,roleBean.*</param> 
+			</result>
+		</action>
+		<action name="updateRole" class="roleAction" method="updateRole">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg,roleBean.*</param> 
+			</result>
+		</action>
+		<action name="deleteRole" class="roleAction" method="deleteRole">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="findRoleByCode" class="roleAction" method="findRoleByCode">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryAuthorityZTree" class="roleAction" method="queryAuthorityZTree">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findDictionaryItemsByType" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+    </package>
+</struts>

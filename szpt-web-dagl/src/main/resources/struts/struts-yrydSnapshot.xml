@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="yrydSnapshot" extends="szpt-web-dagl" namespace="/yrydSnapshot">
+		
+		<action name="showtrackAnalyzeDetail">
+			<result name="success">/WEB-INF/view/yryd/fxypkz/trackAnalyzeDetail.jsp</result>
+		</action>
+		<action name="showWifiLocusAnalyzeDetail">
+			<result name="success">/WEB-INF/view/yryd/fxypkz/wifiLocusAnalyzeDetail.jsp</result>
+		</action>
+		
+		<action name="ShowUploadImg">
+			<result name="success">/WEB-INF/view/uploadImg/zaUploadLayer.jsp</result>
+		</action>
+		
+		<action name="findControlkSnapshotInfo" class="yrydSnapshot" method="findControlkSnapshotInfo">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findWifiLocusSnapshotInfo" class="yrydSnapshot" method="findWifiLocusSnapshotInfo">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="saveImg" class="test" method="saveImg">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询轨迹分析快照集合 -->
+		<action name="findTrackSnapshotLst" class="yrydSnapshot" method="findTrackSnapshotLst">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据id查询快照信息 -->
+		<action name="findSnapshotById" class="yrydSnapshot" method="findSnapshotById">
+		
+		</action>
+		
+		<!-- 查询wifi轨迹分析快照集合 -->
+		<action name="findWifiLocusSnapshotLst" class="yrydSnapshot" method="findWifiLocusSnapshotLst">
+			<result name="success" type="json"></result>
+		</action>	
+		
+		  <!-- 上传文件 -->
+  		<action name="uploadFile" class="uploadAction" method="uploadFile">
+    		<result name="success" type="json"></result>
+ 		</action>
+ 		
+ 		<action name="findImg" class="test" method="findImgAttachmentById">
+    		<result name="success" type="json"></result>
+ 		</action>
+ 			
+	</package>
+</struts>

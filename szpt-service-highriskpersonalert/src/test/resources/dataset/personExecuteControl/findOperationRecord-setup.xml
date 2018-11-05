@@ -1,0 +1,6 @@
+<?cznrl version="1.0" encoding="UTF-8"?>
+<dataset>
+<t_czjl id="id01" ywdxlx="lx001" ywdxid="ywdxid001" cznr="小明"  czjg="广东省" czr="小明他哥" czdw="省级"/>
+<t_czjl id="id02" ywdxlx="com.taiji.pubsec.szpt.highriskpersonalert.personexecutecontrol.model.PersonExecuteControl" ywdxid="ywdxid001" cznr="小红"  czjg="广西省" czr="小红他哥" czdw="市级"/>
+<t_czjl id="id03" ywdxlx="lx003" ywdxid="ywdxid003" cznr="小黄"  czjg="河南省" czr="小黄他哥" czdw="县级"/>
+</dataset>

@@ -1,0 +1,10 @@
+URL=jdbc:mysql://mysql.master.szpt.jk:3306/szpt?useUnicode=true&characterEncoding=utf8
+USERNAME=root
+PASSWORD=root
+BROKER=zookeeper01.szpt.jk:9092,zookeeper02.szpt.jk:zookeeper03.szpt.jk:9092
+ZOOKEEPER=zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/kafkaroot
+ZKHOSTSOLR=zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/solr
+#wifidata\u7A97\u53E3\u65F6\u95F4(ms)
+SPARKDURATIONFORWIFIDATA=60000
+#\u6570\u636E\u672A\u66F4\u65B0\u6B21\u6570\uFF0C\u89C4\u5B9A\u4E3A\u8D85\u65F6,\u4E0ETIMEOUTFORIN\u5BF9\u5E94
+TIMEOUTFORCOUNT=5

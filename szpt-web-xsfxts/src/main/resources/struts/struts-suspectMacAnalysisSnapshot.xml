@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="suspectMacAnalysisSnapshot" extends="szpt-web-xsfxts" namespace="/suspectMacAnalysisSnapshot">
+	
+		<!-- 显示新建快照页面 -->
+		<action name="showNewSuperctMacAnalyusisSnapshotPage">
+			<result name="success">/WEB-INF/view/suspect/newSuperctMacAnalyusisSnapshot.jsp</result>
+		</action>
+		
+		<!-- 添加快照 -->
+		<action name="createSnapshot" class="suspectMacAnalysisSnapshotAction" method="createSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据指令主体id和指令类型查询指令列表 -->
+		<action name="findInstructionListByRelatedObjectIdAndType" class="suspectMacAnalysisSnapshotAction" method="findInstructionListByRelatedObjectIdAndType">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 反馈指令 -->
+		<action name="feedbackInstruction" class="suspectMacAnalysisSnapshotAction" method="feedbackInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

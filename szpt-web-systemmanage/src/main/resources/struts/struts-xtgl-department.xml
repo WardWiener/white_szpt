@@ -1,0 +1,48 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+<!-- *****************************************************单位管理************************************************************ -->
+	<package name="department" extends="szpt-web-xtgl" namespace="/department">
+			<!-- 跳转部门管理 -->
+		<action name="toDepartment">
+			<result name="success">/WEB-INF/view/xtgl/department/department.jsp</result>
+		</action>
+		<!-- 加载部门树 -->
+		<action name="initDepartmentTree" class="departmentAction" method="initDepartmentTree">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findDeparmentById" class="departmentAction" method="findDeparmentById">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">departmentBean.*,flag</param>
+			</result>
+		</action>
+		<action name="initInfo" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="addDeparment" class="departmentAction" method="addDeparment">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">departmentBean.*,msg,flag</param> 
+			</result>
+		</action>
+		<action name="deleteDepartment" class="departmentAction" method="deleteDepartment">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="disableControl" class="departmentAction" method="disableControl">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="enableControl" class="departmentAction" method="enableControl">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="modifyDepartment" class="departmentAction" method="modifyDepartment">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">departmentBean.*,flag,msg</param> 
+			</result>
+		</action>
+	</package>
+</struts>

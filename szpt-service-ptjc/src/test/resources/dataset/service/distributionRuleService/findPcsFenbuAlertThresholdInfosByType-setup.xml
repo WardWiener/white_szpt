@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+ <t_ptjc_fbgz id="001" jqlb="lb001" mbbm="bm002" mbmc="平桥派出所" mbid="dw002" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="RED" fw="2&lt;3" ></t_ptjc_fbgz>
+ <t_ptjc_fbgz id="002" jqlb="lb001" mbbm="bm003" mbmc="三江派出所" mbid="dw003" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="RED" fw="3&lt;4" ></t_ptjc_fbgz>
+ <t_ptjc_fbgz id="003" jqlb="mb003" mbbm="bm004" mbmc="测试派出所" mbid="dw004" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="RED" fw="2&lt;3" ></t_ptjc_fbgz>
+
+ <t_ptjc_fbgz id="006" jqlb="lb001" mbbm="bm002" mbmc="平桥派出所" mbid="dw002" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="BLUE" fw="1&lt;2" ></t_ptjc_fbgz>
+ <t_ptjc_fbgz id="007" jqlb="lb001" mbbm="放火" mbmc="李四" mbid="mbId002" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="BLUE" fw="1&lt;2" ></t_ptjc_fbgz>
+ <t_ptjc_fbgz id="008" jqlb="lb003" mbbm="盗窃" mbmc="王五" mbid="mbId003" mblx="com.taiji.pubsec.szpt.common.model.SzptUnit" ys="BLUE" fw="1&lt;2" ></t_ptjc_fbgz>
+ 
+<t_ty_dw id="dw001" bm="bm001" lv="1" mc="经开分局" lx="分局" ty_dw_id="1"></t_ty_dw>
+<t_ty_dw id="dw002" bm="bm002" lv="2" mc="平桥派出所" lx="派出所" ty_dw_id="1"></t_ty_dw>
+<t_ty_dw id="dw003" bm="bm003" lv="2" mc="三江派出所" lx="派出所" ty_dw_id="1"></t_ty_dw>
+<t_ty_dw id="dw004" bm="bm004" lv="2" mc="测试派出所" lx="派出所" ty_dw_id="1"></t_ty_dw>
+</dataset>
+
+
+
+
+
+
+
+
+
+
+

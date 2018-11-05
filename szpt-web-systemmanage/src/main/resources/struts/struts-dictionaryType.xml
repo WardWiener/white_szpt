@@ -1,0 +1,83 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="dictionary" extends="szpt-web-xtgl" namespace="/dictionaryType">
+	
+		<action name="toDictionaryType" class="dictionaryTypeAction" method="toDictionaryType">
+			<result name="success">/WEB-INF/view/dictionary/dictionary.jsp</result>
+		</action>
+		<action name="toAddictionaryType">
+			<result name="success">/WEB-INF/view/dictionary/addItem.jsp</result>
+		</action>
+		<action name="toLookictionaryType">
+			<result name="success">/WEB-INF/view/dictionary/lookItem.jsp</result>
+		</action>
+		<action name="initDictItemStatus" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="updateDictionaryItemStatus" class="dictionaryTypeAction" method="updateDictionaryItemStatus">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findDictionaryType" class="dictionaryTypeAction" method="findDictionaryType">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">dictionaryTypeBeanPager.*,totalNum,length</param> 
+			</result>
+		</action>
+		
+		<action name="saveDictionaryType" class="dictionaryTypeAction" method="saveDictionaryType">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		
+		<action name="updateDictionaryType" class="dictionaryTypeAction" method="updateDictionaryType">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		
+		<action name="enableType" class="dictionaryTypeAction" method="enableType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="disableType" class="dictionaryTypeAction" method="disableType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="initDictionaryItemTree" class="dictionaryTypeAction" method="initDictionaryItemTree">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findAllSubDictItemsByParId" class="dictionaryTypeAction" method="findAllSubDictItemsByParId">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="saveItem" class="dictionaryTypeAction" method="saveItem">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="removeItem" class="dictionaryTypeAction" method="removeItem">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="lookOverItem" class="dictionaryTypeAction" method="lookOverItem">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="updateItem" class="dictionaryTypeAction" method="updateItem">
+			<result name="success" type="json">
+			   <param name="ignoreHierarchy" >false</param>
+			   <param name = "includeProperties">flag,msg</param> 
+			</result>
+		</action>
+		<action name="moveUpDictionaryItem" class="dictionaryTypeAction" method="moveUpDictionaryItem">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="moveDownDictionaryItem" class="dictionaryTypeAction" method="moveDownDictionaryItem">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="initDicTypeClassifer" class="dictionaryTypeAction" method="initDicTypeClassifer">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

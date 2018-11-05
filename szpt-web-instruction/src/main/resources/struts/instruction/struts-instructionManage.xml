@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd" >
+<struts>
+	<package name="instructionManage" extends="szpt-web-instruction" namespace="/instructionManage">
+	
+		<action name="showInstructionListPage">
+			<result name="success">/WEB-INF/view/instruction/instruction/instructionList.jsp</result>
+		</action>
+		
+		<action name="showFindInstructionPage">
+			<result name="success">/WEB-INF/view/instruction/instruction/findInstruction.jsp</result>
+		</action>
+		
+		<action name="queryInstructionList" class="instructionAction" method="queryInstructionList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="showNewInstructionPage">
+			<result name="success">/WEB-INF/view/instruction/instruction/newInstruction.jsp</result>
+		</action>
+		
+		<action name="findInstruction" class="instructionAction" method="findInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findReceiveSubjectBeanList" class="instructionAction" method="findReceiveSubjectBeanList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findOperationRecordBeanListByInstructionId" class="instructionAction" method="findOperationRecordBeanListByInstructionId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="saveInstruction" class="instructionAction" method="saveInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		        <param name="actionName">export</param>
+			    <param name="namespace">/</param>
+	        </result> 
+		</action>
+		
+	</package>
+</struts>

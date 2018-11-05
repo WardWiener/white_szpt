@@ -1,0 +1,150 @@
+@charset "utf-8";
+/* CSS Document */
+
+body{ 
+background:#fff url(../images/login-bg.jpg) center 0; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	background-size: cover;
+}
+
+.logo-name{ 
+font-size:25px; 
+color:#fff; 
+font-weight:normal; 
+text-align:center;
+text-shadow:0px 0px 5px rgba(0,0,0,0.5);
+margin-top:100px;
+font-family:Microsoft Yahei;
+}
+.logo-name span{ font-weight:bold;font-size:45px; }
+.login-box-bg{width:400px; 
+height:400px;
+border-radius:10px;
+box-shadow:2px 2px 20px rgba(0,0,0,0.4);
+margin:20px auto;
+background:#000;
+-webkit-opacity:0.7;
+-moz-opacity:0.7;
+opacity:0.7;
+filter:alpha(opacity=70);
+position:absolute;
+z-index:-1;
+}
+.login-box{
+width:400px; 
+height:400px;
+margin:20px auto;
+}
+.login-box h2{ text-align:center; font-weight:normal;font-family:Microsoft Yahei;  font-size:18px; color:#ccc; padding:40px 0 20px 0;border-bottom:1px solid #111; margin:0 20px;}
+.login-box .content{ width:340px; margin:0 auto;}
+.login-box input,.login-box button{ width:100%; color:#fff; border-radius:4px;font-family:Heiti, Microsoft Yahei; outline:none;}
+.login-box input{ 
+height:40px; line-height:40px; 
+border:none;
+border-bottom:1px dotted #666; font-size:14px; 
+margin-bottom:20px; padding-left:15%; width:85%; 
+background:url(../images/login-icon.png) no-repeat 10px 5px;
+color:#ccc;
+}
+.login-box .put2{ background-position:10px -40px;}
+.login-box .put3{ background-position:10px -85px;}
+.login-box button{ height:45px; background:#00c8a5; border:1px solid #00b898;font-size:20px;}
+.login-box button:hover{background:#00ae90;}
+.login-box button:active{background:#009d82;}
+.login-box input:focus{
+background-color:#fff;
+color:#111!important;
+font-size:25px;
+border:1px solid #00c8a5;
+}
+
+.login-box-success{position:relative;}
+.login-box-success h2{border-bottom:1px dotted #333;}
+.login-box .welcomebox{ display:none;}
+.login-box-success .welcomebox{ display:block;}
+.login-box-success .we{color:#fff;position:absolute; width:100%; top:70px; z-index:100;font-family:Microsoft Yahei; }
+.login-box-success .we h3{font-size:25px; color:#00c8a5; font-weight:normal; text-align:center;  padding:50px 0 20px 0; }
+.login-box-success .we p{ color:rgba(255,255,255,0.4); text-align:center; font-size:14px;}
+.login-box-success .we .btnbox{ color:#fff; text-align:right; padding-right:20px;}
+.login-box-success .btnbox .exit{border:1px solid #444; background:none; padding:0 15px; height:30px;width:auto;font-size:12px; color:#888; position:absolute; right:20px; bottom:20px; }
+.login-box-success .btnbox .exit:hover{border:1px solid rgba(0,200,165,1.0); color:#aaa;}
+.login-box-success .btnbox .exit:active{background:rgba(0,0,0,0.3);}
+
+.login-box .tips-out{ position:relative; display:none;}
+.login-box .tips{ position:absolute; z-index:100;top:-64px; right:-168px; width:150px; height:44px; line-height:44px; border-top-right-radius:20px;border-bottom-right-radius:20px;  background:#00c8a5; color:#fff; font-size:12px; padding-left:20px; margin:0;box-shadow:1px 1px 6px rgba(0,0,0,0.2);}
+.login-box .tips.alt{background:#ff9900;}
+/**.login-box input:focus+.tips-out{ display:block;} **/
+.login-box .yanzm-out{ position:relative;}
+.login-box .yanzm{ position:absolute; top:-58px; right:6px;}
+.login-box .yanzm img{ height:32px;}
+.wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+
+}
+
+/*************动态背景**************/
+.bg-animation {
+  position: absolute;
+  top: 0;
+  left: -200px;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+.bg-animation .zhen{
+  position: absolute;
+  left:-100px;
+  list-style: none;
+  display: block;
+  width: 200px;
+  height:100%;
+  bottom:0;
+  box-shadow:0px 0px 50px rgba(255,255,255,0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+
+  animation: radar 1s infinite;
+  transition-timing-function: ease;
+  animation-delay:1s;
+  animation-duration:3s;
+  
+  -webkit-animation:radar 1s infinite;
+  -webkit-transition-timing-function: ease;
+  -webkit-animation-delay:1s;
+  -webkit-animation-duration:5s;
+}
+.bg-animation .zhen .light{ 
+  width:1px;
+   margin:0 auto;
+  height: 100%;
+   background-color: rgba(255, 255, 255, 0.2);
+  }
+  
+@keyframes radar {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(2300px) rotate(0deg);
+            transform: translateX(2300px) rotate(0deg);
+  }
+ }  
+@-webkit-keyframes radar {
+  0% {
+    -webkit-transform: translateX(-200px);
+            transform: translateX(-200px);
+  }
+  100% {
+    -webkit-transform: translateX(2300px) rotate(0deg);
+            transform: translateX(2300px) rotate(0deg);
+  }
+}
+
+
+/*************动态背景**************/

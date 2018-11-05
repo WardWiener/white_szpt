@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE taglib PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN" "http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+<taglib>
+<!--定义标签版本库-->  
+	<tlibversion>1.0</tlibversion>
+	<!--定义jsp版本库-->  
+	<jspversion>1.1</jspversion>
+	<shortname>resource</shortname>
+	<uri>http://jakarta.apache.org/struts/tags-bean</uri>
+	
+	<tag>
+		<!--tag的名字-->
+		<name>ss</name>
+		<!--tag对应的java类的名字-->
+		<tagclass>com.taiji.pubsec.businesscomponents.springsecurity.rbac.tag.SecurityResourceTag</tagclass>
+		<!--关于body-content 有三个值可选;empty：标签体必须为空;jsp：标签由其他jsp元素组成比如标签中含有<%=attributeName%>的jsp元素,那么此时body-content的值就是实际attributeName传入的值;tagdependent:有标签解释不带jsp转换（这个深入的含义不太了解）-->  
+		<bodycontent>empty</bodycontent>
+		<!---这里表示的是这个tag的一个参数-->  
+		<attribute>
+			<!--这个参数的名字-->  
+			<name>resource</name>
+			<!--是否是必填选项-->
+			<required>true</required>
+			<!--这个参数的值是否可以写入，换句话说 就是这个参数是否可以动态赋值-->
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>request</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>value</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>locale</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>type</name>
+			<required>true</required>
+		</attribute>
+		<attribute>
+			<name>otherAttribute</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>otherAttribute1</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+	</tag>
+</taglib>

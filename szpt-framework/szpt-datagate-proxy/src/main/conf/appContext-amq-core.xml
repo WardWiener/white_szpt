@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://activemq.apache.org/schema/core 
+	http://activemq.apache.org/schema/core/activemq-core.xsd
+	http://camel.apache.org/schema/spring 
+	http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <amq:connectionFactory id="jmsConnectionFactory"
+    brokerURL="${activemq.url}" />
+
+  <amq:queue name="QUEUE_REQ_SEND" physicalName="QUEUE_REQ_SEND_XXAPP"></amq:queue>
+  <amq:queue name="QUEUE_REQ_RECV" physicalName="QUEUE_REQ_RECV_XXAPP"></amq:queue>
+  <amq:queue name="QUEUE_RSP_SEND" physicalName="QUEUE_RSP_SEND_XXAPP"></amq:queue>
+  <amq:queue name="QUEUE_RSP_RECV" physicalName="QUEUE_RSP_RECV_XXAPP"></amq:queue>
+
+  <!-- ActiveMQ 发送方式同步异步设置 -->
+  <!-- <bean id="jmsConnectionFactory" class="org.apache.activemq.spring.ActiveMQConnectionFactory"> 
+    <property name="brokerURL" value="${activeMQ.serverURL}" /> <property name="useAsyncSend" 
+    value="true" /> </bean> -->
+
+  <!-- Spring JmsTemplate -->
+  <bean id="jmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+    <property name="connectionFactory">
+      <bean class="org.springframework.jms.connection.SingleConnectionFactory">
+        <property name="targetConnectionFactory" ref="jmsConnectionFactory" />
+      </bean>
+    </property>
+    <property name="pubSubDomain" value="true" />
+    <property name="sessionTransacted" value="false" />
+    <!-- AUTO_ACKNOWLEDGE/CLIENT_ACKNOWLEDGE/DUPS_OK_ACKNOWLEDGE -->
+    <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+    <property name="explicitQosEnabled" value="false" />
+    <property name="deliveryMode" value="1" />
+    <!-- <property name="messageConverter" ref="defaultMessageConverter" 
+      /> -->
+  </bean>
+
+</beans>

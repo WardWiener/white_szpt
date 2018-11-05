@@ -1,0 +1,10 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+   <!-- 我的专案 -->
+	 <package name="actions" extends="struts-default" namespace="/wdza/actions">  
+		  <action name="ckeditorUpload" class="ckeditorUpload"> 
+		  </action>  
+	</package> 
+</struts>

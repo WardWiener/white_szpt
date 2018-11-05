@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+    <t_og_zzjg id="dwid001" bm="dwbm001" mc="贵州省贵阳市经开分局" jc="经开分局" lxdh="10010" cz="传真" bgdz="办公地址" bz="传真" zt="状态" sjc="2016-10-14 12:10:10" sjzzjg_id="dwid001" />
+	<t_og_zzjg id="dwid002" bm="dwbm002" mc="贵州省贵阳市小河分局" jc="小河分局" lxdh="10010" cz="传真" bgdz="办公地址" bz="传真" zt="状态" sjc="2016-10-14 12:10:10" sjzzjg_id="dwid001" />
+	<t_og_zzjg id="dwid003" bm="dwbm003" mc="贵州省贵阳市平桥分局" jc="平桥分局" lxdh="10010" cz="传真" bgdz="办公地址" bz="传真" zt="状态" sjc="2016-10-14 12:10:10" sjzzjg_id="dwid001" />
+	<t_og_zzjg id="dwid004" bm="dwbm004" mc="贵州省贵阳市三江分局" jc="三江分局" lxdh="10010" cz="传真" bgdz="办公地址" bz="传真" zt="状态" sjc="2016-10-14 12:10:10" sjzzjg_id="dwid001" />
+	<t_og_zzjg id="dwid005" bm="dwbm005" mc="贵州省贵阳市测试分局" jc="测试分局" lxdh="10010" cz="传真" bgdz="办公地址" bz="传真" zt="状态" sjc="2016-10-14 12:10:10" sjzzjg_id="dwid001" />
+	<t_og_dw fl="SJ0012004" id="dwid001" />
+	<t_og_dw fl="SJ0012005" id="dwid002" />
+
+	<t_gwry_ryxx id="gw001" xm="张飞" xb="男" sfzh="112233445566" hjdz="河北邯郸" cjsj="2016-10-14 14:10:10" jzdz="河北石家庄" gzdz="北京" zy="小偷经理" sr="10000" yjlx="预警类型" sjly="数据来源-谣言" rczk="0" njjg="有毒" czqk="处置情况" cjr="李白"  sjzt="0" cjrdw_id="dwid001" />
+	<t_gwry_ryxx id="gw002" xm="张飞" xb="男" sfzh="112233445566" hjdz="河北邯郸" cjsj="2016-10-14 14:10:10" jzdz="河北石家庄" gzdz="北京" zy="小偷经理" sr="10000" yjlx="预警类型" sjly="数据来源-谣言" rczk="0" njjg="有毒" czqk="处置情况" cjr="李白"  sjzt="0" cjrdw_id="dwid001" />
+	<t_gwry_ryxx id="gw003" xm="张飞" xb="男" sfzh="112233445566" hjdz="河北邯郸" cjsj="2016-10-14 14:10:10" jzdz="河北石家庄" gzdz="北京" zy="小偷经理" sr="10000" yjlx="预警类型" sjly="数据来源-谣言" rczk="0" njjg="有毒" czqk="处置情况" cjr="李白"  sjzt="0" cjrdw_id="dwid001" />
+	<t_gwry_ryxx id="gw004" xm="张飞" xb="男" sfzh="112233445566" hjdz="河北邯郸" cjsj="2016-10-14 14:10:10" jzdz="河北石家庄" gzdz="北京" zy="小偷经理" sr="10000" yjlx="预警类型" sjly="数据来源-谣言" rczk="0" njjg="有毒" czqk="处置情况" cjr="李白"  sjzt="0" cjrdw_id="dwid002" />
+	<t_gwry_ryxx id="gw005" xm="张飞" xb="男" sfzh="112233445566" hjdz="河北邯郸" cjsj="2016-10-14 14:10:10" jzdz="河北石家庄" gzdz="北京" zy="小偷经理" sr="10000" yjlx="预警类型" sjly="数据来源-谣言" rczk="0" njjg="有毒" czqk="处置情况" cjr="李白"  sjzt="0" cjrdw_id="dwid002" />
+</dataset>

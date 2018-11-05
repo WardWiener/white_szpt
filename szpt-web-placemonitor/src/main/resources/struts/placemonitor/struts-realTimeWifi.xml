@@ -1,0 +1,51 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<package name="realTimeWifi" extends="szpt-web-placemonitor" namespace="/realTimeWifi">
+		
+		<!-- 根据场所名称查询场所详情 -->
+		<action name="showLookRealTimeWifiPage">
+			<result name="success">/WEB-INF/view/placemonitor/realTimeWifi/lookRealTimeWifi.jsp</result>
+		</action>
+		
+		<!-- 新建快照页面 -->
+		<action name="showRealTimeWifiSnapshotPage">
+			<result name="success">/WEB-INF/view/placemonitor/realTimeWifi/realTimeWifiSnapshot.jsp</result>
+		</action>
+		
+		<!-- 查询所有WIFI监控点列表 -->
+		<action name="findAllPlaceByPlaceName" class="realTimeWifiAction" method="findAllPlaceByPlaceName">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询所有WIFI监控点列表 -->
+		<action name="findAllPlaceList" class="realTimeWifiAction" method="findAllPlaceList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询wifi监控点总数 -->
+		<action name="findPlaceSum" class="realTimeWifiAction" method="findPlaceSum">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询被监控对象总数 -->
+		<action name="findDeviceaSum" class="realTimeWifiAction" method="findDeviceaSum">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据mac地址查询所有的轨迹列表-->
+		<action name="findAllLocusByMacs" class="realTimeWifiAction" method="findAllLocusByMacs">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 生成快照-->
+		<action name="generateRealTimeSnapshot" class="realTimeWifiAction" method="generateRealTimeSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据类型和id查询发给当前单位的指令-->
+		<action name="findInstructionByUnitId" class="realTimeWifiAction" method="findInstructionByUnitId">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

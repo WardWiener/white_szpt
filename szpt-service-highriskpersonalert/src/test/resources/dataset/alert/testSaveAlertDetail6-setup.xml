@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <t_yjjl id="yj1" csmc="csmc" yjnr="yjnr" rymc="rymc" zt="zt1" wybs="key1"/>
+  <t_yj_xq_gx id="gx1" yjxqlx="com.taiji.pubsec.szpt.wifi.model.AlertDetailForRuleSix" yjxqjl_id="xq1" yj_id="yj1"/>
+  <t_yj_xq_six id="xq1" csbm="code1" mac="mac1" jrsj="2016-8-12 10:12:23" lksj="2016-8-12 10:24:00"/>
+</dataset>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+ <t_ptjc_xscl id="001" sjlx="DAY" dwbm="bm002" dwmc="平桥派出所"  ys="BLUE" fw="1&lt;2" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="002" sjlx="DAY" dwbm="bm002" dwmc="平桥派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="003" sjlx="MONTH" dwbm="bm002" dwmc="平桥派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="004" sjlx="MONTH" dwbm="bm002" dwmc="平桥派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="005" sjlx="WEEK" dwbm="bm002" dwmc="平桥派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="006" sjlx="YEAR" dwbm="bm002" dwmc="平桥派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+
+<t_ptjc_xscl id="011" sjlx="DAY" dwbm="bm003" dwmc="三江派出所"  ys="BLUE" fw="1&lt;2" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="012" sjlx="DAY" dwbm="bm003" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="013" sjlx="MONTH" dwbm="bm003" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="014" sjlx="MONTH" dwbm="bm003" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="015" sjlx="WEEK" dwbm="bm003" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="016" sjlx="YEAR" dwbm="bm003" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+
+<t_ptjc_xscl id="021" sjlx="DAY" dwbm="bm004" dwmc="三江派出所"  ys="BLUE" fw="1&lt;2" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="022" sjlx="DAY" dwbm="bm004" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="023" sjlx="MONTH" dwbm="bm004" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="024" sjlx="MONTH" dwbm="bm004" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="025" sjlx="WEEK" dwbm="bm004" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+ <t_ptjc_xscl id="026" sjlx="YEAR" dwbm="bm004" dwmc="三江派出所"  ys="RED" fw="2&lt;3" ></t_ptjc_xscl>
+
+</dataset>
+
+
+
+
+
+
+
+
+
+
+

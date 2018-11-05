@@ -1,0 +1,20 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="newInstruct" extends="szpt-web-dagl" namespace="/newInstruct">
+		<!-- 新增指令 -->
+		<action name="showNewInstruct">
+			<result name="success">/WEB-INF/view/yryd/newInstruction/newInstruction.jsp</result>
+		</action>
+		<action name="findAllSubDictionaryItemsByTypeCode" class="dictionaryItemAction" method="findAllSubDictionaryItemsByTypeCode">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="saveInstruction" class="instruct" method="saveInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findInstructionAndfeedbackBeanLst" class="yrydAction" method="findInstructionAndfeedbackBeanLst">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

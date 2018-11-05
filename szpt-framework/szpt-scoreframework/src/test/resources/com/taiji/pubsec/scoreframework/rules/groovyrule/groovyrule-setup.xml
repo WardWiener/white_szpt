@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<!-- groovy脚本规则 -->
+	<t_scoreframework_groovyrule id="a123" script="if(0 &lt; x0 &amp;&amp; x0&lt;= 100) return 50 else if(x0 &lt;= 0) ruturn 0 else if(100 &lt; x0) return 100" />
+	<t_scoreframework_groovyrule id="b123" script="if(0 &lt; x0 &amp;&amp; x0&lt;= 100) return 5000 else if(x0 &lt;= 0) ruturn 0 else if(100 &lt; x0) return 10000" />
+
+	<!-- 检查点 -->
+    <t_scoreframework_scorepoint id="cp1" ceid="ce123" description="测试用的检查点" cetype="com.taiji.pubsec.scoreframework.MokeExecutor"/>
+    <!-- 规则 -->
+    <t_scoreframework_scorerule id="rule1" scoreframework_scorepoint_id="cp1" ruleid="a123" description="测试用的规则a。" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"/>
+	<t_scoreframework_scorerule id="rule2" scoreframework_scorepoint_id="cp1" ruleid="b123" description="测试用的规则b。" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"/>
+
+	<!-- 检查任务 -->
+	<t_scoreframework_scoretask id="ct1" description="测试任务" weight="100" />
+	<!-- 检查点配置 -->
+	<t_scoreframework_scorepointcfg id="cpf1" weight="30" scoreframework_scorepoint_id="cp1" scoreframework_scoretask_id="ct1" />
+	<t_scoreframework_scorepointcfg id="cpf2" weight="70" scoreframework_scorepoint_id="cp1" scoreframework_scoretask_id="ct1" />
+</dataset>

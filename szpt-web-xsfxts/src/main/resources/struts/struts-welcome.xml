@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="xsfxts" extends="szpt-web-xsfxts" namespace="/xsfxts">
+		<!-- 显示统计页面 -->
+		<action name="showXsfxtsWelcome">
+		  <result name="success">/WEB-INF/view/welcome/welcome.jsp</result>
+		</action>  
+		
+		<!-- 根据时间段查询盗窃案（饼图） -->
+		<action name="queryLarcenyCaseByTime" class="welcomeAction" method="queryLarcenyCaseByTime">
+		  <result name="success" type="json"></result>
+		</action>
+		      
+		<!-- 根据时间段查询抢劫、抢夺案（饼图） -->
+		<action name="queryRobberyCaseByTime" class="welcomeAction" method="queryRobberyCaseByTime">
+		  <result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询案发处所统计数量 -->
+		<action name="queryOccurPlaceCount" class="welcomeAction" method="queryOccurPlaceCount">
+		  <result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询作案特点统计数量 -->
+		<action name="queryCaseFeatureCount" class="welcomeAction" method="queryCaseFeatureCount">
+		  <result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询作案时段统计数量 -->
+		<action name="queryCasePeriodCount" class="welcomeAction" method="queryCasePeriodCount">
+		  <result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

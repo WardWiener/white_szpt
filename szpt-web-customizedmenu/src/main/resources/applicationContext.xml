@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+                          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+				<value>classpath:config.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean class="com.taiji.pubsec.szpt.util.ArcgisConstant">
+      <constructor-arg index="0">
+        <value>${arcgis.MAP_SERVER}</value>
+      </constructor-arg>
+      <constructor-arg index="1">
+        <value>${arcgis.BASE_MAP_SERVER}</value>
+      </constructor-arg>
+      <constructor-arg index="2">
+        <value>${arcgis.BASE_MAP_LAYER_TYPE}</value>
+      </constructor-arg>
+    </bean>
+	
+	<bean class="com.taiji.pubsec.szpt.util.Constant">
+		<constructor-arg index="0">
+			<value>${SZPT_HOST_PORT}</value>
+		</constructor-arg>
+	</bean>
+    
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${database.driverClassName}" />
+		<property name="jdbcUrl" value="${database.url}" />
+		<property name="user" value="${database.username}" />
+		<property name="password" value="${database.password}" />
+		<property name="maxPoolSize" value="${database.pool.max}" />
+		<property name="minPoolSize" value="${database.pool.min}" />
+		<property name="initialPoolSize" value="${database.pool.initial}" />
+		<property name="idleConnectionTestPeriod" value="${database.pool.idle_test_period}" />
+	</bean>
+
+
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<array>
+              <value>com.taiji.pubsec.businesscomponents.organization.model</value>
+              <value>com.taiji.pubsec.businesscomponents.authority.model</value>
+              <value>com.taiji.pubsec.businesscomponents.dictionary.model</value>
+              <value>com.taiji.pubsec.szpt.attachment.model.Attachment</value>
+              <value>com.taiji.pubsec.szpt.operationrecord.model</value>
+              <value>com.taiji.pubsec.szpt.customizedmenu.model</value>
+              <value>com.taiji.pubsec.szpt.instruction.model</value>
+              <value>com.taiji.pubsec.szpt.ajgl.model</value>
+              <value>com.taiji.pubsec.szpt.common.model</value>
+              <value>com.taiji.pubsec.szpt.dagl.model</value>
+              <value>com.taiji.pubsec.szpt.highriskpersonalert.model</value>
+              <value>com.taiji.pubsec.szpt.highriskpersonalert.personexecutecontrol.model</value>
+			  <value>com.taiji.pubsec.complex.tools.attachment</value>
+			</array>
+		</property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="${hibernate.dialect}" />
+				<property name="showSql" value="${hibernate.show_sql}" />
+				<property name="generateDdl" value="${hibernate.generateDdl}" />
+			</bean>
+		</property>
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="hibernate.format_sql" value="${hibernate.format_sql}" />
+				<entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}" />
+                <entry key="hibernate.ejb.interceptor" value="com.taiji.pubsec.persistence.interceptor.CustomizedInterceptor" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- 2.定义事务通知 ,并指定关联的事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 在属性中定义事务规则 -->
+		<tx:attributes>
+			<tx:method name="create*" propagation="REQUIRED" />
+            <tx:method name="on*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="sign*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="done*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="is*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 3.定义aop:config -->
+	<aop:config>
+		<aop:pointcut id="serviceMethods" expression="execution(* com.taiji..service.impl.*.*(..))" />
+        <aop:pointcut id="ormMethods" expression="execution(* com.taiji..service.*.*(..))" />
+        <aop:pointcut id="ormMethods1" expression="execution(* com.taiji..*Service.*(..))" />
+        <aop:pointcut id="ormMethods2" expression="execution(* com.taiji..*ServiceImpl.*(..))" />
+		<!-- 将事务通知和切面组合 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods1" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods2" />
+	</aop:config>
+	
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<context:component-scan base-package="com.taiji.*" />
+	
+
+	<bean id="springContextUtil" class="com.taiji.pubsec.common.tools.spring.SpringContextUtil" />
+	<bean id="dao" class="com.taiji.pubsec.persistence.dao.JpaDaoImpl" />
+	<bean id="jpaDao" class="com.taiji.pubsec.persistence.dao.JpaDaoImpl" />
+ 	<bean id="sqlDao" class="com.taiji.pubsec.persistence.dao.JpaSqlDaoImpl">
+		<property name="dataSource" ref="dataSource" />
+	</bean>
+	
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject">
+	       <!--  System.getProperties() -->
+	        <bean
+	            class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	            <property name="targetClass" value="java.lang.System" />
+	            <property name="targetMethod" value="getProperties" />
+	        </bean>
+   		</property>
+    	<property name="targetMethod" value="putAll" />
+		<property name="arguments">
+			<!-- 设置system.property -->
+			<util:properties>
+				<prop key="solr.zkhost">zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/solr</prop>
+			</util:properties>
+		</property>
+	</bean>
+	
+    <aop:aspectj-autoproxy />  
+</beans>
+	

@@ -1,0 +1,127 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>szpt-parent</artifactId>
+		<groupId>com.taiji.pubsec.szpt</groupId>
+		<relativePath>../szpt-parent/pom.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>szpt-web-xsfxts</artifactId>
+	<packaging>war</packaging>
+
+	<dependencies>
+		<!-- 基础web common依赖 -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<classifier>classes</classifier>
+			<!-- <exclusions>
+				<exclusion>
+					<groupId>com.taiji.pubsec.szpt</groupId>
+					<artifactId>szpt-service-ajgl</artifactId>
+				</exclusion>
+			</exclusions> -->
+		</dependency>
+		<!-- 基础web common依赖 -->
+	
+		<!-- 刑事案件分析service -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-xsfxts</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- 刑事案件分析service -->
+		
+		<!-- 快照service -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-snapshot</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- 快照service -->
+		
+		<!-- 高危人模块service -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-highriskpersonalert</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<!-- 高危人模块service -->
+		
+		<!-- 指令管理web模块 -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-instruction</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-instruction</artifactId>
+			<version>${project.version}</version>
+			<classifier>classes</classifier>
+		</dependency>
+		<!-- 指令管理web模块 -->
+		
+		<!-- <dependency> <groupId>com.taiji.pubsec.szpt</groupId> <artifactId>szpt-web-dagl</artifactId> 
+			<version>${project.version}</version> <type>war</type> </dependency> <dependency> 
+			<groupId>com.taiji.pubsec.szpt</groupId> <artifactId>szpt-web-dagl</artifactId> 
+			<version>${project.version}</version> <classifier>classes</classifier> </dependency> -->
+
+		<!-- test相关依赖 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.mockito</groupId>
+			<artifactId>mockito-all</artifactId>
+			<scope>test</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.struts</groupId>
+			<artifactId>struts2-junit-plugin</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.geronimo.specs</groupId>
+			<artifactId>geronimo-servlet_3.0_spec</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- test相关依赖 -->
+	</dependencies>
+</project>

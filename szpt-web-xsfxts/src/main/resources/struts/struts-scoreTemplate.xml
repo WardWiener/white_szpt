@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="scoreTemplate" extends="szpt-web-xsfxts" namespace="/scoreTemplate">
+		<!-- 串并案评分模板列表 -->
+		<action name="showScoreTemplateList">
+		  <result name="success">/WEB-INF/view/score/scoreTemplateList.jsp</result>
+		</action>  
+		
+		<!-- 新增串并案评分模板 -->
+		<action name="showNewScoreTemplate">
+		  <result name="success">/WEB-INF/view/score/newScoreTemplate.jsp</result>
+		</action>  
+		
+		<!-- 修改串并案评分模板 -->
+		<action name="showModifyScoreTemplate">
+		  <result name="success">/WEB-INF/view/score/modifyScoreTemplate.jsp</result>
+		</action>  
+		
+		<!-- 查看串并案评分模板 -->
+		<action name="showLookScoreTemplate">
+		  <result name="success">/WEB-INF/view/score/lookScoreTemplate.jsp</result>
+		</action>  
+		
+		<!-- 保存串并案评分模版 -->
+		<action name="save" class="scoreTemplateAction" method="save">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 修改串并案分析评分模版 -->
+		<action name="modify" class="scoreTemplateAction" method="modify">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 修改串并案分析评分模版状态 -->
+		<action name="modifyStatusByIds" class="scoreTemplateAction" method="modifyStatusByIds">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 删除串并案分析评分模版 -->
+		<action name="deleteByIds" class="scoreTemplateAction" method="deleteByIds">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 验证串并案分析评分模版名称是否唯一 -->
+		<action name="verifyNameOnly" class="scoreTemplateAction" method="verifyNameOnly">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 验证串并案分析评分模版编码是否唯一 -->
+		<action name="verifyCodeOnly" class="scoreTemplateAction" method="verifyCodeOnly">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 分页查询串并案分析评分模版集合 -->
+		<action name="queryList" class="scoreTemplateAction" method="queryList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据id查询串并案分析评分模版 -->
+		<action name="queryById" class="scoreTemplateAction" method="queryById">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

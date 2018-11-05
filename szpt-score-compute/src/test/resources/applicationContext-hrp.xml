@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+  <bean id="propertyConfigurer"
+    class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+    <property name="locations">
+      <list>
+      	<value>classpath:config.properties</value>
+        <value>classpath:jdbc-mysql.properties</value>
+      </list>
+    </property>
+  </bean>
+  
+  <!-- 初始化数据表结构 与默认数据 -->
+  <jdbc:initialize-database data-source="dataSource"
+    ignore-failures="DROPS" enabled="true">
+<!-- 放在文件的最上方，会优先各个bean里的ApplicationContextAware执行;h2的连接要加上DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE -->
+    <jdbc:script location="classpath:hrp/testdata/hrpTableSetUp.sql" encoding="UTF-8" execution="INIT" />
+  </jdbc:initialize-database>       
+
+  <bean id="springContextUtil" class="com.taiji.pubsec.common.tools.spring.SpringContextUtil"></bean>
+
+	<bean class="com.taiji.pubsec.szpt.score.compute.common.ComputeConstant">
+		<constructor-arg index="0">
+			<value>${szpt.kafka.topic-scoreresult-hp}</value>
+		</constructor-arg>
+		<constructor-arg index="1">
+			<value>${szpt.kafka.topic-scoreresult-case}</value>
+		</constructor-arg>
+	</bean>	  
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource">
+		<property name="driverClass" value="${database.driverClassName}" />
+		<property name="jdbcUrl" value="${database.url}" />
+		<property name="user" value="${database.username}" />
+		<property name="password" value="${database.password}" />
+		<property name="maxPoolSize" value="${database.pool.max}" />
+		<property name="minPoolSize" value="${database.pool.min}" />
+		<property name="initialPoolSize" value="${database.pool.initial}" />
+		<property name="idleConnectionTestPeriod" value="${database.pool.idle_test_period}" />
+	</bean>
+	
+<!--   <bean id="dataSource"
+    class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+    <property name="driverClassName" value="${database.driverClassName}" />
+    <property name="url" value="${database.url}" />
+    <property name="username" value="${database.username}" />
+    <property name="password" value="${database.password}" />
+  </bean>	 -->
+
+  <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+    <property name="dataSource" ref="dataSource"></property>
+  </bean>
+
+  <bean id="entityManagerFactory"
+    class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+    <property name="dataSource" ref="dataSource" />
+    <property name="packagesToScan">
+      <array>
+        <value>com.taiji.pubsec.scoreframework</value>
+        <value>com.taiji.pubsec.businesscomponents.dictionary.model</value>
+        <value>com.taiji.pubsec.szpt.score.compute.highriskperson.model</value>
+        <value>com.taiji.pubsec.scoreframework.monitor.model</value>
+        <value>com.taiji.pubsec.scoreframework.model</value>
+        <value>com.taiji.pubsec.scoreframework.rules.groovyrule.model</value>
+        <value>com.taiji.pubsec.szpt.score.util.rules.groovy.model</value>
+      </array>
+    </property>
+    <property name="jpaVendorAdapter">
+      <bean
+        class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+        <property name="databasePlatform" value="${hibernate.dialect}" />
+        <property name="showSql" value="${hibernate.show_sql}" />
+        <property name="generateDdl" value="${hibernate.generateDdl}" />
+      </bean>
+    </property>
+    <property name="jpaPropertyMap">
+      <map>
+        <entry key="hibernate.format_sql" value="${hibernate.format_sql}" />
+        <entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}" />
+        <entry key="hibernate.ejb.interceptor" value="com.taiji.pubsec.persistence.interceptor.CustomizedInterceptor" />
+        <entry key="javax.persistence.validation.mode" value="none" />
+      </map>
+    </property>
+  </bean>
+
+
+  <bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+    <property name="entityManagerFactory" ref="entityManagerFactory" />
+  </bean>
+
+  <tx:annotation-driven transaction-manager="transactionManager" />
+  
+	<!-- 2.定义事务通知 ,并指定关联的事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 在属性中定义事务规则 -->
+		<tx:attributes>
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="on*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="require*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="destroy*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="sign*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="done*" propagation="REQUIRED" />
+			<tx:method name="cancel*" propagation="REQUIRED" />
+			<tx:method name="process*" propagation="REQUIRED" />
+			<tx:method name="increase*" propagation="REQUIRED" />
+			<tx:method name="renew*" propagation="REQUIRED" />
+			<tx:method name="find*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="query*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="is*" propagation="SUPPORTS" read-only="true" />
+			<tx:method name="get*" propagation="SUPPORTS" read-only="true" />
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 3.定义aop:config -->
+	<aop:config>
+		<aop:pointcut id="serviceMethods" expression="execution(* com.taiji..service.impl.*.*(..))" />
+        <aop:pointcut id="ormMethods" expression="execution(* com.taiji..service.*.*(..))" />
+        <aop:pointcut id="ormMethods1" expression="execution(* com.taiji..*Service.*(..))" />
+        <aop:pointcut id="ormMethods2" expression="execution(* com.taiji..*ServiceImpl.*(..))" />
+		<!-- 将事务通知和切面组合 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods1" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods2" />
+	</aop:config>
+	
+	<context:component-scan base-package="com.taiji.pubsec.szpt.score.compute.highriskperson.*" />
+	<context:component-scan base-package="com.taiji.pubsec.szpt.score.compute.hrp.*" />
+	<context:component-scan base-package="com.taiji.pubsec.scoreframework.monitor.*" />
+	<context:component-scan base-package="com.taiji.pubsec.scoreframework.*" />
+	<context:component-scan base-package="com.taiji.pubsec.szpt.score.util.hrp.*" />
+	<context:component-scan base-package="com.taiji.pubsec.businesscomponents.dictionary.*" />
+	<context:component-scan base-package="com.taiji.pubsec.szpt.score.util.rules.*" />
+	<context:component-scan base-package="com.taiji.pubsec.persistence.*" />
+	<context:component-scan base-package="com.taiji.pubsec.common.tools.aophandler.*" />
+
+    <bean id="dao" class="com.taiji.pubsec.persistence.dao.JpaDaoImpl" />
+
+	<bean id="sqlDao" class="com.taiji.pubsec.persistence.dao.JpaSqlDaoImpl">
+	 <property name = "dataSource" ref="dataSource" />   
+	</bean>
+	
+	  <bean id="hrpScoreUtilTrackScoreComputeService" class="com.taiji.pubsec.szpt.score.compute.hrp.service.impl.MockHrpTrackScoreComputeServiceImpl" />
+	
+	<bean id="kafkaProducer" class="com.taiji.pubsec.szpt.kafka.KafkaProducer">
+		<property name="brokerList" value="${szpt.kafka}" />
+	</bean>	
+	
+	<bean id="aopAnnoAspect" class="com.taiji.pubsec.common.tools.aophandler.annotation.DefaultAopAnnoAspectImpl">
+	</bean>	
+
+	<aop:aspectj-autoproxy />  
+
+  <!-- 初始化数据表结构 与默认数据 -->
+<!--   <jdbc:initialize-database data-source="dataSource"
+    ignore-failures="DROPS" enabled="false">
+    由于使用的dbunit基于spring事务的listener，在spring的事务执行前将会执行dbunit的setup操作， 
+      然后才会执行script中指定的脚本。所以不能在此才来创建数据库表， 需要设置hibernate.hbm2ddl.auto=create以便在 dbunit的listener执行前将数据库的表创建完成。
+    <jdbc:script location="classpath:tableSetUp.sql"
+      encoding="UTF-8" execution="INIT" />
+  </jdbc:initialize-database> -->
+</beans>
+	

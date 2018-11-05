@@ -1,0 +1,116 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="yayd" extends="szpt-web-dagl" namespace="/yayd">
+		<action name="showYaydListPage">
+			<result name="success">/WEB-INF/view/yayd/yaydList.jsp</result>
+		</action>
+		<action name="showYaydDetailPage">
+			<result name="success">/WEB-INF/view/yayd/yaydDetail.jsp</result>
+		</action>
+		
+		<action name="showXyyMacAddressFxDetail">
+			<result name="success">/WEB-INF/view/yayd/ajfx/xyyMacAddressFxDetail.jsp</result>
+		</action>
+		
+		<!-- 查询案件接触警信息 -->
+		<action name="queryCriminalPoliceCaseByCode" class="yaydAction" method="queryCriminalPoliceCaseByCode">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询案件案件反馈信息 -->
+		<action name="queryCriminalFeedbackByCode" class="yaydAction" method="queryCriminaFeedbackByCode">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询警情处置信息 -->
+		<action name="queryAcceptPoliceInfoByCaseCode" class="yaydAction" method="queryAcceptPoliceInfoByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询案件打标信息 -->
+		<action name="queryCaseTagByCaseCode" class="yaydAction" method="queryCaseTagByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+			<!-- 查询涉案物品 -->
+		<action name="queryInvolvedThing" class="yaydAction" method="queryInvolvedThing">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询指令及反馈 -->
+		<action name="queryInstructionAndFeedbackByCaseCode" class="yaydAction" method="queryInstructionAndFeedbackByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询嫌疑人MAC快照 -->
+		<action name="querySuspectMacSnapshot" class="yaydAction" method="querySuspectMacSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+			<!-- 查询卷宗文书 -->
+		<action name="queryJZWS" class="yaydAction" method="queryJZWS">
+			<result name="success" type="json"></result>
+		</action>
+			<!-- 查询证据笔录 -->
+		<action name="queryZjbl" class="yaydAction" method="queryZjbl">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询涉案人员 -->
+		<action name="queryInvolvedCasePerson" class="yaydAction" method="queryInvolvedCasePerson">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询涉案团伙 -->
+		<action name="queryCriminalFordByCaseCode" class="yaydAction" method="queryCriminalFordByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询音视频 -->
+		<action name="queryVideo" class="yaydAction" method="queryVideo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询当前登录人的所有案件 -->
+		<action name="findMycase" class="daglAction" method="findMycase">
+        	<result name="success" type="json"></result>
+      	</action>
+		<action name="findYayd" class="daglAction" method="findYayd">
+        	<result name="success" type="json"></result>
+      	</action>
+		<action name="showSufferCaseRelation">
+			<result name="success">/WEB-INF/view/yayd/scrInfo.jsp</result>
+		</action>
+		<action name="showScrDetail" class="yaydCaseDetailAction" method="showScrDetail">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showCaseSupectRelation">
+			<result name="success">/WEB-INF/view/yayd/csrInfo.jsp</result>
+		</action>
+		<action name="showCsrDetail" class="yaydCaseDetailAction" method="showCsrDetail">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showCriminalObject">
+			<result name="success">/WEB-INF/view/yayd/coInfo.jsp</result>
+		</action>
+		<action name="showCoDetail" class="yaydCaseDetailAction" method="showCoDetail">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryVideoByCaseCode" class="yaydAction" method="queryVideoByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showAttachment">
+			<result name="success">/WEB-INF/view/yayd/attachment.jsp</result>
+		</action>
+		<action name="showUploadMedia">
+			<result name="success">/WEB-INF/view/yayd/uploadMedia.jsp</result>
+		</action>
+		<action name="saveVideoForCaseCode" class="yaydAction" method="saveVideoForCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		    	<param name="actionName">export</param>
+		    	<param name="namespace">/</param>
+			</result>
+		</action>
+	</package>
+</struts>

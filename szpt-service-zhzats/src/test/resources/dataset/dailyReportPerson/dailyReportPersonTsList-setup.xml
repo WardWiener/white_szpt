@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+    <t_zhzats_jwzh_bbjl id="001" ryjh="001" xm="小明" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy001" ty_zhdy_bm="jkfj001" ty_zhdy_mc="经开分局" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="002" ryjh="002" xm="张三" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy002" ty_zhdy_bm="xhfj001" ty_zhdy_mc="小河分局" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="003" ryjh="003" xm="李四" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy003" ty_zhdy_bm="pqfj001" ty_zhdy_mc="平桥分局" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="004" ryjh="004" xm="王五" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy004" ty_zhdy_bm="sjfj001" ty_zhdy_mc="三江分局" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="005" ryjh="005" xm="赵六" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy005" ty_zhdy_bm="zg001" ty_zhdy_mc="主格01" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="006" ryjh="006" xm="杨七" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy006" ty_zhdy_bm="zg002" ty_zhdy_mc="主格02" ></t_zhzats_jwzh_bbjl>
+    <t_zhzats_jwzh_bbjl id="007" ryjh="007" xm="傻吧" bbrq="2016-10-10 10:10:10" ty_zhdy_id="zhdy007" ty_zhdy_bm="zg002" ty_zhdy_mc="主格02" ></t_zhzats_jwzh_bbjl>
+
+  <t_ty_jwzh_zhdy id="001" lx="pcs" bm="jkfj001" mc="经开分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="002" lx="pcs" bm="xhfj001" mc="小河分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="003" lx="pcs" bm="sjfj001" mc="三江分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="004" lx="pcs" bm="pqfj001" mc="平桥分局" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+
+  <t_ty_jwzh_zhdy id="005" lx="zg" bm="zg001" mc="主格1" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="006" lx="zg" bm="zg002" mc="主格2" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="007" lx="zg" bm="zg003" mc="主格3" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+  <t_ty_jwzh_zhdy id="008" lx="zg" bm="zg004" mc="主格4" pId="001" lv="1" ></t_ty_jwzh_zhdy>
+
+
+
+</dataset>

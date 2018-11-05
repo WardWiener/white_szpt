@@ -1,0 +1,66 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="zhzats" extends="szpt-web-zhzats" namespace="/zhzats">
+	
+		<action name="showZhzatsWelcome">
+			<result name="success">/WEB-INF/view/zhzats/welcome.jsp</result>
+		</action>
+
+		<action name="gundongInfo" class="factJqtsAnalyzeAction" method="gundongInfo">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="jinriInfo" class="factJqtsAnalyzeAction" method="jinriInfo">
+          	<result name="success" type="json"></result>
+        </action> 
+
+		<action name="changliangInfo" class="factJqtsAnalyzeAction" method="changliangInfo">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findJqPos" class="factJqtsAnalyzeAction" method="findJqPos">
+         	<result name="success" type="json"></result>
+        </action>  
+        
+        <action name="findXsAjPos" class="factJqtsAnalyzeAction" method="findXsAjPos">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findXcllPos" class="factJqtsAnalyzeAction" method="findXcllPos">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findFaAnChuSuo" class="factJqtsAnalyzeAction" method="findFaAnChuSuo">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findFaAnShiDuan" class="factJqtsAnalyzeAction" method="findFaAnShiDuan">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="wifiStatistics" class="factJqtsAnalyzeAction" method="wifiStatistics">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="gaoweiStatistics" class="factJqtsAnalyzeAction" method="gaoweiStatistics">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findFloatingPopInfo" class="factJqtsAnalyzeAction" method="findFloatingPopInfo">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findPanCha" class="factJqtsAnalyzeAction" method="findPanCha">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="daFangGuanKongWordExport" class="factJqtsAnalyzeAction" method="daFangGuanKongWordExport">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findDaFangGuanKong" class="factJqtsAnalyzeAction" method="findDaFangGuanKong">
+          	<result name="success" type="json"></result>
+        </action>
+
+	</package>
+</struts>

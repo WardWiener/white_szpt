@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="suspectMacAnalysis" extends="szpt-web-xsfxts" namespace="/suspectMacAnalysis">
+		<!-- 显示嫌疑人mac地址分析页面 -->
+		<action name="showSuspectMacAnalysisPage">
+			<result name="success">/WEB-INF/view/suspect/suspectMacAnalysis.jsp</result>
+		</action>
+		
+		<!-- 根据案发经纬度查询wifi点信息 -->
+		<action name="queryWifiPointByCaseLonlat" class="suspectMacAnalysisAction" method="queryWifiPointByCaseLonlat">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询所有场所信息（TODO 测试用完后删除） -->
+		<action name="queryAllPlaceBasicInfo" class="suspectMacAnalysisAction" method="queryAllPlaceBasicInfo">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

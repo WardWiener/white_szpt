@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="criminalBasicCase" extends="szpt-web-xsfxts" namespace="/criminalBasicCase">
+		
+		<!-- 根据嫌疑人编号查询前科案件 -->
+      	<action name="querySuspectQkCaseBySuspectCode" class="criminalBasicCaseAction" method="querySuspectQkCaseBySuspectCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据条件查询案件列表 -->
+      	<action name="queryCaseByCondition" class="criminalBasicCaseAction" method="queryCaseByCondition">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询已知串并案列表 -->
+      	<action name="queryKnownCaseByCaseCode" class="criminalBasicCaseAction" method="queryKnownCaseByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据编号查询案件 -->
+      	<action name="queryCriminalBasicCaseByCode" class="criminalBasicCaseAction" method="queryCriminalBasicCaseByCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询警情 -->
+      	<action name="queryAlarmByCaseCode" class="criminalBasicCaseAction" method="queryAlarmByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询嫌疑人 -->
+      	<action name="queryCriminalPersonByCaseCode" class="criminalBasicCaseAction" method="queryCriminalPersonByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询问询笔录 -->
+      	<action name="queryCrimialCaseNoteByCaseCode" class="criminalBasicCaseAction" method="queryCrimialCaseNoteByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询涉案物品 -->
+      	<action name="queryCriminalObjectByCaseCode" class="criminalBasicCaseAction" method="queryCriminalObjectByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号查询卷宗文书 -->
+      	<action name="queryArchivedFileByCaseCode" class="criminalBasicCaseAction" method="queryArchivedFileByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 已知串并案列表导出EXCEL -->
+		<action name="exportExcelByKnownCaseList" class="criminalBasicCaseAction" method="exportExcelByKnownCaseList">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param>
+			</result> 
+		</action>
+		
+	</package>
+</struts>

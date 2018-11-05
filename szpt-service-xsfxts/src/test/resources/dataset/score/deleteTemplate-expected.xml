@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_xsajfx_cbajfmb id="2" bm="02" mc="name2" ajlx="0001" ajxzyj="0001002" zt="1" bz="remark1" zxfs="60" cjr="cjr2"  cjsj="2016-10-10 10:10:10" gxr="gxr2" gxsj="2016-12-10 10:10:10" jsrw_id="jsrw2"></t_xsajfx_cbajfmb>
+
+
+	<t_scoreframework_scoretask />
+	<t_scoreframework_scorepoint />
+	<t_scoreframework_scorepointcfg />
+	<t_scoreframework_groovyrule />
+	<t_scoreframework_scorerule />
+
+</dataset>

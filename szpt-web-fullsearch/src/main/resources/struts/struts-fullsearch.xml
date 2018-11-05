@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="fullsearch" extends="szpt-web-fullsearch" namespace="/fullsearch">
+		<!-- 全文检索首页 -->
+		<action name="showFullSearchIndexPage">
+			<result name="success">/WEB-INF/view/fullSearchIndex.jsp</result>
+		</action>
+		<!-- 更多警情 -->
+		<action name="showEventMore">
+			<result name="success">/WEB-INF/view/eventMore/eventMore.jsp</result>
+		</action>
+		<!-- 更多线索 -->
+		<action name="showCuleMore">
+			<result name="success">/WEB-INF/view/clueMore/clueMore.jsp</result>
+		</action>
+		<!-- 更多指令 -->
+		<action name="showCommandMore">
+			<result name="success">/WEB-INF/view/commandMore/commandMore.jsp</result>
+		</action>
+		<!-- 检索警情 -->
+		<action name="searchEvent" class="fullSearchAction" method="searchEvent">
+			<result name="success" type="json">
+				 <param name="ignoreHierarchy" >false</param>
+			  	 <param name = "includeProperties">eventBeanList.*,totalNum</param> 
+			</result>
+		</action>
+		<!-- 检索案件 -->
+		<action name="searchCases" class="fullSearchAction" method="searchCases">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+			    <param name = "includeProperties">casesBeanList.*,totalNum</param>
+			</result>
+		</action>
+		<!-- 检索高危人 -->
+		<action name="searchHighriskperson" class="fullSearchAction" method="searchHighriskperson">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+			    <param name = "includeProperties">highriskpersonBeanList.*,totalNum</param>
+			</result>
+		</action>
+		<!-- 检索场所 -->
+		<action name="searchSite" class="fullSearchAction" method="searchSite">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+			    <param name = "includeProperties">siteBeanList.*,totalNum</param>
+			</result>
+		</action>
+		<!-- 检索指令 -->
+		<action name="searchCommand" class="fullSearchAction" method="searchCommand">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+			    <param name = "includeProperties">commandBeanList.*,totalNum</param>
+			</result>
+		</action>
+		<!-- 检索线索 -->
+		<action name="searchClue" class="fullSearchAction" method="searchClue">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+			    <param name = "includeProperties">clueBeanList.*,totalNum</param>
+			</result>
+		</action>
+		
+	</package>
+</struts>

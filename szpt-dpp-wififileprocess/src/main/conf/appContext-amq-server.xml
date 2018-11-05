@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans 
+	http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+	http://activemq.apache.org/schema/core 
+	http://activemq.apache.org/schema/core/activemq-core.xsd
+	http://camel.apache.org/schema/spring 
+	http://camel.apache.org/schema/spring/camel-spring.xsd">
+
+  <!-- 内置 ActiveMQ代理 -->
+  <!--使用spring的listenerContainer，消息用持久化保存，服务器重启不会丢失 -->
+  <amq:broker useJmx="true" brokerName="wifi-mq-broker"
+    persistent="true">
+    <amq:managementContext>
+      <amq:managementContext createConnector="true" />
+    </amq:managementContext>
+    <amq:persistenceAdapter>
+      <amq:kahaDB directory="data/activemq">
+      </amq:kahaDB>
+    </amq:persistenceAdapter>
+    <amq:transportConnectors>
+      <amq:transportConnector uri="tcp://localhost:61616" />
+    </amq:transportConnectors>
+  </amq:broker>
+
+</beans>

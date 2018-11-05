@@ -1,0 +1,19 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="geographicalZoneAnalyze" extends="szpt-web-highRiskPersonAlert" namespace="/geographicalZoneAnalyze">
+		
+		<action name="showGeographicalZoneAnalyzePage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/geographicalZoneAnalyze/geographicalZoneAnalyze.jsp</result>
+		</action>
+		
+		<action name="findByGeographicalZone" class="geographicalZoneAnalyzeAction" method="findByGeographicalZone">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findPeopleByZone" class="geographicalZoneAnalyzeAction" method="findPeopleByZone">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_scoreframework_scorerule ruleid="a123" description="测试用的规则a。" type="com.taiji.pubsec.scoreframework.MokeRuleA"/>
+	<t_scoreframework_scorerule ruleid="b123" description="测试用的规则b。" type="com.taiji.pubsec.scoreframework.MokeRuleB"/>
+</dataset>

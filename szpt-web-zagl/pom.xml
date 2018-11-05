@@ -1,0 +1,50 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>szpt-parent</artifactId>
+		<groupId>com.taiji.pubsec.szpt</groupId>
+		<relativePath>../szpt-parent/pom.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>szpt-web-zagl</artifactId>
+	<packaging>war</packaging>
+	<dependencies>
+		<!-- taiji szpt -->
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-zagl</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-service-xsfxts</artifactId>
+			<version>${project.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.szpt</groupId>
+			<artifactId>szpt-web-common</artifactId>
+			<version>${project.version}</version>
+			<classifier>classes</classifier>
+		</dependency>
+		<!-- taiji szpt -->
+		<!-- taiji complex.tools -->
+		<dependency>
+			<groupId>com.taiji.pubsec.complex.tools</groupId>
+			<artifactId>iweboffice2000-web</artifactId>
+			<type>war</type>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.complex.tools</groupId>
+			<artifactId>iweboffice2000-web</artifactId>
+			<classifier>classes</classifier>
+		</dependency>
+		<!-- taiji complex.tools -->
+	</dependencies>
+</project>

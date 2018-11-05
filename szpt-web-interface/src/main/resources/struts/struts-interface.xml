@@ -1,0 +1,120 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<package name="interface" extends="szpt-web-interface"
+		namespace="/interface">
+
+		<!-- 通过用户名和时间查询新的已办的指令消息 -->
+		<action name="findNewDoneInstructionByConditions" class="instructionForPDAAction"
+			method="findNewDoneInstructionByConditions">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 通过用户名和时间查询新的待办的指令消息 -->
+		<action name="findNewToDoInstructionByConditions" class="instructionForPDAAction"
+			method="findNewToDoInstructionByConditions">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 通过用户名和时间查询相应数量的已有的已办的指令消息 -->
+		<action name="findOldDoneInstructionByConditions" class="instructionForPDAAction"
+			method="findOldDoneInstructionByConditions">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 通过用户名和时间查询相应数量的已有的待办的指令消息 -->
+		<action name="findOldToDoInstructionByConditions" class="instructionForPDAAction"
+			method="findOldToDoInstructionByConditions">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 签收指令 -->
+		<action name="signInstruction" class="instructionForPDAAction"
+			method="signInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 反馈指令 -->
+		<action name="feedbackInstruction" class="instructionForPDAAction"
+			method="feedbackInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 通过指令id和反馈人id查询反馈信息list -->
+		<action name="findFeedBacksByInstructionIdAndPersonId" class="instructionForPDAAction"
+			method="findFeedBacksByInstructionIdAndPersonId">
+			<result name="success" type="json"></result>
+		</action>
+
+
+
+		<!-- 创建高危人员 -->
+		<action name="saveHighriskPerson" class="highriskPersonPDAAction"
+			method="saveHighriskPerson">
+			<result name="success" type="json">
+			<param name="root">flag</param>
+			</result>
+		</action>
+
+		<!-- 更新高危人员 -->
+		<action name="updateHighriskPerson" class="highriskPersonPDAAction"
+			method="updateHighriskPerson">
+			<result name="success" type="json">
+			<param name="root">flag</param>
+			</result>
+		</action>
+
+		<!-- 按条件查询高危人员信息 -->
+		<action name="searchAllHighriskPersonListByConditionPhone"
+			class="highriskPersonPDAAction" method="searchAllHighriskPersonListByConditionPhone">
+			<result name="success" type="json">
+				<param name="root">highriskPersonBeanListMap</param>
+			</result>
+		</action>
+
+		<!-- 按id查询高危人员信息 -->
+		<action name="searchHighriskPersonById" class="highriskPersonPDAAction"
+			method="searchHighriskPersonById">
+			<result name="success" type="json">
+				<param name="root">highriskPersonBean</param>
+			</result>
+		</action>
+		
+		<!-- 根据字典类型code查找字典类型对应的所有字典项 -->
+		<action name="findDictionaryItemByType" class="highriskPersonPDAAction"
+			method="findDictionaryItemByType">
+			<result name="success" type="json">
+				<param name="root">dictionaryItemLstMap</param>
+			</result>
+		</action>
+		
+		<!-- 通过附件id下载附件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param> 
+			</result>
+		</action>
+		
+		<action name="export" class="exportAction" method="export">
+          <result name="success" type="stream">
+            <param name="contentType">${docType}</param>
+            <param name="contentDisposition">attachment;filename="${docName}"</param>
+            <param name="inputName">docFile</param>
+            <param name="contentLength">${contLength}</param>
+          </result>
+        </action> 
+
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+
+		<!-- 案件管理保存指令  -->
+		<action name="saveInstruction" class="instructionWSAction" method="saveInstruction">
+			<result name="success" type="json"></result>
+		</action>
+
+		<!-- 实战平台保存指令 -->
+		<action name="szptSaveInstruction" class="instructionWSAction" method="szptSaveInstruction">
+			<result name="success" type="json"></result>
+		</action>
+
+		<action name="wifiStatistics" class="instructionWSAction" method="wifiStatistics">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

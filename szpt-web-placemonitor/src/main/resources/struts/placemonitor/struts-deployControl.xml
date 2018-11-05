@@ -1,0 +1,30 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<package name="deployControl" extends="szpt-web-placemonitor" namespace="/deployControl">
+		
+		<!-- 控制点-->
+		<action name="showDeployControlPreserve">
+			<result name="success">/WEB-INF/view/placemonitor/deployControl/deployControlPreserve.jsp</result>
+		</action>
+
+			<!-- 控制点详情 -->
+		<action name="showDeployControlDetails">
+			<result name="success">/WEB-INF/view/placemonitor/deployControl/deployControlDetails.jsp</result>
+		</action>
+		
+		<!-- 根据条件查询符合要求的WiFi监控点 -->
+		<action name="querySurveillanceByCondition" class="wifiDeployControlAction" method="querySurveillanceByCondition">
+				<result name="success" type="json"></result>
+		</action>
+
+		<!-- 根据id查询WiFi点的详细信息 -->
+		<action name="querySurveillanceById" class="wifiDeployControlAction" method="findSurveillanceById">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据id查询WiFi点的详细信息 -->
+		<action name="updateOrderCell" class="wifiDeployControlAction" method="updateOrderCell">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

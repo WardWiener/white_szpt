@@ -1,0 +1,10 @@
+
+*** FATAL CONFIG FILE ERROR ***
+Reading the configuration file, at line 163
+>>> 'logfile "/home/app/redis-3.2.8/redis_cluster/7000/logs/redis-7000.log"'
+Can't open the log file: No such file or directory
+
+*** FATAL CONFIG FILE ERROR ***
+Reading the configuration file, at line 163
+>>> 'logfile "/home/app/redis-3.2.8/redis_cluster/7001/logs/redis-7001.log"'
+Can't open the log file: No such file or directory

@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                          http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+<!-- ########## 请求消息记录器，用于记录同步请求消息或者异步回调消息 ，以便返回响应消息给同步请求或者调用异步回调 ########### -->
+  <bean id="msgStage" class="com.taiji.pubsec.ga.datagate.clientapi.DefaultMessageStage"></bean>
+  <bean id="idGen" class="com.taiji.pubsec.ga.datagate.clientapi.DefaultIdGenerator"></bean>
+  <bean id="asyncTimeoutManager" class="com.taiji.pubsec.ga.datagate.clientapi.AsyncTimeoutManagerImpl">
+    <property name="msgStage" ref="msgStage"></property>
+  </bean>
+  
+ <!-- ########## 发送客户端工程配置 ########### -->
+  <bean id="sendClientFactory" class="com.taiji.pubsec.ga.datagate.clientapi.SendClientFactory">
+    <constructor-arg index="0">
+      <ref bean="idGen"/>
+    </constructor-arg>
+    <constructor-arg index="1">
+      <ref bean="jmsTemplate"/>
+    </constructor-arg>
+    <constructor-arg index="2">
+      <ref bean="msgStage"/>
+    </constructor-arg>
+    <constructor-arg index="3">
+      <ref bean="QUEUE_REQ_SEND"/>
+    </constructor-arg>
+    <constructor-arg index="4">
+      <ref bean="asyncTimeoutManager"/>
+    </constructor-arg>
+    <constructor-arg index="5">
+      <value>${sync.timeout}</value>
+    </constructor-arg>
+  </bean>
+
+<!-- ########## 请求消息接收处理器：侦听请求消息接收队列，调用本地方法处理请求消息 ############### -->
+  <bean id="helloMsgExecutor" class="com.taiji.pubsec.ga.datagate.example.client.HelloMsgExecutor">
+    <property name="businessService" ref="businessService" />
+  </bean>
+  
+  <bean id="reqMsgListener" class="com.taiji.pubsec.ga.datagate.clientapi.RequestMessageProcessor">
+    <property name="jmsTemplate" ref="jmsTemplate" />
+    <property name="rspSendDestination" ref="QUEUE_RSP_SEND" />
+    <property name="executors">
+      <array>
+        <ref bean="helloMsgExecutor"/>
+      </array>
+    </property>
+  </bean>
+  <bean id="reqMsgContainer"
+    class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="destination" ref="QUEUE_REQ_RECV" />
+    <property name="sessionTransacted" value="false" />
+    <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+    <property name="messageListener" ref="reqMsgListener" />
+  </bean>
+
+<!-- ########## 响应消息接收处理器：侦听响应消息接收队列，将响应消息返回同步等待的请求方法或者调用异步请求的回调方法 ############### -->
+  <bean id="rspMsgListener" class="com.taiji.pubsec.ga.datagate.clientapi.ResponseMessageProcessor">
+    <property name="msgStage" ref="msgStage" />
+  </bean>
+  <bean id="rspMsgContainer"
+    class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="destination" ref="QUEUE_RSP_RECV" />
+    <property name="sessionTransacted" value="false" />
+    <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+    <property name="messageListener" ref="rspMsgListener" />
+  </bean>
+</beans>
+	

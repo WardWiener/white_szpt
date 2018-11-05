@@ -1,0 +1,12 @@
+@charset "utf-8";
+/* CSS Document */
+
+html{
+scrollbar-face-color: #eee;
+scrollbar-highlight-color:#ddd;
+scrollbar-shadow-color:#ddd;
+scrollbar-3dlight-color:#fff;
+scrollbar-arrow-color:#000;
+scrollbar-track-color:#fff;
+scrollbar-darkshadow-color:#fff;
+}

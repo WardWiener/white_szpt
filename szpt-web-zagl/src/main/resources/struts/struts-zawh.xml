@@ -1,0 +1,94 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+   <!-- 专案维护 -->
+	<package name="zawh" extends="szpt-web-zagl" namespace="/zawh">
+	   
+		<action name="showProjectsMaintenance">
+			<result name="success">/WEB-INF/view/zawh/zawh.jsp</result>
+		</action>
+      <!-- 加载页面 -->
+        <action name="findZAData" class="projectsMaintenanceAction" method="findZAData">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 加载专案维护页面加载项 -->
+        <action name="findCaseProject" class="projectsMaintenanceAction" method="findCaseProject">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 加载新增专案页面 -->
+        <action name="showAddProject">
+			<result name="success">/WEB-INF/view/zawh/addProject.jsp</result>
+		</action>
+		<!-- 加载新增专案页面 ajax onload -->
+        <action name="findAddProject" class="projectsMaintenanceAction" method="findAddProject">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 保存新增专案页面 -->
+        <action name="saveSpecialCase" class="projectsMaintenanceAction" method="saveSpecialCase">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+		<!-- 加载修改专案页面 -->
+        <action name="showUpdataProject">
+			<result name="success">/WEB-INF/view/zawh/updataProject.jsp</result>
+		</action>
+		<!-- 修改 页面 加载内容-->
+        <action name="findUpdataProject" class="projectsMaintenanceAction"   method="findUpdataProject">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 保存修改专案页面 -->
+        <action name="updataSpecialCase" class="projectsMaintenanceAction" method="updataSpecialCase">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 删除 一条数据 -->
+        <action name="deleteCase" class="projectsMaintenanceAction" method="deleteCase">
+			<result name="success" type="json"></result>
+		</action>
+	
+	    <!-- 分配用户弹窗页面 -->
+        <action name="showAllotUserProject">
+			<result name="success">/WEB-INF/view/zawh/showAllotUserProject.jsp</result>
+		</action>
+		<!-- 分配用户加载页面加载数据-->
+        <action name="findRole" class="projectsMaintenanceAction" method="findRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 分配用户 可分配用户-->
+        <action name="findAssignableRole" class="projectsMaintenanceAction" method="findAssignableRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 分配用户 可分配用户  分配按钮-->
+        <action name="saveRole" class="projectsMaintenanceAction" method="saveRole">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 分配用户 已分配用户-->
+        <action name="findAlreadyAssignableRole" class="projectsMaintenanceAction" method="findAlreadyAssignableRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 分配用户 可分配用户  分配按钮-->
+        <action name="removeRole" class="projectsMaintenanceAction" method="removeRole">
+			<result name="success" type="json"></result>
+		</action>
+	<!--涉及子案件弹窗页面 -->
+        <action name="showFindSonProject">
+			<result name="success">/WEB-INF/view/zawh/findSonProject.jsp</result>
+		</action>
+		<!--涉及子案件弹窗页面  案件类型加载项-->
+		<action name="findAJLX"  class="projectsMaintenanceAction" method="findAJLX">
+			<result name="success"  type="json"></result>
+		</action>
+		<!--查询子案件-->
+		<action name="findSonCase"  class="projectsMaintenanceAction" method="findSonCase">
+			<result name="success"  type="json"></result>
+		</action>
+		
+	<!--加载涉案人员关系-->
+		<action name="findPersonConcern"  class="projectsMaintenanceAction" method="findPersonConcern">
+			<result name="success"  type="json"></result>
+		</action>
+	</package>
+</struts>

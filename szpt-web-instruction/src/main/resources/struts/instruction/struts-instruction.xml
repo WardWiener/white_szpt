@@ -1,0 +1,54 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd" >
+<struts>
+	<package name="instruction" extends="szpt-web-instruction" namespace="/instruction">
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+    	<!-- 研判指令下发 -->
+		<action name="queryYanpanInstructionList" class="instructionAction" method="queryYanpanInstructionList">
+			<result name="success" type="json"></result>
+		</action>
+		
+    	<!-- 根据主体id查询指令列表(分页) -->
+		<action name="queryInstructionPagerByBodyId" class="instructionAction" method="queryInstructionPagerByBodyId">
+			<result name="success" type="json"></result>
+		</action>
+		
+    	<!-- 根据主体id查询所有反馈信息 -->
+		<action name="queryFeedbackByInstructionBodyId" class="instructionAction" method="queryFeedbackByInstructionBodyId">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryYanPanJudeResultFeedback" class="instructionAction" method="queryYanPanJudeResultFeedback">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 根据指令主体id查询所有带已推送单位的反馈 -->
+		<action name="queryJudeResultFeedback" class="instructionAction" method="queryJudeResultFeedback">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		        <param name="actionName">export</param>
+			    <param name="namespace">/</param>
+	        </result> 
+		</action>
+	
+	</package>
+</struts>

@@ -1,0 +1,155 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+   <!-- 我的专案 -->
+	<package name="wdza" extends="szpt-web-zagl" namespace="/wdza">
+	   
+		<action name="showMyCase">
+			<result name="success">/WEB-INF/view/wdza/wdza.jsp</result>
+		</action>
+      <!-- 加载 表格页面 -->
+        <action name="findMyProjectTable" class="myProjectsAction" method="findMyProjectTable">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 我的专案页面 加载项 -->
+        <action name="findMyProject" class="myProjectsAction" method="findMyProject">
+			<result name="success" type="json"></result>
+		</action>
+		
+	<!-- 加载维护专案专案页面 -->
+        <action name="showUpdataProject">
+			<result name="success">/WEB-INF/view/zaxx/zaListDetailLayer.jsp</result>
+		</action>		
+		<!-- 专案维护  修改专案信息-->
+	   <action name="findMyUpdataProject" class="myProjectsAction"   method="findMyUpdataProject">
+			<result name="success" type="json" ></result>
+		</action>
+		
+		<!-- 取消置顶的方法 修改专案信息-->
+	   <action name="saveQXZD" class="myProjectsAction"   method="saveQXZD">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 置顶的方法 修改专案信息-->
+	   <action name="saveZD" class="myProjectsAction"   method="saveZD">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 移除子案件-->
+	   <action name="deleteSonCase" class="myProjectsAction"   method="deleteSonCase">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 保存修改的专案-->
+	   <action name="updataSpecialCase" class="myProjectsAction"   method="updataSpecialCase">
+			<result name="success" type="json" ></result>
+		</action>
+		
+	<!-- 加载专案涉案人员页面 -->
+        <action name="showInvolvedPerson">
+			<result name="success">/WEB-INF/view/zaxx/zaListDetailLayer.jsp</result>
+		</action>	
+		<!-- 加载涉案人员Table-->
+	   <action name="findInvolvedPersonTable" class="myProjectsAction"   method="findInvolvedPersonTable">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 加载专案涉案人员维护页面 -->	
+		<action name="showUpdataInvolvedPerson">
+			<result name="success">/WEB-INF/view/wdza/updataInvolvedPerson.jsp</result>
+		</action>	
+		<!-- 加载涉案人员Table-->
+	   <action name="findUpdataInvolvedPerson" class="myProjectsAction"   method="findUpdataInvolvedPerson">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 增加涉案人员-->
+	   <action name="saveInvolvedPerson" class="myProjectsAction"   method="saveInvolvedPerson">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 删除涉案人员-->
+	   <action name="deleteInvolvedPerson" class="myProjectsAction"   method="deleteInvolvedPerson">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 加载专案涉案人员关系页面 -->	
+		<action name="showInvolvedPersonRelation">
+			<result name="success">/WEB-INF/view/wdza/showInvolvedPersonRelation.jsp</result>
+		</action>	
+		
+	<!-- 加载专案  报告页面 -->	
+		<action name="showProjectReport">
+			<result name="success">/WEB-INF/view/wdza/showProjectReport.jsp</result>
+		</action>
+		<!-- 加载报告表格-->
+	   <action name="findReportTable" class="myProjectsAction"   method="findReportTable">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 删除报告表格-->
+	   <action name="deleteReport" class="myProjectsAction"   method="deleteReport">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 新增报告表格弹窗-->
+	   <action name="showAddReport">
+			<result name="success">/WEB-INF/view/wdza/showAddReport.jsp</result>
+		</action>
+		<!-- 新增报告表格弹窗加载内容-->
+		<action name="onLoadAddReport" class="myProjectsAction"   method="onLoadAddReport">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 上传附件-->
+		<action name="updateZaData">
+          <result name="success">/WEB-INF/view/wdza/zaUploadLayerOne.jsp</result>
+       </action>
+       <!-- 保存附件前验证报告名称是否重复-->
+		<action name="existsYZ" class="myProjectsAction"   method="existsYZ">
+			<result name="success" type="json" ></result>
+		</action>
+       <!-- 保存附件-->
+		<action name="saveSpecialCaseReport" class="myProjectsAction"   method="saveSpecialCaseReport">
+			<result name="success" type="json" ></result>
+		</action>
+       <!-- 删除附件-->
+		<action name="deleteSpecialCaseMaterial" class="myProjectsAction"   method="deleteSpecialCaseMaterial">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 专案报告详情-->
+		<action name="showReportDetails">
+          <result name="success">/WEB-INF/view/wdza/showReportDetails.jsp</result>
+       </action>
+       <!-- 详情加载项-->
+		<action name="findReport" class="myProjectsAction"   method="findReport">
+			<result name="success" type="json" ></result>
+		</action>
+		<action name="onloadSecondLevel" class="myProjectsAction"   method="onloadSecondLevel">
+			<result name="success" type="json" ></result>
+		</action>
+	<!--添加子案件弹窗页面 -->
+        <action name="showFindSonProject">
+			<result name="success">/WEB-INF/view/wdza/findSonProject.jsp</result>
+		</action>
+       <!-- 保存子案件-->
+		<action name="saveSonProject" class="myProjectsAction"   method="saveSonProject">
+			<result name="success" type="json" ></result>
+		</action>
+		<!-- 查询附件通过id-->
+		<action name="findAccessoryById" class="myProjectsAction"   method="findAccessoryById">
+			<result name="success" type="json" ></result>
+		</action>
+	<!-- 查看报告 的内容 -->	
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param>
+			</result>
+		</action>
+	<!--维护案件基本信息-->
+		<action name="showUpdataBasicProject">
+          <result name="success">/WEB-INF/view/wdza/showUpdataBasicProject.jsp</result>
+       </action>
+       <!--加载子案件Tabel-->
+		<action name="findBasicSonProjectTable" class="myProjectsAction" method="findBasicSonProjectTable">
+          <result name="success" type="json"></result>
+       </action>
+	</package>
+</struts>

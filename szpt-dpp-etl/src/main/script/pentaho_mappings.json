@@ -1,0 +1,57 @@
+{
+  "accommodation,accommodation":   {
+    "columns":     {
+      "info,entertime,entertime": "Long",
+      "info,hotelcode,hotelcode": "String",
+      "info,idcard,idcard": "String",
+      "info,leavetime,leavetime": "Long",
+      "info,hoteladdress,hoteladdress": "String",
+      "info,hotelname,hotelname": "String"
+    },
+    "key": {"key": "String"}
+  },
+  "cybercafe,cybercafe":   {
+    "columns":     {
+      "info,cybercafeaddress,wbdz": "String",
+      "info,idcard,ZJHM": "String",
+      "info,cybercafename,YYCSMC": "String",
+      "info,cybercafecode,YYCSDM": "String",
+      "info,entertime,entertime": "Long",
+      "info,leavetime,leavetime": "Long"
+    },
+    "key": {"key": "String"}
+  },
+  "flight,flight":   {
+    "columns":     {
+      "info,takeoffairport,SEG_DEPT_CODE_ZW": "String",
+      "info,takeofftime,qfsj": "Long",
+      "info,arriveattime,ddsj": "Long",
+      "info,arriveatairport,SEG_DEST_CODE_ZW": "String",
+      "info,flightnumber,FLT_NUMBER": "String",
+      "info,idcard,CERT_NO": "String"
+    },
+    "key": {"key": "String"}
+  },
+  "tenement,tenement":   {
+    "columns":     {
+      "info,idcard,CZRZJHM": "String",
+      "info,renteridcard,ZFRZJHM": "String",
+      "info,starttime,starttime": "Long",
+      "info,endtime,endtime": "Long",
+      "info,rentername,ZFRXM": "String",
+      "info,houseid,WBXTFWZJ": "String",
+      "info,remark,CZQK_ZW": "String"
+    },
+    "key": {"key": "String"}
+  },
+  "trainticket,trainticket":   {
+    "columns":     {
+      "info,idcard,ZJHM": "String",
+      "info,trainnumber,CC": "String",
+      "info,arriveatstation,ZDZ": "String",
+      "info,starttime,time": "Long",
+      "info,startstation,SFZ": "String"
+    },
+    "key": {"key": "String"}
+  }
+}

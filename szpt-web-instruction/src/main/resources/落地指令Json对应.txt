@@ -1,0 +1,8 @@
+人员盘查
+姓名：name
+身份证号：idcode
+盘查地点：personLoacation
+
+车辆盘查
+车牌号：carNum
+盘查地点：carLoacation

@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                          http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+  <!-- ############################# 本地业务服务对象  ###################################### -->
+  <bean id="businessService"
+    class="com.taiji.pubsec.ga.datagate.example.client.BusinessService">
+  </bean>
+ 
+  <!-- ############################# 利用定时器不断调用远程方法  ###################################### -->
+  <bean id="remoteCaller" init-method="call"
+    class="com.taiji.pubsec.ga.datagate.example.client.RemoteCaller" depends-on="sendClientFactory">
+  </bean>
+
+  <bean id="remoteCallerDetail"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <!-- false表示等上一个任务执行完后再开启新的任务 -->
+    <property name="concurrent" value="true" />
+    <property name="targetObject">
+      <ref bean="remoteCaller" />
+    </property>
+    <property name="targetMethod">
+      <value>call</value>
+    </property>
+  </bean>
+
+ <!--  调度触发器 -->
+  <bean id="remoteCallerTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail">
+      <ref bean="remoteCallerDetail" />
+    </property>
+    <property name="cronExpression">
+      <value>0/15 * * * * ?</value>
+    </property>
+  </bean>
+
+<!--   调度工厂 -->
+  <bean id="scheduler"
+    class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="remoteCallerTrigger" />
+      </list>
+    </property>
+  </bean>
+</beans>
+	

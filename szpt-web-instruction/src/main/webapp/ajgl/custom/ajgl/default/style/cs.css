@@ -1,0 +1,127 @@
+@charset "utf-8";
+/* CSS Document */
+
+/******index***/
+html,body{ overflow:hidden; height:100%; padding:0; margin:0;}
+.cs-bg{ background:transparent;}
+.cs-login-box{width:500px;border-radius:4px; /*position:absolute; left:50%; margin-left:-268px; top:50%; margin-top:-280px;*/}
+.cs-login-box .box1{ background:url(../../../images/cs/cs-bgtop.png) no-repeat 0 0; padding:10px; padding-bottom:0; height:145px; color:#fff;font-size:14px; position: relative;}
+.cs-login-box .box2{ background:url(../../../images/cs/cs-bgbottom.png) no-repeat 0 0; height:245px;padding:0 10px;}
+.cs-login-box .cslogo{ display:block; float:left;background:url(../../../images/cs/cs-logo.png) no-repeat 0 0; width:30px; height:20px;}
+
+.cs-login-box .select2-container--default .select2-selection--single{ background:none; border:1px solid #fff; height:35px; line-height:35px;}
+.cs-login-box .select2-container--default .select2-selection--single .select2-selection__rendered{line-height:35px; color:#fff;}
+.cs-login-box .select2-container--default .select2-selection--single .select2-selection__arrow b{
+	border-color:#fff transparent transparent transparent;
+	margin-top:1px;
+	}
+.cs-login-box .select2-container--default.select2-container--open .select2-selection--single .select2-selection__arrow b{
+	border-color:transparent transparent #fff transparent;
+	}
+.cs-login-box .imgbg{height:180px; padding-top:5px;}	
+.cs-login-box .imgbg-left{background:url(../../../images/cs/cs-ren1.png) no-repeat center 0;  }
+.cs-login-box .imgbg-right{background:url(../../../images/cs/cs-ren2.png) no-repeat center 0;border-left:1px dashed #b3dbfa; margin-left:-2px;}
+.cs-login-box .content{ margin-top:125px; text-align:center;}
+.cs-login-box .btn-login{background:#65a5ed url(../../../images/cs/cs-bgtop.png) no-repeat -350px center; width:100px;}
+.cs-login-box .btn-login:hover{background:#5897e9 url(../../../images/cs/cs-bgtop.png) no-repeat -300px center;}
+
+
+.cs-menu-box{ width:120px; height:390px; background:url(../../../images/cs/cs-menubg.png) no-repeat center 0; border:1px solid #d7e5f2;
+box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.5);}
+.cs-menu-box .menu-box-1,.cs-menu-box .menu-box-2{ background:transparent;width:120px; margin-bottom:0; border:none; border:0; float:left;}
+.cs-menu-box .menu-box-1{ height:180px;}
+.cs-menu-box .menu-box-2{height:180px;}
+.cs-menu-box .exit{ clear:both; text-align:center; background:#2970d0;}
+.cs-menu-box .exit .btn{ background:#65a5ed;color:#fff; padding:0; font-size:12px; line-height:30px; width:100%; margin-left:0;border:none; outline:none; box-shadow:none;}
+.cs-menu-box .exit .btn:hover{background:#5897e9;}
+
+.cs-menubg-a{background:url(../../../images/cs/cs-menubg.png) no-repeat center 0; }
+.cs-menubg-b{background:url(../../../images/cs/cs-menubg.png) no-repeat center -180px; }
+.cs-menu .btn{ background:url(../../../images/cs/cs-menu-icon.png) no-repeat center 10px;width:100%; padding:0;
+height:90px; text-align:center; margin:0; border:none;
+color:#666;
+}
+.cs-menu .btn .text{ display:block; margin-top:30px;}
+.cs-menu .btn-xy{ background-position:center -72px;}
+.cs-menu .btn-yp{ background-position:center -152px;}
+.cs-menu .btn-bl{ background-position:center -245px;}
+.cs-menu .btn:active,.cs-menu .btn:hover{ color:#000;}
+.cs-menubg{ background:transparent;}
+.menu1{ position:relative;}
+.cs-number{ position:absolute; display:block; width:20px; height:20px; right:32px; top:12px;background:url(../../../images/cs/numbg.png) no-repeat center 0; color:#fff; text-align:center;}
+
+
+.cs-content{ width:800px; height:650px; border:1px solid #ddd;border-radius:5px;
+box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+-webkit-box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+-moz-box-shadow:0px 0px 10px rgba(0,0,0,0.5);
+background:#fff;}
+.cs-content .cs-number{ top:0;}
+.cs-content .table{ background:#fff;}
+.cs-content-top{background:#3e73de url(../../../images/cs/cs-content-top.png) no-repeat right 0; height:110px;padding-left:40px; color:#fff;border-top-left-radius:5px;border-top-right-radius:5px; margin:-1px; position:fixed; z-index:100; width:762px;}
+.cs-content-top h2{padding-top:35px; }
+.cs-content-main{ padding:15px; overflow-x:hidden; overflow-y:auto; margin-top:110px; height:500px; }
+.cs-content-main .table > thead > tr > th{ border-bottom-width:thin;}
+.cs-content .wifi-tt{background:url(../../../images/cs/wifi-icon.png) no-repeat right 0; width:122px; height:78px; position:absolute; right:10px; bottom:-22px; z-index:1000;}
+.cs-content .m-badge{ background:#65a5ed; font-weight:normal; color: #fff;}
+
+
+
+
+
+
+.r-name{ font-weight:normal;}
+/* ----- checkboxes, radios ----- */
+.custom-checkbox,.custom-radio{position:relative;}
+.custom-checkbox input{position:absolute;left:2px;top:2px;margin:0;}
+.custom-checkbox label{display:block;position:relative;font-size:1.3em;padding-right:1em;line-height:1;padding:.5em 0 .5em 30px;margin:0 0 .3em;cursor:pointer;}
+.custom-radio input{position:absolute;left:7px;top:7px;margin:0;z-index: 1;}
+* + html .custom-radio input{left:3px;top:2px;}
+
+.custom-radio label{display:block;position:relative;padding-right:1em;line-height:1;padding:.5em 0 .5em 30px;margin:0 0 .3em;cursor:pointer;}
+/* states */
+.custom-checkbox label{background:url(../../../images/cs/checkbox.gif) no-repeat;}
+.custom-radio label{background:url(../../../images/cs/radiobutton.png) no-repeat;}
+.custom-checkbox label,.custom-radio label{background-position:-10px -14px;}
+.custom-checkbox label.hover,.custom-checkbox label.focus,.custom-radio label.hover,.custom-radio label.focus{background-position:-10px -114px;}
+.custom-checkbox label.checked,.custom-radio label.checked{background-position:-10px -214px;z-index:3;}
+.custom-checkbox label.checkedHover,.custom-checkbox label.checkedFocus{background-position:-10px -314px;}
+.custom-checkbox label.focus,.custom-radio label.focus{outline:1px dotted #ccc;}
+/* ----- checkboxes, radios ----- */
+
+
+.cs-ceng{ border: 1px solid #97bdf3; border-radius: 3px;width:280px;right:20px; padding: 10px;}
+.cs-ceng .list-group{ margin-bottom: 0;}
+.cs-ceng-t{ padding-bottom: 10px; font-size: 14px; font-weight:bold;}  
+
+
+
+/*3.17*/
+.m-label-right .col-xs-4{
+	margin-top: -5px;
+	margin-bottom: 5px;
+	height: 25px;
+}
+
+.history-content-cs ul{ border-left:2px dotted #ccc; display:block; margin-left:48%; border-bottom:none;padding-top: 20px;}
+.history-content-cs ul li{ position:relative; font-size:14px; clear:both;}
+.history-content-cs ul .time-box{ margin:0; font-size:14px; color:#333;}
+.history-content-cs ul .con-box{ background:#bde2fc; color:#255581;border-radius:4px; padding:10px; padding-right:0; position:relative; margin-left:5px; min-height:30px;} 
+.history-content-cs ul .con-box .arrow{ display:block; position:absolute; left:-23px; top:15px; width:0; border:10px solid transparent; border-right:13px solid #bde2fc;}
+.history-content-cs ul li .icon-red-dot{ background:#d1dae1; border:2px solid #fff; border-radius:15px; width:15px; height:15px; position:absolute; left:-35px; top:36px;}
+.history-content-cs ul li.odd{ float:left;margin-left:25px;width:220px;margin-top: -20px;}	
+.history-content-cs ul li.even{float:left; margin-left:-250px; width:220px; margin-top: -20px;}	
+.history-content-cs ul li.even .time-box{ text-align:right;}
+.history-content-cs ul li.even .icon-red-dot{ left:auto; right:-38px;}
+.history-content-cs ul li.even .con-box .arrow{ left:auto;right:-23px;border-left:13px solid #bde2fc; border-right:10px solid transparent;}
+.history-content-cs ul li .time-box .pot{ color:#333; }
+#btn-close-window{background:url(../../../images/cs/close-x.png) no-repeat 0 0; width: 20px; height: 20px; display: block; position: absolute; z-index: 100; right:10px; top:10px;}
+
+
+.cs-content-error{background: #f4f9ff; font-family: Microsoft Yahei;}
+.box404{width: 670px; margin:150px auto 0 auto; text-align: center;}
+.box404 button{ background:none; border:1px solid #40a8e8;color:#249ce6; padding: 8px 25px; font-size: 16px; border-radius: 2px;font-family: Microsoft Yahei;}
+.box404 button:hover{ background:#40a8e8; border-color:#249ce6;color:#fff;}   
+.box404 p{margin-bottom: 30px; font-size: 16px;} 

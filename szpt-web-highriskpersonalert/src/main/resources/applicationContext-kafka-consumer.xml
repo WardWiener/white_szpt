@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+<!-- 	<bean id="kafkaConsumerForWifidata"
+		class="com.taiji.pubsec.szpt.highriskpersonalert.kafka.wifi.KafkaConsumerForWifidata" depends-on="wifiPlaceInAndOutInfoQueryService,alertService,alertInfoService,highriskPersonService">
+		<property name="zookeeper"
+			value="${zookeeper}"></property>
+		<property name="groupId" value="szptWeb"></property>
+		<property name="topic" value="fivecolordata"></property>
+		<property name="zookeeper_sync_time_ms" value="${zookeeper_sync_time_ms}"></property>
+		<property name="auto_commit_interval_ms" value="${auto_commit_interval_ms}"></property>
+		<property name="thread_num" value="${thread_num}"></property>
+	</bean> -->
+	
+	<bean id="kafkaConsumerForBasicRule"
+		class="com.taiji.pubsec.szpt.highriskpersonalert.kafka.wifi.KafkaConsumerForBasicRule"  depends-on="wifiPlaceInAndOutInfoQueryService,alertService,alertInfoService,highriskPersonService"
+		init-method="letitgo">
+		<property name="zookeeper"
+			value="${zookeeper}"></property>
+		<property name="groupId" value="szptWeb1"></property>
+		<property name="topic" value="topic-wifialert"></property>
+		<property name="zookeeperSyncTimeMs" value="${zookeeper_sync_time_ms}"></property>
+		<property name="autoCommitIntervalMs" value="${auto_commit_interval_ms}"></property>
+		<property name="threadNum" value="${thread_num}"></property>
+	</bean>
+	
+	<bean id="kafkaConsumerForRuleFive"
+		class="com.taiji.pubsec.szpt.highriskpersonalert.kafka.wifi.KafkaConsumerForRuleFive" depends-on="wifiPlaceInAndOutInfoQueryService,alertService,alertInfoService,highriskPersonService"
+		init-method="letitgo">
+		<property name="zookeeper"
+			value="${zookeeper}"></property>
+		<property name="groupId" value="szptWeb2"></property>
+		<property name="topic" value="topic-wifialert-five"></property>
+		<property name="zookeeperSyncTimeMs" value="${zookeeper_sync_time_ms}"></property>
+		<property name="autoCommitIntervalMs" value="${auto_commit_interval_ms}"></property>
+		<property name="threadNum" value="${thread_num}"></property>
+	</bean>
+	
+	<bean id="kafkaConsumerForRuleSix"
+		class="com.taiji.pubsec.szpt.highriskpersonalert.kafka.wifi.KafkaConsumerForRuleSix" depends-on="wifiPlaceInAndOutInfoQueryService,alertService,alertInfoService,highriskPersonService"
+		init-method="letitgo">
+		<property name="zookeeper"
+			value="${zookeeper}"></property>
+		<property name="groupId" value="szptWeb3"></property>
+		<property name="topic" value="topic-wifialert-six"></property>
+		<property name="zookeeperSyncTimeMs" value="${zookeeper_sync_time_ms}"></property>
+		<property name="autoCommitIntervalMs" value="${auto_commit_interval_ms}"></property>
+		<property name="threadNum" value="${thread_num}"></property>
+	</bean>
+
+	<!-- 配置线程池 
+	<bean id="taskExecutor"
+		class="org.springframework.scheduling.concurrent.ThreadPoolTaskExecutor">
+		<property name="corePoolSize" value="4" />
+		<property name="keepAliveSeconds" value="30000" />
+		<property name="maxPoolSize" value="50" />
+		<property name="queueCapacity" value="2000" />
+	</bean>-->
+	
+	
+	
+
+</beans>

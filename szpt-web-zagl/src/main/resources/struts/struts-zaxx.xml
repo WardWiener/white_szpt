@@ -1,0 +1,17 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+   <!-- 专案维护 -->
+	<package name="zaxx" extends="szpt-web-zagl" namespace="/zaxx">
+	   
+	 <action name="showZaListDetailLayer">
+         <result name="success">/WEB-INF/view/zaxx/zaListDetailLayer.jsp</result>
+       </action>
+       
+       <!--  <action name="updataSpecialCase" class="projectsMaintenanceAction" method="updataSpecialCase">
+			<result name="success" type="json"></result>
+		</action> -->
+		
+	</package>
+</struts>

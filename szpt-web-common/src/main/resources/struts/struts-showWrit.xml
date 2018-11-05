@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="showWrit" extends="szpt-web-common" namespace="/showWrit">
+		<action name="showWrit">
+			<result name="success">/WEB-INF/view/showWrit/showWrit.jsp</result>
+		</action>
+		<action name="checkWrit" class="showWritAction" method="checkWrit">
+			<result name="error" type="redirectAction">
+				<param name="actionName">showERRORPage</param>
+			    <param name="namespace">/showWrit</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocDaiBuNew" type="redirectAction">
+				<param name="actionName">showDBZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocChuanHuanNew" type="redirectAction">
+				<param name="actionName">showCHZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocChuanHuanNewXingShi2012" type="redirectAction">
+				<param name="actionName">showCHZXSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJvLiuNew" type="redirectAction">
+				<param name="actionName">showJLZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocQuBaoHouShenNew" type="redirectAction">
+				<param name="actionName">showQBHSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocShiFangTongZhiNew" type="redirectAction">
+				<param name="actionName">showSFTZSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocTiQingPiZhunDaiBuNew" type="redirectAction">
+				<param name="actionName">showTQPZDBSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocYanChangJvLiuQiXianNew" type="redirectAction">
+				<param name="actionName">showYCJLQXPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocKouYaJueDingNew2012" type="redirectAction">
+				<param name="actionName">showKYJDSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocGongAnXingZhengChuFaNew" type="redirectAction">
+				<param name="actionName">showXZCFPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJvChuanNew" type="redirectAction">
+				<param name="actionName">showJCZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocQiangZhiGeLiJieDuNew" type="redirectAction">
+				<param name="actionName">showQZGLJDPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocQiSuYiJianNew" type="redirectAction">
+				<param name="actionName">showQSYJSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocZhengJvBaoQuanJueDingNew" type="redirectAction">
+				<param name="actionName">showZJBQJDPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJianShiJueDingZhiXingTongZhiShuNew" type="redirectAction">
+				<param name="actionName">showJSJZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJieChuJianShiJvZhuJueDingTongZhiShuNew" type="redirectAction">
+				<param name="actionName">showJCJSJZPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJieShouAnJianDengJiBiaoNew" type="redirectAction">
+				<param name="actionName">showSADJBPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocLiAnJueDingShuNew" type="redirectAction">
+				<param name="actionName">showLAJDSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocPoAnDengJiBiao" type="redirectAction">
+				<param name="actionName">showPADJBPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocZeLingSheQuJieDuSheQuKangFuJueDingShuNew" type="redirectAction">
+				<param name="actionName">showZLSQJDPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJieChuQuBaoHouShenJueDingShuNew" type="redirectAction">
+				<param name="actionName">showJCQBHSPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocJieAnShenPiBiao" type="redirectAction">
+				<param name="actionName">showJASPBPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+			<result name="com.taiji.pubsec.szpt.ajgl.model.DocBianGengJiYaQiXianTongZhiShu" type="redirectAction">
+				<param name="actionName">showBGJYQXPage</param>
+			    <param name="namespace">/showWrit</param>
+			    <param name="writId">${writId}</param>
+			</result>
+		</action>
+		<!-- error页面 -->
+		<action name="showERRORPage">
+			<result name="success">/WEB-INF/view/showWrit/error.jsp</result>
+		</action>
+		<!-- 逮捕证 -->
+		<action name="showDBZPage">
+			<result name="success">/WEB-INF/view/showWrit/dbz.jsp</result>
+		</action>
+		<action name="dbz" class="showWritAction" method="findDbzInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 传唤证 -->
+		<action name="showCHZPage">
+			<result name="success">/WEB-INF/view/showWrit/chz.jsp</result>
+		</action>
+		<action name="chz" class="showWritAction" method="findChzInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 传唤证刑事 -->
+		<action name="showCHZXSPage">
+			<result name="success">/WEB-INF/view/showWrit/chzxs.jsp</result>
+		</action>
+		<action name="chzxs" class="showWritAction" method="findChzxsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 拘留证 -->
+		<action name="showJLZPage">
+			<result name="success">/WEB-INF/view/showWrit/jlz.jsp</result>
+		</action>
+		<action name="jlz" class="showWritAction" method="findJlzInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 取保候审书 -->
+		<action name="showQBHSPage">
+			<result name="success">/WEB-INF/view/showWrit/qbhs.jsp</result>
+		</action>
+		<action name="qbhs" class="showWritAction" method="findQbhsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 释放通知书 -->
+		<action name="showSFTZSPage">
+			<result name="success">/WEB-INF/view/showWrit/sftzs.jsp</result>
+		</action>
+		<action name="sftzs" class="showWritAction" method="findSftzsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 提请批准逮捕书 -->
+		<action name="showTQPZDBSPage">
+			<result name="success">/WEB-INF/view/showWrit/tqpzdbs.jsp</result>
+		</action>
+		<action name="tqpzdbs" class="showWritAction" method="findTqpzdbsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 延长拘留期限通知书 -->
+		<action name="showYCJLQXPage">
+			<result name="success">/WEB-INF/view/showWrit/ycjlqx.jsp</result>
+		</action>
+		<action name="ycjlqx" class="showWritAction" method="findYcjlqxInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 扣押决定书 -->
+		<action name="showKYJDSPage">
+			<result name="success">/WEB-INF/view/showWrit/kyjds.jsp</result>
+		</action>
+		<action name="kyjds" class="showWritAction" method="findKyjdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 行政处罚决定书 -->
+		<action name="showXZCFPage">
+			<result name="success">/WEB-INF/view/showWrit/xzcfjds.jsp</result>
+		</action>
+		<action name="xzcfjds" class="showWritAction" method="findXzcfjdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 拘传证 -->
+		<action name="showJCZPage">
+			<result name="success">/WEB-INF/view/showWrit/jcz.jsp</result>
+		</action>
+		<action name="jcz" class="showWritAction" method="findJczInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 强制隔离戒毒决定书 -->
+		<action name="showQZGLJDPage">
+			<result name="success">/WEB-INF/view/showWrit/qzgljd.jsp</result>
+		</action>
+		<action name="qzgljd" class="showWritAction" method="findQzgljdInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 起诉意见书 -->
+		<action name="showQSYJSPage">
+			<result name="success">/WEB-INF/view/showWrit/qsyjs.jsp</result>
+		</action>
+		<action name="qsyjs" class="showWritAction" method="findQsyjsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 证据保全决定书 -->
+		<action name="showZJBQJDPage">
+			<result name="success">/WEB-INF/view/showWrit/zjbqjds.jsp</result>
+		</action>
+		<action name="zjbqjds" class="showWritAction" method="findZjbqjdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 监视居住决定书 -->
+		<action name="showJSJZPage">
+			<result name="success">/WEB-INF/view/showWrit/jsjz.jsp</result>
+		</action>
+		<action name="jsjzjds" class="showWritAction" method="findJsjzjdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 解除监视居住决定书 -->
+		<action name="showJCJSJZPage">
+			<result name="success">/WEB-INF/view/showWrit/jcjsjz.jsp</result>
+		</action>
+		<action name="jcjsjzjds" class="showWritAction" method="findJcjsjzjdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 受案登记表 -->
+		<action name="showSADJBPage">
+			<result name="success">/WEB-INF/view/showWrit/sadjb.jsp</result>
+		</action>
+		<action name="sadjb" class="showWritAction" method="findSadjbInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 立案决定书 -->
+		<action name="showLAJDSPage">
+			<result name="success">/WEB-INF/view/showWrit/lajds.jsp</result>
+		</action>
+		<action name="lajds" class="showWritAction" method="findLajdsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 立案决定书 -->
+		<action name="showPADJBPage">
+			<result name="success">/WEB-INF/view/showWrit/padjb.jsp</result>
+		</action>
+		<action name="padjb" class="showWritAction" method="findPadjbInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 责令社区戒毒决定书 -->
+		<action name="showZLSQJDPage">
+			<result name="success">/WEB-INF/view/showWrit/zlsqjd.jsp</result>
+		</action>
+		<action name="zlsqjd" class="showWritAction" method="findZlsqjdInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 解除取保候审决定书 -->
+		<action name="showJCQBHSPage">
+			<result name="success">/WEB-INF/view/showWrit/jcqbhs.jsp</result>
+		</action>
+		<action name="jcqbhs" class="showWritAction" method="findJcqbhsInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 行政结案审批表 -->
+		<action name="showJASPBPage">
+			<result name="success">/WEB-INF/view/showWrit/jaspb.jsp</result>
+		</action>
+		<action name="jaspb" class="showWritAction" method="findJaspbInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 变更羁押期限通知书 -->
+		<action name="showBGJYQXPage">
+			<result name="success">/WEB-INF/view/showWrit/bgjyqx.jsp</result>
+		</action>
+		<action name="bgjyqx" class="showWritAction" method="findBgjyqxInfo">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:jdbc="http://www.springframework.org/schema/jdbc" xmlns:task="http://www.springframework.org/schema/task"
+	xmlns:util="http://www.springframework.org/schema/util" 
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+                          http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.3.xsd">
+
+	<context:component-scan base-package="com.taiji.*" />
+	
+	<bean
+		class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+		<property name="targetObject">
+	        <!-- System.getProperties() -->
+	        <bean
+	            class="org.springframework.beans.factory.config.MethodInvokingFactoryBean">
+	            <property name="targetClass" value="java.lang.System" />
+	            <property name="targetMethod" value="getProperties" />
+	        </bean>
+   		</property>
+    	<property name="targetMethod" value="putAll" />
+		<property name="arguments">
+			<!-- 设置system.property -->
+			<util:properties>
+				<prop key="solr.zkhost">zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/solr</prop>
+			</util:properties>
+		</property>
+	</bean>	
+</beans>

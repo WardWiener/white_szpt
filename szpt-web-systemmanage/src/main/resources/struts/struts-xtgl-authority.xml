@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+ <package name="authority" extends="szpt-web-xtgl" namespace="/authority">
+       <action name="toAuthority">
+			<result name="success">/WEB-INF/view/xtgl/authority/authority.jsp</result>
+		</action>
+		<action name="displayAuthority">
+			<result name="success">/WEB-INF/view/xtgl/authority/displayAuthority.jsp</result>
+		</action>
+		<action name="queryAllAuthority" class="authorityAction" method="queryAllAuthority">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			<param name = "includeProperties">authorityBean.*,authorityBeanList.*,totalNum,length</param> 
+			</result>
+		</action>
+		<action name="addAuthority" class="authorityAction" method="addAuthority">
+			<result name="success" type="json">
+			<param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg,authorityBean.*</param> 
+			</result>
+		</action>
+		<action name="updateAuthority" class="authorityAction" method="updateAuthority">
+			<result name="success" type="json">
+			 <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag,msg,authorityBean.*</param> 
+			</result>
+		</action>
+		<action name="findAuthorityById" class="authorityAction" method="findAuthorityById">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="deleteAuthority" class="authorityAction" method="deleteAuthority">
+			<result name="success" type="json">
+			  <param name="ignoreHierarchy" >false</param>
+			  <param name = "includeProperties">flag</param> 
+			</result>
+		</action>
+		<action name="findAllResource" class="authorityAction" method="findAllResource">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findResoerceByName" class="authorityAction" method="findResoerceByName">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showNewAuthority">
+			<result name="success">/WEB-INF/view/xtgl/authority/addAuthority.jsp</result>
+		</action>
+		
+		
+    </package>
+</struts>

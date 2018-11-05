@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"  xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-4.3.xsd">
+	
+	
+  
+	  <bean name="cometConstants" class="com.taiji.pubsec.complex.tools.comet.constant.Constants">
+	  	<constructor-arg index="0" value="${OORT_URL}" />
+	  	<constructor-arg index="1" value="${OORT_CLOUD}" />
+	  	<constructor-arg index="2" value="${OORT_LOCAL_URL}" />
+	  </bean>
+	      
+ 	  <!-- cometd的初始化配置类 -->
+	  <bean class="com.taiji.pubsec.complex.tools.comet.core.Config">
+			<property name="bayeuxServer" ref="bayeuxServer" />
+			<property name="securityPolicy" ref="cometSecurityPolicy" />
+			<property name="oort" ref="oort" />
+			<property name="seti" ref="seti" />
+	  </bean>
+
+	  <!-- bayeuxServer实例 需要指定 init-method="start" destroy-method="stop" -->
+	  <bean name="bayeuxServer" class="com.taiji.pubsec.complex.tools.comet.core.CustomizedBayeuxServer" init-method="start" destroy-method="stop">
+	  	<constructor-arg index="0" ref="defaultHintMsg" />
+	  	<constructor-arg index="1" ref="hintMsgConvertor" />	
+	  </bean>
+	  
+	  <!-- seti实例 需要指定 init-method="start" destroy-method="stop" -->
+	  <bean name="seti" class="com.taiji.pubsec.complex.tools.comet.core.CustomizedSeti" init-method="start" destroy-method="stop">
+	  	<constructor-arg index="0" ref="oort" />
+	  </bean>	  	  
+	  
+	  <!-- oort实例 需要指定 init-method="start" destroy-method="stop" depends-on="cometConstants" 需要在constants初始化之后加载，因为需要其中的配置参数 -->
+	  <bean name="oort" class="com.taiji.pubsec.complex.tools.comet.core.CustomizedOort" init-method="start" destroy-method="stop" depends-on="cometConstants">
+	  	<constructor-arg index="0" ref="bayeuxServer" />
+	  </bean>	  
+	  
+	  <!-- 注解的aspect -->
+	  <bean class="com.taiji.pubsec.complex.tools.comet.annotation.PushMsgAspect">
+		<constructor-arg index="0">
+			<bean name="defaultPushService" class="com.taiji.pubsec.complex.tools.comet.service.impl.DefaultPushServiceImpl" />		
+		</constructor-arg>
+	  </bean>		  	  
+	  
+	  <!-- cometd的安全策略类，可以根据项目需求替换成自己需要的 -->
+	  <bean name="cometSecurityPolicy" class="com.taiji.pubsec.complex.tools.comet.core.SecurityPolicy">
+	  	<constructor-arg index="0" ref="seti" />
+	  </bean>	 	  
+	  <!-- 默认的消息转换类，可以根据项目需求替换成自己需要的 -->
+	  <bean name="hintMsgConvertor" class="com.taiji.pubsec.complex.tools.comet.model.DefaultHintMsgConvertor">
+	  	  	<constructor-arg index="0" ref="defaultHintMsg" />
+	  </bean>
+	  <!-- 默认的消息类，可以根据项目需求替换成自己需要的 -->
+	  <bean name="defaultHintMsg" class="com.taiji.pubsec.complex.tools.comet.model.DefaultHintMsg">
+	  </bean>
+
+
+
+
+	  
+	  <!-- 默认的推送服务方法指定了这个服务方法开启的channel, 可以参照、根据需要自己再定义多个类似的服务方法并指定不同的channel，提供给handler使用-->
+	  <bean name="defaultCometdPushService" class="com.taiji.pubsec.complex.tools.comet.service.impl.DefaultCometdPushServiceImpl">
+	  		<constructor-arg index="0" ref="bayeuxServer"  />  
+			<constructor-arg index="1" value="pushhint"  />  
+			<constructor-arg index="2">  
+		       <map>   
+		       	  <entry key="/service/receive/hint">
+		       	  	<bean class="com.taiji.pubsec.complex.tools.comet.pojo.ChannelProtocol"/>
+		       	  </entry>   
+		       </map>  			   			
+			</constructor-arg>			
+	  	  	<property name="oort" ref="oort" />
+			<property name="seti" ref="seti" />
+			<property name="bayeux" ref="bayeuxServer" />
+	  </bean>
+	  
+	  <!-- 默认的广播服务方法指定了这个服务方法开启的channel, 可以参照、根据需要自己再定义多个类似的服务方法并指定不同的channel，提供给handler使用-->
+	  <bean name="defaultCometdBroadcastService" class="com.taiji.pubsec.complex.tools.comet.service.impl.DefaultCometdBroadcastServiceImpl">
+			<constructor-arg index="0" ref="bayeuxServer"  />  
+			<constructor-arg index="1" value="broadcast"  />  
+			<constructor-arg index="2">  
+		       <map>   
+		       	  <entry key="/comet/broadcast/enterbaq">
+		       	  	<bean class="com.taiji.pubsec.complex.tools.comet.pojo.ChannelProtocol" />
+		       	  </entry>   
+		       </map>  			   			
+			</constructor-arg>			
+	  	  	<property name="oort" ref="oort" />
+			<property name="seti" ref="seti" />
+			<property name="bayeux" ref="bayeuxServer" />
+	  </bean>	  
+</beans>

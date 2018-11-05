@@ -1,0 +1,17 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd" >
+<struts>
+	<package name="unitTree" extends="szpt-web-instruction" namespace="/unitTree">
+		<!-- 查询单位 -->
+		<action name="searchInfoUnit" class="unitTreeAction" method="searchInfoUnit">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询平级单位或下级单位 -->
+		<action name="searchUnit" class="unitTreeAction" method="searchUnit">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 初始化单位树 -->
+		<action name="initUnitTree" class="unitTreeAction" method="initUnitTree">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

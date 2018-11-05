@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+                          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+                          http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.0.xsd">
+
+
+	<bean id="propertyConfigurer"
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<property name="locations">
+			<list>
+				<value>classpath:jdbc.properties</value>
+			</list>
+		</property>
+	</bean>
+
+	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+		destroy-method="close">
+		<property name="driverClass" value="${database.driverClassName}" />
+		<property name="jdbcUrl" value="${database.url}" />
+		<property name="user" value="${database.username}" />
+		<property name="password" value="${database.password}" />
+		<property name="maxPoolSize" value="${database.pool.max}" />
+		<property name="minPoolSize" value="${database.pool.min}" />
+		<property name="initialPoolSize" value="${database.pool.initial}" />
+		<property name="idleConnectionTestPeriod" value="${database.pool.idle_test_period}" />
+	</bean>
+	
+
+ 
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+		<property name="dataSource" ref="dataSource" />
+		<property name="packagesToScan">
+			<array>
+              <value>com.taiji.pubsec.businesscomponent.organization.model</value>
+              <value>com.taiji.pubsec.businesscomponent.authority.model</value>
+              <value>com.taiji.pubsec.businesscomponent.dictionary.model</value>
+              <value>com.taiji.pubsec.businesscomponent.attachment</value>
+              <value>com.taiji.pubsec.szpt.attachment.model</value>
+              <value>com.taiji.pubsec.szpt.highriskpersonalert.model</value>
+              <value>com.taiji.pubsec.szpt.placemonitor.model</value>
+              <value>com.taiji.pubsec.szpt.zhza.model</value>
+			</array>
+		</property>
+		<property name="jpaVendorAdapter">
+			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
+				<property name="databasePlatform" value="${hibernate.dialect}" />
+				<property name="showSql" value="${hibernate.show_sql}" />
+				<property name="generateDdl" value="${hibernate.generateDdl}" />
+			</bean>
+		</property>
+		<property name="jpaPropertyMap">
+			<map>
+				<entry key="hibernate.format_sql" value="${hibernate.format_sql}" />
+				<entry key="hibernate.hbm2ddl.auto" value="${hibernate.hbm2ddl.auto}" />
+                <entry key="hibernate.ejb.interceptor" value="com.taiji.pubsec.persistence.interceptor.CustomizedInterceptor" />
+			</map>
+		</property>
+	</bean>
+
+	<bean id="transactionManager" class="org.springframework.orm.jpa.JpaTransactionManager">
+		<property name="entityManagerFactory" ref="entityManagerFactory" />
+	</bean>
+
+	<!-- 2.定义事务通知 ,并指定关联的事务管理器 -->
+	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+		<!-- 在属性中定义事务规则 -->
+		<tx:attributes>
+			<tx:method name="create*" propagation="REQUIRED" />
+			<tx:method name="save*" propagation="REQUIRED" />
+			<tx:method name="modify*" propagation="REQUIRED" />
+			<tx:method name="edit*" propagation="REQUIRED" />
+			<tx:method name="remove*" propagation="REQUIRED" />
+			<tx:method name="delete*" propagation="REQUIRED" />
+			<tx:method name="sign*" propagation="REQUIRED" />
+			<tx:method name="update*" propagation="REQUIRED" />
+			<tx:method name="done*" propagation="REQUIRED" />
+			<tx:method name="*" propagation="REQUIRED" read-only="true" />
+			
+		</tx:attributes>
+	</tx:advice>
+
+	<!-- 3.定义aop:config -->
+	<aop:config>
+		<aop:pointcut id="serviceMethods" expression="execution(* com.taiji..service.impl.*.*(..))" />
+        <aop:pointcut id="ormMethods" expression="execution(* com.taiji..service.*.*(..))" />
+        <aop:pointcut id="ormMethods1" expression="execution(* com.taiji..*Service.*(..))" />
+        <aop:pointcut id="ormMethods2" expression="execution(* com.taiji..*ServiceImpl.*(..))" />
+        <aop:pointcut id="ormMethods3" expression="execution(* com.taiji..kafka.wifi.*.*(..))" />
+		<!-- 将事务通知和切面组合 -->
+		<aop:advisor advice-ref="txAdvice" pointcut-ref="serviceMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods1" />
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods2" />
+	    <aop:advisor advice-ref="txAdvice" pointcut-ref="ormMethods3" />
+	</aop:config>
+
+
+
+	<tx:annotation-driven transaction-manager="transactionManager" />
+
+	<context:component-scan base-package="com.taiji.*">
+	<!-- 	<context:exclude-filter type="regex" expression="com.taiji.pubsec.szpt.wifi.*"/>   -->
+	</context:component-scan>
+
+	<bean id="jpaDao" class="com.taiji.persistence.dao.JpaDaoImpl" />
+
+	<bean id="springContextUtil" class="com.taiji.pubsec.common.tool.spring.SpringContextUtil" />
+
+  
+    <aop:aspectj-autoproxy />  
+</beans>
+	

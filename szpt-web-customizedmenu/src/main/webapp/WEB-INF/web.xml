@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app version="3.0" 
+	xmlns="http://java.sun.com/xml/ns/javaee" 
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xsi:schemaLocation="http://java.sun.com/xml/ns/javaee 
+	http://java.sun.com/xml/ns/javaee/web-app_3_0.xsd">
+  
+  <display-name></display-name>	
+   <welcome-file-list>
+    <welcome-file>index.jsp</welcome-file>
+   </welcome-file-list>
+   
+    <!-- 通过CorsFilter解决跨域访问 -->
+	<filter>
+		<filter-name>CorsFilter</filter-name>
+		<filter-class>org.apache.catalina.filters.CorsFilter</filter-class>
+        <async-supported>true</async-supported>
+        <init-param>
+            <param-name>allowCredentials</param-name>
+            <param-value>true</param-value>
+        </init-param>		
+		<init-param>
+			<param-name>cors.allowed.methods</param-name>
+			<param-value>GET,POST,OPTIONS</param-value>
+		</init-param>
+		<init-param>
+			<param-name>cors.allowed.headers</param-name>
+			<param-value>Origin,X-Requested-With,Content-Type,Accept</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>CorsFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>  
+    <!-- 通过CorsFilter解决跨域访问 -->       
+
+	<!-- session超时 --> 
+    <session-config>
+  	  <session-timeout>300</session-timeout>
+    </session-config>
+
+    <listener>
+      <listener-class>
+        org.springframework.web.context.ContextLoaderListener
+      </listener-class>
+    </listener>	
+	<!-- Spring的配置 -->
+	<context-param>
+		<param-name>contextConfigLocation</param-name>
+		<param-value>
+		   classpath:applicationContext*.xml
+		</param-value>
+	</context-param>
+
+	
+	<listener>
+	      <listener-class>org.springframework.web.context.request.RequestContextListener</listener-class>
+	</listener>	
+  
+    <!-- Hibernate的配置,延迟加载 -->
+    <filter>
+      <filter-name>OpenSessionInViewFilter</filter-name>
+      <filter-class>
+        org.springframework.orm.jpa.support.OpenEntityManagerInViewFilter
+      </filter-class>
+          <async-supported>true</async-supported>
+    </filter>
+    <filter-mapping>
+      <filter-name>OpenSessionInViewFilter</filter-name>
+      <url-pattern>/*</url-pattern>
+    </filter-mapping>   
+
+     <!-- 字符集的filter -->
+	<filter>
+		<filter-name>EncodingFilter</filter-name>
+		<filter-class>
+			org.springframework.web.filter.CharacterEncodingFilter
+		</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>utf-8</param-value>
+		</init-param>
+	</filter>
+	<filter-mapping>
+		<filter-name>EncodingFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+  
+	<filter>
+		<filter-name>characterEncodingFilter</filter-name>
+		<filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
+		<async-supported>true</async-supported>
+		<init-param>
+			<param-name>encoding</param-name>
+			<param-value>UTF-8</param-value>
+		</init-param>
+		<init-param>
+			<param-name>forceEncoding</param-name>
+			<param-value>true</param-value>
+		</init-param>
+	</filter>
+
+	<filter-mapping>
+		<filter-name>characterEncodingFilter</filter-name>
+		<url-pattern>*.action</url-pattern>
+	</filter-mapping>	
+  
+    <filter-mapping>
+      <filter-name>characterEncodingFilter</filter-name>
+      <url-pattern>/j_spring_security_check</url-pattern> 
+    </filter-mapping>
+    
+    <filter>
+          <filter-name>springSecurityFilterChain</filter-name>
+          <filter-class>
+              org.springframework.web.filter.DelegatingFilterProxy
+          </filter-class>
+          <async-supported>true</async-supported>
+    </filter>
+   <filter-mapping>
+        <filter-name>springSecurityFilterChain</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>   
+
+	<servlet>
+      <servlet-name>cometd</servlet-name>
+      <servlet-class>org.cometd.server.CometDServlet</servlet-class>
+      <async-supported>true</async-supported>
+    </servlet>
+    <servlet-mapping>
+      <servlet-name>cometd</servlet-name>
+      <url-pattern>/cometd/*</url-pattern>
+    </servlet-mapping>  
+	
+	<!-- Struts2的配置 -->
+	<filter>
+		<filter-name>struts2</filter-name>
+		<filter-class>org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter</filter-class>  
+		<async-supported>true</async-supported>
+	</filter>
+	<filter-mapping>
+		<filter-name>struts2</filter-name>
+		<url-pattern>*.action</url-pattern>		
+	</filter-mapping>
+
+
+</web-app>
+

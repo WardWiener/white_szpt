@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+
+	<t_zdlx id="type001" mc="人员类别" bz="备注" bm="rylx" zt="1" fl="人员类别" sjc="2016-10-14 14:10:10" ></t_zdlx>
+
+	<t_zdx  id="item001" mc="涉毒" bm="bm001" sx="1" zt="1" bz="备注" zdlx_id="type001" sjzdx_id="item001"/>
+	<t_zdx  id="item002" mc="涉恐" bm="bm002" sx="2" zt="1" bz="备注" zdlx_id="type001" sjzdx_id="item001"/>
+	<t_zdx  id="item003" mc="在逃" bm="bm003" sx="3" zt="1" bz="备注" zdlx_id="type001" sjzdx_id="item001"/>
+	<t_zdx  id="item004" mc="违法青少年" bm="bm004" sx="4" zt="1" bz="备注" zdlx_id="type001" sjzdx_id="item001"/>
+	<t_zdx  id="item005" mc="艾滋病人" bm="bm005" sx="5" zt="1" bz="备注" zdlx_id="type001" sjzdx_id="item001"/>
+
+</dataset>

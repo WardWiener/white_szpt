@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+ 
+  <t_zhzats_jwzh_cj id="001" fact_jq_id="001" ty_zhdy_id="zhdyId001" ty_zhdy_bm="zhdyBm001" ty_zhdy_mc="指挥部" cjsj="2016-10-10 10:10:10" qsr="宝强" qssj="2016-10-11 10:10:10" ></t_zhzats_jwzh_cj>
+  <t_zhzats_jwzh_cj id="002" fact_jq_id="002" ty_zhdy_id="zhdyId001" ty_zhdy_bm="zhdyBm001" ty_zhdy_mc="指挥部" cjsj="2016-10-10 10:10:10" qsr="宝强" qssj="2016-10-11 10:10:10" ></t_zhzats_jwzh_cj>
+  <t_zhzats_jwzh_cj id="003" fact_jq_id="008" ty_zhdy_id="zhdyId001" ty_zhdy_bm="zhdyBm001" ty_zhdy_mc="指挥部" cjsj="2016-10-10 10:10:10" qsr="宝强" qssj="2016-10-11 10:10:10" ></t_zhzats_jwzh_cj>
+  <t_zhzats_jwzh_cj id="004" fact_jq_id="009" ty_zhdy_id="zhdyId001" ty_zhdy_bm="zhdyBm001" ty_zhdy_mc="指挥部" cjsj="2016-10-10 10:10:10" qsr="宝强" qssj="2016-10-11 10:10:10" ></t_zhzats_jwzh_cj>
+
+ 
+  <t_zhzats_jwzh_fk id="001" fknr="迅速出警查明事情缘由" fact_cj_id="002" fksj="2017-01-11 10:10:10" ty_zhdy_bm="zhdyBm001" ty_zhdy_id="zhdyId001" ty_zhdy_mc="指挥部1" fkrxm="哈哈" ></t_zhzats_jwzh_fk>
+  <t_zhzats_jwzh_fk id="002" fknr="迅速出警查明事情缘由" fact_cj_id="002" fksj="2017-01-11 10:10:10" ty_zhdy_bm="zhdyBm002" ty_zhdy_id="zhdyId002" ty_zhdy_mc="指挥部2" fkrxm="呵呵" ></t_zhzats_jwzh_fk>
+  <t_zhzats_jwzh_fk id="003" fknr="迅速出警查明事情缘由" fact_cj_id="002" fksj="2017-01-11 10:10:10" ty_zhdy_bm="zhdyBm003" ty_zhdy_id="zhdyId003" ty_zhdy_mc="指挥部3" fkrxm="嘿嘿" ></t_zhzats_jwzh_fk>
+</dataset>

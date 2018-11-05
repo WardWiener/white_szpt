@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+	<t_zagl_zajs id="zajsId" bm="bm" mc="mc" zt="zt" lx="lx"></t_zagl_zajs>
+	<t_zagl_zajs id="zajsId2" bm="bm" mc="mc" zt="zt" lx="lx"></t_zagl_zajs>
+	<t_zagl_zajs id="zajsId3" bm="bm" mc="mc" zt="zt" lx="lx"></t_zagl_zajs>
+	<t_zagl_zajs id="zajsId4" bm="bm" mc="mc" zt="zt" lx="lx"></t_zagl_zajs>
+	<t_zagl_zajs id="zajsId5" bm="bm5" mc="mc5" zt="zt" lx="lx"></t_zagl_zajs>
+</dataset>

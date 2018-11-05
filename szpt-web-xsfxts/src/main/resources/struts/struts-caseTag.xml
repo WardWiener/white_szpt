@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="caseTag" extends="szpt-web-xsfxts" namespace="/caseTag">
+		<!-- 显示案件打标案件列表 -->
+		<action name="showCaseTagListPage">
+			<result name="success">/WEB-INF/view/tag/caseTagList.jsp</result>
+		</action>
+		
+		<!-- 新建案件打标页面 -->
+		<action name="showNewCaseTagPage">
+			<result name="success">/WEB-INF/view/tag/newCaseTag.jsp</result>
+		</action>
+		
+		<!-- 查看案件打标页面 -->
+		<action name="showLookCaseTagPage">
+			<result name="success">/WEB-INF/view/tag/lookCaseTag.jsp</result>
+		</action>
+		
+		<!-- 案件打标发案地点选择页面 -->
+		<action name="showCaseTagMapPage">
+        	<result name="success">/WEB-INF/view/tag/caseTagMap.jsp</result>
+      	</action>      
+      	
+      	<!-- 修改案件打标页面 -->
+      	<action name="showModifyCaseTagPage">
+        	<result name="success">/WEB-INF/view/tag/modifyCaseTag.jsp</result>
+      	</action> 
+      	
+      	<!-- 查询打标列表 -->
+      	<action name="queryCaseTagList" class="caseTagAction" method="queryCaseTagList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据派出所code查询村居 -->
+		<action name="findCommunityByPcs" class="caseTagAction" method="findCommunityByPcs">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件code查询打标数据 -->
+		<action name="queryCaseTagByCaseCode" class="caseTagAction" method="queryCaseTagByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件code查询打标操作记录 -->
+		<action name="queryCaseTagOpertionRecordByCaseCode" class="caseTagAction" method="queryCaseTagOpertionRecordByCaseCode">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 初始化打标页面字典数据 -->
+		<action name="initCaseTagDict" class="caseTagAction" method="initCaseTagDict">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 保存/修改案件打标 -->
+		<action name="saveOrUpdateCaseTag" class="caseTagAction" method="saveOrUpdateCaseTag">
+			<result name="success" type="json"></result>
+		</action>
+		
+		
+	</package>
+</struts>

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_xsajfx_cbajfmb bm="01" mc="name1" ajlx="0001" ajxzyj="0001001" ajxzej="0001001001" zt="1" bz="remark1" zxfs="60.0" cjr="cjr1"  gxr="gxr1" ></t_xsajfx_cbajfmb>
+	<t_scoreframework_scoretask description="name1" warnscore="60.0" />
+	
+	<t_scoreframework_scorepoint description="key_communities" cetype="com.taiji.pubsec.szpt.caseanalysis.score.executor.CaseScoreSimilarCommunityExecutor" ceid="key_communities"/>
+	<t_scoreframework_scorepointcfg weight="1" description="key_communities"/>
+	<t_scoreframework_groovyrule  value="40,80,100" script='if("不相邻社区"==x0) return 40 else if("相邻社区"==x0) return 80 else if("相同社区"==x0) return 100' />
+	<t_scoreframework_scorerule description="key_communities" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"/>
+	
+	<t_scoreframework_scorepoint description="key_occurPlace" cetype="com.taiji.pubsec.szpt.caseanalysis.score.executor.CaseScoreSimilarPlaceExecutor" ceid="key_occurPlace"/>
+	<t_scoreframework_scorepointcfg weight="0.5" description="key_occurPlace"/>
+	<t_scoreframework_groovyrule  value="20,50,75,100" script="if(x0 &gt;= 0 &amp;&amp; x0 &lt;= 0.25) return 20 else if(x0 &gt; 0.25 &amp;&amp; x0 &lt;= 0.5 ) return 50 else if(x0 &gt; 0.5 &amp;&amp; x0 &lt;= 0.75) return 75 else return 100" />
+	<t_scoreframework_scorerule description="key_occurPlace" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule"/>
+	
+	<!-- groovy脚本规则 
+	<t_groovyrule id="a123" script="if(0 &lt; x0 &amp;&amp; x0&lt;= 100) return 50 else if(x0 &lt;= 0) ruturn 0 else if(100 &lt; x0) return 100" />
+	<t_groovyrule id="b123" script="if(0 &lt; x0 &amp;&amp; x0&lt;= 100) return 5000 else if(x0 &lt;= 0) ruturn 0 else if(100 &lt; x0) return 10000" />
+
+
+    <t_scorepoint id="cp1" ceid="ce123" description="测试用的检查点" cetype="com.taiji.pubsec.scoreframework.MokeExcutor"/>
+
+    <t_scorerule id="rule1" cpid="cp1" ruleid="a123" description="测试用的规则a。" type="com.taiji.pubsec.scoreframework.rules.groovyrule.BasedGroovyRule"/>
+	<t_scorerule id="rule2" cpid="cp1" ruleid="b123" description="测试用的规则b。" type="com.taiji.pubsec.scoreframework.rules.groovyrule.BasedGroovyRule"/>
+
+
+	
+	<t_scorepointcfg id="cpf2" weight="70" cpid="cp1" ctid="ct1" />-->
+</dataset>

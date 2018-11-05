@@ -1,0 +1,42 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN" "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="fenbu" extends="szpt-web-zhzats" namespace="/fenbu">
+	
+		<action name="showZhzatsFenbu">
+			<result name="success">/WEB-INF/view/zhzats/fenbu.jsp</result>
+		</action>
+		
+		<action name="showJqslDetail">
+			<result name="success">/WEB-INF/view/zhzats/showJqslDetail.jsp</result>
+		</action>
+		
+		<action name="showBbjlDetail">
+			<result name="success">/WEB-INF/view/zhzats/showBbjlDetail.jsp</result>
+		</action>
+		
+		<action name="showSjjlDetail">
+			<result name="success">/WEB-INF/view/zhzats/showSjjlDetail.jsp</result>
+		</action>
+		
+		<action name="queryJqlxTree" class="szptAnalyzeAction" method="queryJqlxTree">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findFenbuPos" class="factJqtsAnalyzeAction" method="findFenbuPos">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findBbjlDetail" class="factJqtsAnalyzeAction" method="findBbjlDetailList">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findJqslDetail" class="factJqtsAnalyzeAction" method="findJqslDetailList">
+          	<result name="success" type="json"></result>
+        </action>
+        
+        <action name="findSjjlDetail" class="factJqtsAnalyzeAction" method="findSjjlDetailList">
+          	<result name="success" type="json"></result>
+        </action>
+		
+	</package>
+</struts>

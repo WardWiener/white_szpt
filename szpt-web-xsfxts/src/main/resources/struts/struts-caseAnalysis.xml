@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="caseAnalysis" extends="szpt-web-xsfxts" namespace="/caseAnalysis">
+		<!-- 显示案件打标列表 -->
+		<action name="showLookCaseTagListPage">
+			<result name="success">/WEB-INF/view/score/lookCaseTagList.jsp</result>
+		</action>
+		
+		<!-- 显示案件打标对比页面 -->
+		<action name="showCaseTagComparePage" class="caseAnalysisAction" method="transmitCaseTagComparePage">
+			<result name="success">/WEB-INF/view/score/caseTagCompare.jsp</result>
+		</action>
+		
+		<!-- 显示串并案分析页面 -->
+		<action name="showCaseAnalysisPage">
+			<result name="success">/WEB-INF/view/score/caseAnalysis.jsp</result>
+		</action>
+		
+      	<!-- 查询打标列表 -->
+      	<action name="queryCaseTagListByCondition" class="caseAnalysisAction" method="queryCaseTagListByCondition">
+			<result name="success" type="json"></result>
+		</action>
+		
+      	<!-- 修改分析结果是否忽略状态 -->
+      	<action name="updateCaseScoreResultIgnored" class="caseAnalysisAction" method="updateCaseScoreResultIgnored">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据案件编号集合查询案件打标集合 -->
+      	<action name="queryCaseTagsByCaseCodes" class="caseAnalysisAction" method="queryCaseTagsByCaseCodes">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询可能的串并案集合 -->
+      	<action name="queryPossibleCaseList" class="caseAnalysisAction" method="queryPossibleCaseList">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 案件打标列表导出EXCEL -->
+		<action name="exportExcelByCaseTagList" class="caseAnalysisAction" method="exportExcelByCaseTagList">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param>
+			</result> 
+		</action>
+		
+		<!-- 案件打标对比列表导出EXCEL -->
+		<action name="exportExcelByCaseTagCompareList" class="caseAnalysisAction" method="exportExcelByCaseTagCompareList">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param>
+			</result> 
+		</action>
+		
+		<!-- 可能的串并案列表导出EXCEL -->
+		<action name="exportExcelByPossibleCaseList" class="caseAnalysisAction" method="exportExcelByPossibleCaseList">
+			<result name="done" type="chain">
+				<param name="actionName">export</param>
+				<param name="namespace">/</param>
+			</result> 
+		</action>
+		
+	</package>
+</struts>

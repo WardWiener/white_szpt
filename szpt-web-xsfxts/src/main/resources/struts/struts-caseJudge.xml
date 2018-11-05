@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="caseJudge" extends="szpt-web-xsfxts" namespace="/caseJudge">
+		<!-- 显示一案一研判页面 -->
+		<action name="showCaseJudgePage">
+			<result name="success">/WEB-INF/view/judge/caseJudge.jsp</result>
+		</action>
+		
+      	<!-- 根据条件查询所有未破案的案件(分页查询) -->
+      	<action name="queryCaseListByCondition" class="caseJudgeAction" method="queryCaseListByCondition">
+			<result name="success" type="json"></result>
+		</action>
+		
+      	<!-- 根据警情id查询警情研判结果 -->
+      	<action name="queryAlarmJudgeResultByAlarmId" class="caseJudgeAction" method="queryAlarmJudgeResultByAlarmId">
+			<result name="success" type="json"></result>
+		</action>
+		
+      	<!-- 刑事案件分析一案一档下发指令 -->
+      	<action name="saveInstructionXsfxtsYayd" class="caseJudgeAction" method="saveInstructionXsfxtsYayd">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<dataset>
+  <t_zhzats_hlck_pcqk id="001" dwmc="经开分局" dwbm="0001" ry='18' kycl="2"  fkycl="1" pcsj="2016-10-10 10:10:10"></t_zhzats_hlck_pcqk>
+  <t_zhzats_hlck_pcqk id="002" dwmc="小河分局" dwbm="0002" ry='20' kycl="3" fkycl="0" pcsj="2016-10-11 10:10:10"></t_zhzats_hlck_pcqk>
+  <t_zhzats_hlck_pcqk id="003" dwmc="经开分局" dwbm="0001" ry='10' kycl="5"  fkycl="4" pcsj="2016-10-12 10:10:10"></t_zhzats_hlck_pcqk>
+  <t_zhzats_hlck_pcqk id="004" dwmc="小河分局" dwbm="0002" ry='20' kycl="6" fkycl="3" pcsj="2016-10-13 10:10:10"></t_zhzats_hlck_pcqk>
+  <t_zhzats_hlck_pcqk id="005" dwmc="经开分局" dwbm="0001" ry='3' kycl="8"  fkycl="7" pcsj="2016-10-14 10:10:10"></t_zhzats_hlck_pcqk>
+  <t_zhzats_hlck_pcqk id="006" dwmc="小河分局" dwbm="0002" ry='20' kycl="9" fkycl="6" pcsj="2016-10-15 10:10:10"></t_zhzats_hlck_pcqk>
+</dataset>

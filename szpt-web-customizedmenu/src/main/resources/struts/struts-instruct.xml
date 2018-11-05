@@ -1,0 +1,24 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="instruct" extends="szpt-web-customizedmenu" namespace="/instruct">
+		
+		<action name="showInstructionSign">
+			<result name="success">/WEB-INF/view/loginHomePage/instructionSign/instructionSign.jsp</result>
+		</action>
+		
+		<action name="findInstruction" class="instructionSend" method="findInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findAllInstruction" class="instructionSend" method="findAllInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="showInstructLst">
+			<result name="success">/WEB-INF/view/loginHomePage/instructLst.jsp</result>
+		</action>
+		<action name="queryInstructionReceiveList" class="instructionAction" method="queryInstructionReceiveList">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

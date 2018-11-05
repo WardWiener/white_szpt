@@ -1,0 +1,283 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<artifactId>szpt-parent</artifactId>
+		<groupId>com.taiji.pubsec.szpt</groupId>
+		<relativePath>../szpt-parent/pom.xml</relativePath>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>szpt-service-common</artifactId>
+
+	<dependencies>
+
+		<!-- taiji common.tools -->
+		<dependency>
+			<groupId>com.taiji.pubsec.common.tools</groupId>
+			<artifactId>spring-web-tool</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.common.tools</groupId>
+			<artifactId>aophandler</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.common.tools</groupId>
+			<artifactId>format-tool</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.common.tools</groupId>
+			<artifactId>spring-tool</artifactId>
+		</dependency>
+		<!-- taiji common.tools -->
+
+		<!-- taiji persistence -->
+		<dependency>
+			<groupId>com.taiji.pubsec.persistence</groupId>
+			<artifactId>persistence</artifactId>
+		</dependency>
+		<!-- taiji persistence -->
+
+		<!-- taiji complex.tools -->
+		<dependency>
+			<groupId>com.taiji.pubsec.complex.tools</groupId>
+			<artifactId>attachment-service</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.complex.tools</groupId>
+			<artifactId>comet-service</artifactId>
+		</dependency>
+		<!-- taiji complex.tools -->
+
+		<!-- taiji businesscomponents -->
+		<dependency>
+			<groupId>com.taiji.pubsec.businesscomponents</groupId>
+			<artifactId>dictionary</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.businesscomponents</groupId>
+			<artifactId>organization</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.businesscomponents</groupId>
+			<artifactId>authority</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.businesscomponents</groupId>
+			<artifactId>org-authority</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.taiji.pubsec.businesscomponents</groupId>
+			<artifactId>springsecurity-rbac</artifactId>
+		</dependency>
+		<!-- taiji businesscomponents -->
+
+		<!-- db -->
+		<dependency>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+		<!-- db -->
+
+		<!-- apache commons -->
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+		</dependency>
+		<!-- apache commons -->
+
+		<!-- net.sf -->
+		<dependency>
+			<groupId>net.sf.json-lib</groupId>
+			<artifactId>json-lib</artifactId>
+			<classifier>jdk15</classifier>
+		</dependency>
+		<dependency>
+			<groupId>net.sf.ehcache</groupId>
+			<artifactId>ehcache</artifactId>
+		</dependency>
+		<!-- net.sf -->
+
+		<!-- google.code.gson -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
+		<!-- google.code.gson -->
+
+		<!-- servlet -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>servlet-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+		<!-- servlet -->
+
+		<!-- others -->
+		<dependency>
+			<groupId>javax</groupId>
+			<artifactId>javaee-api</artifactId>
+		</dependency>
+		<!-- others -->
+
+		<!-- spring-security -->
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-config</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.security</groupId>
+			<artifactId>spring-security-web</artifactId>
+		</dependency>
+		<!-- spring-security -->
+
+		<!-- hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+		</dependency>
+		<!-- hibernate -->
+
+		<!-- spring -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aop</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-beans</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-aspects</artifactId>
+		</dependency>
+		<!-- spring -->
+
+		<!-- cometd -->
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-annotations</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-oort</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-server</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-websocket-javax-client</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.cometd.java</groupId>
+			<artifactId>cometd-java-websocket-javax-server</artifactId>
+		</dependency>
+		<!-- cometd -->
+
+
+		<!-- ============== log4j相关依赖 ================ -->
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-core</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-web</artifactId>
+			<exclusions>
+				<exclusion>
+					<groupId>org.slf4j</groupId>
+					<artifactId>slf4j-ext</artifactId>
+				</exclusion>
+			</exclusions>
+		</dependency>
+		<dependency>
+			<groupId>org.apache.logging.log4j</groupId>
+			<artifactId>log4j-slf4j-impl</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>jcl-over-slf4j</artifactId>
+		</dependency>
+		<!-- ============== log4j相关依赖 ================ -->
+
+		<!-- test -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.dbunit</groupId>
+			<artifactId>dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>com.github.springtestdbunit</groupId>
+			<artifactId>spring-test-dbunit</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<!-- test -->
+
+
+
+	</dependencies>
+</project>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+  <t_zdx id="001" mc="字典项1" bm="code01" sx="1" zt="0" bz="第一个字典项" zdlx_id="zdlx001"  sjc="2016-10-10 10:10:10" ></t_zdx>
+  <t_zdx id="002" mc="字典项2" bm="code02" sx="1" zt="0" bz="第二个字典项" zdlx_id="zdlx001"  sjc="2016-10-10 10:10:10" ></t_zdx>
+  <t_zdx id="003" mc="字典项3" bm="code03" sx="1" zt="1" bz="第三个字典项" zdlx_id="zdlx002"  sjc="2016-10-10 10:10:10" ></t_zdx>
+  <t_zdx id="004" mc="字典项4" bm="code04" sx="1" zt="1" bz="第四个字典项" zdlx_id="zdlx002" sjzdx_id="003" sjc="2016-10-10 10:10:10" ></t_zdx>
+  <t_zdx id="005" mc="字典项5" bm="code05" sx="1" zt="1" bz="第五个字典项" zdlx_id="zdlx002" sjzdx_id="003" sjc="2016-10-10 10:10:10" ></t_zdx>
+  
+  <t_zdlx id="zdlx001" mc="字典类型1" bm="lxcode01" ></t_zdlx>
+  <t_zdlx id="zdlx002" mc="字典类型2" bm="lxcode02" ></t_zdlx>
+</dataset>
+
+
+
+
+
+
+
+
+
+
+

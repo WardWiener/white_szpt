@@ -1,0 +1,50 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="personAttention" extends="szpt-web-highRiskPersonAlert" namespace="/personAttention">
+		
+		<!-- 重点人关注页面 -->
+		<action name="showPersonAttentionPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personAttention/personAttention.jsp</result>
+		</action>
+		
+		<!-- 新增指令页面 -->
+		<action name="showNewInstructPage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/personAttention/newInstruct.jsp</result>
+		</action>
+		
+		<!-- 查询所有未处理预警信息（分页查询） -->
+		<action name="findAllUntreatedAlert" class="personAttentionAction" method="findAllUntreatedAlert">
+			<result name="success" type="json">
+				<param name="ignoreHierarchy" >false</param>
+				<param name = "includeProperties">alertBeanList.*,totalNum,length</param>
+			</result>
+		</action>
+		
+		<!-- 更新预警信息状态 -->
+		<action name="updateAlertStatus" class="personAttentionAction" method="updateAlertStatus">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findUntreatedAlertNum" class="personAttentionAction" method="findUntreatedAlertNum">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 保存指令 -->
+		<action name="saveInstruction" class="personAttentionAction" method="saveInstruction">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 上传文件 -->
+		<action name="uploadFile" class="uploadAction" method="uploadFile">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 下载文件 -->
+		<action name="downloadFile" class="downloadAction" method="download">
+			<result name="done" type="chain">
+		        <param name="actionName">export</param>
+			    <param name="namespace">/</param>
+	        </result> 
+		</action>
+		
+	</package>
+</struts>

@@ -1,0 +1,524 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+
+	<parent>
+		<groupId>com.taiji.pubsec.maven.parent</groupId>
+		<artifactId>maven-parent</artifactId>
+		<version>0.4.4</version>
+		<relativePath />
+	</parent>
+
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.taiji.pubsec.szpt</groupId>
+	<artifactId>szpt-parent</artifactId>
+	<packaging>pom</packaging>
+	<version>0.0.1-SNAPSHOT</version>
+
+	<properties>
+		<!-- maven settings -->
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<argLine>
+			-Xmx512m -XX:PermSize=128m -XX:MaxPermSize=128m
+			-XX:-UseSplitVerifier
+			-Dfile.encoding=utf-8
+		</argLine>
+		<!-- maven settings -->
+
+		<!-- taiji component -->
+		<taiji.foundation.common.tools.version>0.4.3</taiji.foundation.common.tools.version>
+		<taiji.foundation.persistence.version>0.4.8</taiji.foundation.persistence.version>
+		<taiji.foundation.complex.tools.version>0.2.0</taiji.foundation.complex.tools.version>
+		<taiji.foundation.businesscomponents.version>0.1.4</taiji.foundation.businesscomponents.version>
+		<!-- taiji component -->
+
+		<!-- szpt depedences -->
+		<oracle.version>11.2.0.1.0</oracle.version>
+		<spark.version>1.6.0</spark.version>
+		<kafka10.version>0.8.2.2</kafka10.version>
+		<redisson.version>3.2.2</redisson.version>
+		<!-- szpt depedences -->
+
+	</properties>
+
+	<profiles>
+
+
+		<profile>
+			<id>local</id>
+			<activation>
+				<activeByDefault>true</activeByDefault>
+			</activation>
+			<properties>
+				<pom.oort.url>http://192.168.19.241:8080/szpt-web-all/cometd</pom.oort.url>
+				<pom.oort.cloud>http://192.168.19.241:8080/szpt-web-all/cometd</pom.oort.cloud>
+				<pom.oort.local_url>http\://192.168.19.241\:8080/szpt-web-all/cometd</pom.oort.local_url>
+			
+				<!-- 如果用jdk1.8编译的时候启用下面的参数排除javadoc报错 -->
+				<additionalparam>-Xdoclint:none</additionalparam>
+
+				<!-- 贵阳地图服务，视频网访问 -->
+				<!-- <pom.arcgis.MAP_SERVER>52.4.1.204:8580/</pom.arcgis.MAP_SERVER> 
+				<pom.arcgis.BASE_MAP_SERVER>http://52.4.1.204:6080/</pom.arcgis.BASE_MAP_SERVER> 
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>tiled</pom.arcgis.BASE_MAP_LAYER_TYPE> -->
+				
+				<!-- 贵阳地图服务，可外网访问 -->
+<!--				<pom.arcgis.MAP_SERVER>58.42.241.253:8580/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://58.42.241.253:6080/</pom.arcgis.BASE_MAP_SERVER> 
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>tiled</pom.arcgis.BASE_MAP_LAYER_TYPE>-->
+
+				<!-- 公司地图服务，只可内网访问 -->
+				<pom.arcgis.MAP_SERVER>192.168.19.106:8580/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://192.168.19.106:6080/</pom.arcgis.BASE_MAP_SERVER>
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>dynamic</pom.arcgis.BASE_MAP_LAYER_TYPE>
+
+				<pom.szpt.database.driverClassName>com.mysql.jdbc.Driver</pom.szpt.database.driverClassName>
+				<pom.szpt.database.url>jdbc:mysql://192.168.19.238:3306/szpt?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</pom.szpt.database.url>
+				<pom.szpt.database.username>root</pom.szpt.database.username>
+				<pom.szpt.database.password>root</pom.szpt.database.password>
+				<pom.szpt.hibernate.show_sql>false</pom.szpt.hibernate.show_sql>
+				<pom.szpt.hibernate.format_sql>true</pom.szpt.hibernate.format_sql>
+				<pom.szpt.hibernate.hbm2ddl.auto>none</pom.szpt.hibernate.hbm2ddl.auto>
+				<pom.szpt.hibernate.generateDdl>false</pom.szpt.hibernate.generateDdl>
+				<pom.szpt.hibernate.dialect>org.hibernate.dialect.MySQLDialect</pom.szpt.hibernate.dialect>
+				<pom.szpt.hibernate.dbpool.max>20</pom.szpt.hibernate.dbpool.max>
+				<pom.szpt.hibernate.dbpool.min>2</pom.szpt.hibernate.dbpool.min>
+				<pom.szpt.hibernate.dbpool.initial>3</pom.szpt.hibernate.dbpool.initial>
+				<pom.szpt.hibernate.dbpool.idleTestPeriod>14400</pom.szpt.hibernate.dbpool.idleTestPeriod>
+
+				<pom.szpt.zookeeper>zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/kafkaroot</pom.szpt.zookeeper>
+				<pom.szpt.kafka>zookeeper01.szpt.jk:9092,zookeeper02.szpt.jk:9092,zookeeper03.szpt.jk:9092</pom.szpt.kafka>
+				<pom.szpt.zookeeper.solr>zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/solr</pom.szpt.zookeeper.solr>
+
+				<pom.szpt.kafka.topic-scorecompute-case>topic-scorecompute-case</pom.szpt.kafka.topic-scorecompute-case>
+				<pom.szpt.kafka.topic-scoreresult-case>topic-scoreresult-case</pom.szpt.kafka.topic-scoreresult-case>
+				<pom.szpt.kafka.topic-scoreresult-hp>topic-scoreresult-hp</pom.szpt.kafka.topic-scoreresult-hp>
+				<pom.szpt.kafka.topic-scorecompute-hp>topic-scorecompute-hp</pom.szpt.kafka.topic-scorecompute-hp>
+				<pom.szpt.kafka.topic-surveillance-business-to-surveil>topic-surveillance-business-to-surveil</pom.szpt.kafka.topic-surveillance-business-to-surveil>
+				<pom.szpt.kafka.topic-surveillance-result-to-business>topic-surveillance-result-to-business</pom.szpt.kafka.topic-surveillance-result-to-business>
+
+				<pom.szpt.kafka.topic-surveillance-default-clue-to-surveil>topic-surveillance-default-clue-to-surveil</pom.szpt.kafka.topic-surveillance-default-clue-to-surveil>
+
+				<pom.szpt.kafka.topic-surveillance-img-clue-deploy-to-datagate>topic-surveillance-img-clue-deploy-to-datagate</pom.szpt.kafka.topic-surveillance-img-clue-deploy-to-datagate>
+				<pom.szpt.kafka.topic-surveillance-img-result-datagate-to-surveil>topic-surveillance-img-result-datagate-to-surveil</pom.szpt.kafka.topic-surveillance-img-result-datagate-to-surveil>
+
+				<pom.redis.cluster>192.168.19.220:7000,192.168.19.220:7001,192.168.19.221:7000,192.168.19.221:7001,192.168.19.222:7000,192.168.19.222:7001</pom.redis.cluster>
+
+				<!-- 小程序弹出框用 result.js -->
+				<pom.szpt.host.port>http://192.168.19.241:8080</pom.szpt.host.port>
+				<pom.AJGL_SERVER_URL>http://10.161.90.27:80/ajgl-web-all</pom.AJGL_SERVER_URL>
+
+				<pom.spw.qzj.ftp.server>192.168.3.112</pom.spw.qzj.ftp.server>
+				<pom.spw.qzj.ftp.server.username>renzixing</pom.spw.qzj.ftp.server.username>
+				<pom.spw.qzj.ftp.server.password>renzixing</pom.spw.qzj.ftp.server.password>
+
+				<pom.qzj.ftp.server>qzj.ftp.szpt.jk</pom.qzj.ftp.server>
+				<pom.qzj.ftp.server.username>renzixing</pom.qzj.ftp.server.username>
+				<pom.qzj.ftp.server.password>renzixing</pom.qzj.ftp.server.password>
+
+				<pom.szpt.qzj.database.url>jdbc:mysql://qzj.ftp.szpt.jk:3306/szpt?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</pom.szpt.qzj.database.url>
+				<pom.szpt.qzj.database.username>root</pom.szpt.qzj.database.username>
+				<pom.szpt.qzj.database.password>root</pom.szpt.qzj.database.password>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>production-environment</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<pom.oort.url>http://10.161.90.28:80/szpt-web-all/cometd</pom.oort.url>
+				<pom.oort.cloud>http://10.161.90.28:80/szpt-web-all/cometd</pom.oort.cloud>
+				<pom.oort.local_url>http\://10.161.90.28\:80/szpt-web-all/cometd</pom.oort.local_url>
+
+				<!-- 如果用jdk1.8编译的时候启用下面的参数排除javadoc报错 -->
+				<additionalparam>-Xdoclint:none</additionalparam>
+
+				<!-- 贵阳地图服务，视频网访问 -->
+				<!-- <pom.arcgis.MAP_SERVER>52.4.1.204:8580/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://52.4.1.204:6080/</pom.arcgis.BASE_MAP_SERVER>
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>tiled</pom.arcgis.BASE_MAP_LAYER_TYPE> -->
+
+				<!-- 贵阳地图服务，可外网访问 -->
+				<pom.arcgis.MAP_SERVER>10.161.90.24:80/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://10.161.90.35:6080/</pom.arcgis.BASE_MAP_SERVER>
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>tiled</pom.arcgis.BASE_MAP_LAYER_TYPE>
+
+				<pom.szpt.database.driverClassName>com.mysql.jdbc.Driver</pom.szpt.database.driverClassName>
+				<pom.szpt.database.url>jdbc:mysql://mysql.master.szpt.jk:3306/szpt?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</pom.szpt.database.url>
+				<pom.szpt.database.username>root</pom.szpt.database.username>
+				<pom.szpt.database.password>root</pom.szpt.database.password>
+				<pom.szpt.hibernate.show_sql>false</pom.szpt.hibernate.show_sql>
+				<pom.szpt.hibernate.format_sql>true</pom.szpt.hibernate.format_sql>
+				<pom.szpt.hibernate.hbm2ddl.auto>none</pom.szpt.hibernate.hbm2ddl.auto>
+				<pom.szpt.hibernate.generateDdl>false</pom.szpt.hibernate.generateDdl>
+				<pom.szpt.hibernate.dialect>org.hibernate.dialect.MySQLDialect</pom.szpt.hibernate.dialect>
+				<pom.szpt.hibernate.dbpool.max>20</pom.szpt.hibernate.dbpool.max>
+				<pom.szpt.hibernate.dbpool.min>2</pom.szpt.hibernate.dbpool.min>
+				<pom.szpt.hibernate.dbpool.initial>3</pom.szpt.hibernate.dbpool.initial>
+				<pom.szpt.hibernate.dbpool.idleTestPeriod>14400</pom.szpt.hibernate.dbpool.idleTestPeriod>
+
+				<pom.szpt.zookeeper>zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/kafkaroot</pom.szpt.zookeeper>
+				<pom.szpt.kafka>zookeeper01.szpt.jk:9092,zookeeper02.szpt.jk:9092,zookeeper03.szpt.jk:9092</pom.szpt.kafka>
+				<pom.szpt.zookeeper.solr>zookeeper01.szpt.jk:2181,zookeeper02.szpt.jk:2181,zookeeper03.szpt.jk:2181/solr</pom.szpt.zookeeper.solr>
+
+				<pom.szpt.kafka.topic-scorecompute-case>topic-scorecompute-case</pom.szpt.kafka.topic-scorecompute-case>
+				<pom.szpt.kafka.topic-scoreresult-case>topic-scoreresult-case</pom.szpt.kafka.topic-scoreresult-case>
+				<pom.szpt.kafka.topic-scoreresult-hp>topic-scoreresult-hp</pom.szpt.kafka.topic-scoreresult-hp>
+				<pom.szpt.kafka.topic-scorecompute-hp>topic-scorecompute-hp</pom.szpt.kafka.topic-scorecompute-hp>
+				<pom.szpt.kafka.topic-surveillance-business-to-surveil>topic-surveillance-business-to-surveil</pom.szpt.kafka.topic-surveillance-business-to-surveil>
+				<pom.szpt.kafka.topic-surveillance-result-to-business>topic-surveillance-result-to-business</pom.szpt.kafka.topic-surveillance-result-to-business>
+
+				<pom.szpt.kafka.topic-surveillance-default-clue-to-surveil>topic-surveillance-default-clue-to-surveil</pom.szpt.kafka.topic-surveillance-default-clue-to-surveil>
+
+				<pom.szpt.kafka.topic-surveillance-img-clue-deploy-to-datagate>topic-surveillance-img-clue-deploy-to-datagate</pom.szpt.kafka.topic-surveillance-img-clue-deploy-to-datagate>
+				<pom.szpt.kafka.topic-surveillance-img-result-datagate-to-surveil>topic-surveillance-img-result-datagate-to-surveil</pom.szpt.kafka.topic-surveillance-img-result-datagate-to-surveil>
+
+				<pom.redis.cluster>10.161.90.8:7000,10.161.90.8:7001,10.161.90.9:7000,10.161.90.9:7001,10.161.90.10:7000,10.161.90.10:7001</pom.redis.cluster>
+
+				<!-- 小程序弹出框用 result.js -->
+				<pom.szpt.host.port>http://10.161.90.28:80</pom.szpt.host.port>
+				<pom.AJGL_SERVER_URL>http://10.161.90.27:80/ajgl-web-all</pom.AJGL_SERVER_URL>
+
+				<pom.spw.qzj.ftp.server>192.168.3.112</pom.spw.qzj.ftp.server>
+				<pom.spw.qzj.ftp.server.username>renzixing</pom.spw.qzj.ftp.server.username>
+				<pom.spw.qzj.ftp.server.password>renzixing</pom.spw.qzj.ftp.server.password>
+
+				<pom.qzj.ftp.server>qzj.ftp.szpt.jk</pom.qzj.ftp.server>
+				<pom.qzj.ftp.server.username>renzixing</pom.qzj.ftp.server.username>
+				<pom.qzj.ftp.server.password>renzixing</pom.qzj.ftp.server.password>
+
+				<pom.szpt.qzj.database.url>jdbc:mysql://qzj.ftp.szpt.jk:3306/szpt?useUnicode=true&amp;characterEncoding=utf8&amp;useSSL=false</pom.szpt.qzj.database.url>
+				<pom.szpt.qzj.database.username>root</pom.szpt.qzj.database.username>
+				<pom.szpt.qzj.database.password>root</pom.szpt.qzj.database.password>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>192.168.19.123</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<pom.arcgis.MAP_SERVER>vincent-lenovo:8580/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://vincent-lenovo:6080/</pom.arcgis.BASE_MAP_SERVER>
+				<!-- dynamic:动态；tiled:平铺切片 -->
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>dynamic</pom.arcgis.BASE_MAP_LAYER_TYPE>
+
+				<pom.szpt.database.driverClassName>com.mysql.jdbc.Driver</pom.szpt.database.driverClassName>
+				<pom.szpt.database.url>jdbc:mysql://192.168.19.123:3306/szpt?useUnicode=true&amp;characterEncoding=utf8</pom.szpt.database.url>
+				<pom.szpt.database.username>root</pom.szpt.database.username>
+				<pom.szpt.database.password>root</pom.szpt.database.password>
+				<pom.szpt.hibernate.show_sql>false</pom.szpt.hibernate.show_sql>
+				<pom.szpt.hibernate.format_sql>true</pom.szpt.hibernate.format_sql>
+				<pom.szpt.hibernate.hbm2ddl.auto>update</pom.szpt.hibernate.hbm2ddl.auto>
+				<pom.szpt.hibernate.generateDdl>false</pom.szpt.hibernate.generateDdl>
+				<pom.szpt.hibernate.dialect>org.hibernate.dialect.MySQLDialect</pom.szpt.hibernate.dialect>
+				<pom.szpt.hibernate.dbpool.max>5</pom.szpt.hibernate.dbpool.max>
+				<pom.szpt.hibernate.dbpool.min>2</pom.szpt.hibernate.dbpool.min>
+				<pom.szpt.hibernate.dbpool.initial>3</pom.szpt.hibernate.dbpool.initial>
+				<pom.szpt.hibernate.dbpool.idleTestPeriod>14400</pom.szpt.hibernate.dbpool.idleTestPeriod>
+				<pom.szpt.zookeeper>192.168.19.121:2181,192.168.19.122:2181,192.168.19.123:2181/kafkaroot</pom.szpt.zookeeper>
+			</properties>
+		</profile>
+
+		<profile>
+			<id>guiyang</id>
+			<activation>
+				<activeByDefault>false</activeByDefault>
+			</activation>
+			<properties>
+				<pom.arcgis.MAP_SERVER>58.42.241.253:8580/</pom.arcgis.MAP_SERVER>
+				<pom.arcgis.BASE_MAP_SERVER>http://58.42.241.253:6080/</pom.arcgis.BASE_MAP_SERVER>
+				<!-- dynamic:动态；tiled:平铺切片 -->
+				<pom.arcgis.BASE_MAP_LAYER_TYPE>dynamic</pom.arcgis.BASE_MAP_LAYER_TYPE>
+
+				<pom.szpt.database.driverClassName>com.mysql.jdbc.Driver</pom.szpt.database.driverClassName>
+				<pom.szpt.database.url>jdbc:mysql://127.0.0.1:3306/szpt?useUnicode=true&amp;characterEncoding=utf8</pom.szpt.database.url>
+				<pom.szpt.database.username>root</pom.szpt.database.username>
+				<pom.szpt.database.password>root</pom.szpt.database.password>
+				<pom.szpt.hibernate.show_sql>false</pom.szpt.hibernate.show_sql>
+				<pom.szpt.hibernate.format_sql>true</pom.szpt.hibernate.format_sql>
+				<pom.szpt.hibernate.hbm2ddl.auto>update</pom.szpt.hibernate.hbm2ddl.auto>
+				<pom.szpt.hibernate.generateDdl>false</pom.szpt.hibernate.generateDdl>
+				<pom.szpt.hibernate.dialect>org.hibernate.dialect.MySQLDialect</pom.szpt.hibernate.dialect>
+				<pom.szpt.hibernate.dbpool.max>5</pom.szpt.hibernate.dbpool.max>
+				<pom.szpt.hibernate.dbpool.min>2</pom.szpt.hibernate.dbpool.min>
+				<pom.szpt.hibernate.dbpool.initial>3</pom.szpt.hibernate.dbpool.initial>
+				<pom.szpt.hibernate.dbpool.idleTestPeriod>14400</pom.szpt.hibernate.dbpool.idleTestPeriod>
+				<pom.szpt.zookeeper>52.4.1.223:2181</pom.szpt.zookeeper>
+			</properties>
+		</profile>
+	</profiles>
+
+
+	<dependencyManagement>
+		<dependencies>
+
+			<!-- taiji common.tools -->
+			<dependency>
+				<groupId>com.taiji.pubsec.common.tools</groupId>
+				<artifactId>spring-tool</artifactId>
+				<version>${taiji.foundation.common.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.common.tools</groupId>
+				<artifactId>spring-web-tool</artifactId>
+				<version>${taiji.foundation.common.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.common.tools</groupId>
+				<artifactId>format-tool</artifactId>
+				<version>${taiji.foundation.common.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.common.tools</groupId>
+				<artifactId>aophandler</artifactId>
+				<version>${taiji.foundation.common.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.common.tools</groupId>
+				<artifactId>system-tools</artifactId>
+				<version>${taiji.foundation.common.tools.version}</version>
+			</dependency>
+			<!-- taiji common.tools -->
+
+			<!-- taiji test.tools -->
+			<dependency>
+				<groupId>com.taiji.pubsec.test.tools</groupId>
+				<artifactId>gendataframework</artifactId>
+				<version>${taiji.foundation.test.tools.version}</version>
+			</dependency>
+			<!-- taiji test.tools -->
+
+			<!-- taiji persistence -->
+			<dependency>
+				<groupId>com.taiji.pubsec.persistence</groupId>
+				<artifactId>persistence</artifactId>
+				<version>${taiji.foundation.persistence.version}</version>
+			</dependency>
+			<!-- taiji persistence -->
+
+			<!-- taiji complex.tools -->
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>front-common</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>front-common</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+				<classifier>classes</classifier>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>attachment-service</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>comet-service</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>iweboffice2000-web</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+				<type>war</type>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>iweboffice2000-web</artifactId>
+				<classifier>classes</classifier>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>iweboffice2000-service</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>doc-service-msoffice-impl</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.complex.tools</groupId>
+				<artifactId>doc-service</artifactId>
+				<version>${taiji.foundation.complex.tools.version}</version>
+			</dependency>
+			<!-- taiji complex.tools -->
+
+			<!-- taiji businesscomponents -->
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>springsecurity-rbac</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>springsecurity-acl-hibernateimpl</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>dictionary</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>authority</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>organization</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>com.taiji.pubsec.businesscomponents</groupId>
+				<artifactId>org-authority</artifactId>
+				<version>${taiji.foundation.businesscomponents.version}</version>
+			</dependency>
+			<!-- taiji businesscomponents -->
+
+			<!-- ============== 大数据相关依赖 ================ -->
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-core_2.10</artifactId>
+				<version>${spark.version}</version>
+				<scope>provided</scope>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-streaming_2.10</artifactId>
+				<version>${spark.version}</version>
+			</dependency>
+			<dependency>
+				<groupId>org.apache.spark</groupId>
+				<artifactId>spark-streaming-kafka_2.10</artifactId>
+				<version>${spark.version}</version>
+			</dependency>
+
+			<dependency>
+				<groupId>org.apache.kafka</groupId>
+				<artifactId>kafka_2.10</artifactId>
+				<version>${kafka10.version}</version>
+				<exclusions>
+					<exclusion>
+						<groupId>log4j</groupId>
+						<artifactId>log4j</artifactId>
+					</exclusion>
+					<exclusion>
+						<groupId>org.slf4j</groupId>
+						<artifactId>slf4j-log4j12</artifactId>
+					</exclusion>
+				</exclusions>
+			</dependency>
+
+			<dependency>
+				<groupId>org.redisson</groupId>
+				<artifactId>redisson</artifactId>
+				<version>${redisson.version}</version>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+
+	<build>
+
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-source-plugin</artifactId>
+			</plugin>
+			<!-- apache maven plugins -->
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-release-plugin</artifactId>
+				<configuration>
+					<tagBase>https://192.168.19.5/svn/proj-szpt/tags/</tagBase>
+					<branchBase>https://192.168.19.5/svn/proj-szpt/branches/</branchBase>
+					<checkModificationExcludes>
+						<checkModificationExclude>**\templateconfig\out\*</checkModificationExclude>
+						<checkModificationExclude>**\.settings\*</checkModificationExclude>
+						<checkModificationExclude>**\.settings</checkModificationExclude>
+						<checkModificationExclude>**\.project</checkModificationExclude>
+						<checkModificationExclude>**\.classpath</checkModificationExclude>
+					</checkModificationExcludes>
+				</configuration>
+			</plugin>
+			<!-- apache maven plugins -->
+		</plugins>
+		<resources>
+			<resource>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+			</resource>
+		</resources>
+		<testResources>
+			<testResource>
+				<directory>src/test/resources</directory>
+				<filtering>true</filtering>
+			</testResource>
+		</testResources>
+
+	</build>
+
+	<distributionManagement>
+		<!-- release版本程序包发布到的maven代理仓库配置 -->
+		<repository>
+			<!-- 该id仓库登录的用户名和密码需要在本地setting.xml文件的server元素中配置，妿 <servers> <server> 
+				<id>proj-releases</id> <username>admin</username> <password>1qazxcde32</password> 
+				</server> </servers> -->
+			<id>proj-releases</id>
+			<name>Proj Release Repository</name>
+			<url>http://192.168.19.106:8081/nexus/content/repositories/pub-sec-Releases/ </url>
+			<!-- maven代理仓库地址，如http://192.168.19.106:8081/nexus/content/repositories/pub-sec-Releases/ -->
+		</repository>
+		<!-- snapshot版本程序包发布到的maven代理仓库配置 -->
+		<snapshotRepository>
+			<id>proj-snapshots</id>
+			<name>Proj Snapshot Repository</name>
+			<url>http://192.168.19.106:8081/nexus/content/repositories/pub-sec-Snapshots/ </url>
+		</snapshotRepository>
+	</distributionManagement>
+	<scm>
+		<url>scm:svn:https://192.168.19.5/svn/proj-szpt/trunk</url>
+		<connection>scm:svn:https://192.168.19.5/svn/proj-szpt/trunk</connection>
+		<developerConnection>scm:svn:https://192.168.19.5/svn/proj-szpt/trunk</developerConnection>
+	</scm>
+
+
+	<!-- Project Meta Data -->
+	<!-- 项目名称 -->
+	<!-- 项目描述 -->
+	<!-- 项目网站地址 -->
+	<!-- 开发人员信恿 -->
+	<developers>
+		<developer>
+			<id>zhangsan</id>
+			<email>zhangsan@mail.taiji.com.cn</email>
+			<name>张三</name>
+			<organization>pubsec1.architecture</organization>
+			<roles>
+				<role>designer</role>
+				<role>coder</role>
+			</roles>
+			<timezone>8</timezone>
+		</developer>
+	</developers>
+
+	<!--许可诿 -->
+	<licenses>
+		<license>
+			<url>http://127.0.0.1:8080/LICENSE.txt</url>
+			<comments>todo</comments>
+			<name>内部使用</name>
+		</license>
+	</licenses>
+
+
+</project>

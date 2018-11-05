@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_zhzats_jwzh_wzxx id="1" dwsbbs="dw001" gxsj="2016-10-14 10:11:10" jd="120.001" wd="110.111" zhdymc="北京公安局" zhdybm="bm001"/>
+	<t_zhzats_jwzh_wzxx id="2" dwsbbs="dw001" gxsj="2016-10-13 10:11:10" jd="120.002" wd="110.112" zhdymc="上海公安局" zhdybm="bm002"/>
+	<t_zhzats_jwzh_wzxx id="3" dwsbbs="dw001" gxsj="2016-10-15 10:11:10" jd="120.003" wd="110.113" zhdymc="广州公安局" zhdybm="bm003"/>
+    <t_ty_jwzh_zhdy id="001" bm="bm001" lx="lx1"/>
+    <t_ty_jwzh_zhdy id="002" bm="bm002" lx="lx1"/>
+    <t_ty_jwzh_zhdy id="003" bm="bm003" lx="lx3"/>
+ </dataset>
+
+
+
+
+
+
+
+
+
+
+
+

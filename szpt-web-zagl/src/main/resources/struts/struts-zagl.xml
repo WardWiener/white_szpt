@@ -1,0 +1,74 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+   <!-- 专案管理 -角色管理 -->
+	<package name="zagl" extends="szpt-web-zagl" namespace="/zagl">
+	   
+		<action name="showProjectManagement">
+			<result name="success">/WEB-INF/view/zajs/jswh.jsp</result>
+		</action>
+      <!-- 加载页面 -->
+        <action name="findonloadData" class="maintainRoleAction" method="findOnloadData">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 添加-->
+		<action name="saveSpecialCaseRole" class="maintainRoleAction"
+			method="saveSpecialCaseRole">
+			<result name="success" type="json"></result>
+		</action>
+        <!-- 修改-->
+		<action name="updateSpecialCaseRole" class="maintainRoleAction"
+			method="updateSpecialCaseRole">
+			<result name="success" type="json" >
+			</result>
+		</action>
+
+        <!-- 删除前验证角色是否分配用户-->
+		<action name="findSpecialCaseRolePerson" class="maintainRoleAction"
+			method="findSpecialCaseRolePerson">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 删除-->
+		<action name="deleteSpecialCaseRole" class="maintainRoleAction"
+			method="deleteSpecialCaseRole">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!--启用-->
+		<action name="updateStartSpecialCaseRole" class="maintainRoleAction"
+			method="updateStartSpecialCaseRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 停用-->
+		<action name="updateStopSpecialCaseRole" class="maintainRoleAction"
+			method="updateStopSpecialCaseRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!--领导角色分配用户-->
+		<action name="showSpecialCaseRoleAssignment">
+			<result name="success">/WEB-INF/view/zajs/specialCaseRoleAssignment.jsp</result>
+		</action>
+		<!-- 已分配领导角色人员-->
+		<action name="findAlreadyAssignableLeaderRole" class="maintainRoleAction"
+			method="findAlreadyAssignableLeaderRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 可分配领导角色人员-->
+		<action name="findAssignableLeaderRole" class="maintainRoleAction"
+			method="findAssignableLeaderRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 添加领导角色人员-->
+		<action name="saveLeaderRole" class="maintainRoleAction"
+			method="saveLeaderRole">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 移除领导角色人员-->
+		<action name="delectableLeaderRole" class="maintainRoleAction"
+			method="delectableLeaderRole">
+			<result name="success" type="json"></result>
+		</action>
+
+	</package>
+</struts>

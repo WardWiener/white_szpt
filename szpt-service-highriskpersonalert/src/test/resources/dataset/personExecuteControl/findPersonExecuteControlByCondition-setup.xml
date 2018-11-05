@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+<t_gwry_rybk id="id01" bh="bh001" sfzh="sfzh001" xm="小明"  xb="男"  hjdz="广东省" bkkssj="2016-10-14 10:10:10"  bkjssj="2016-11-14 10:10:10" sjzt="启用" bz="你好吗" zxxgrxm="小明他哥" zxxgsj="2016-10-24 10:10:10"/>
+<t_gwry_rybk id="id02" bh="bh002" sfzh="sfzh002" xm="小红"  xb="男"  hjdz="广西省" bkkssj="2016-9-14 10:10:10"  bkjssj="2016-10-14 10:10:10" sjzt="失效" bz="你好吗1" zxxgrxm="小红他哥" zxxgsj="2016-9-24 10:10:10"/>
+<t_gwry_rybk id="id03" bh="bh003" sfzh="sfzh003" xm="小黄"  xb="男"  hjdz="河南省" bkkssj="2016-8-14 10:10:10"  bkjssj="2016-9-14 10:10:10" sjzt="失效" bz="你好2" zxxgrxm="小黄他哥" zxxgsj="2016-8-24 10:10:10"/>
+</dataset>

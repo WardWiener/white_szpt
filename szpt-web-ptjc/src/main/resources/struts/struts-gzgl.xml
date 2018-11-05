@@ -1,0 +1,39 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="gzgl" extends="szpt-web-ptjc" namespace="/gzgl">
+		<action name="showPenalConstant">
+			<result name="success">/WEB-INF/view/gzgl/penalConstant.jsp</result>
+		</action>
+
+		<action name="findAllPenalConstant" class="penalConstantAction"
+			method="findAllPenalConstant">
+			<result name="success" type="json">
+			</result>
+		</action>
+
+		<action name="saveAllPenalConstant" class="penalConstantAction"
+			method="saveAllPenalConstant">
+			<result name="success" type="json">
+			</result>
+		</action>
+
+		<action name="showDistributionRule">
+			<result name="success">/WEB-INF/view/gzgl/distributionRule.jsp</result>
+		</action>
+
+		<action name="findAllDistributionRule" class="distributionRuleAction"
+			method="findAllDistributionRule">
+			<result name="success" type="json">
+			</result>
+		</action>
+
+		<action name="saveAllDistributionRule" class="distributionRuleAction"
+			method="saveAllDistributionRule">
+			<result name="success" type="json">
+			</result>
+		</action>
+
+	</package>
+</struts>

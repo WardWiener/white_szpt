@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+	<t_scoreframework_scoretask id="t3" weight="100"/>
+	<t_scoreframework_scoretask id="t1" weight="30" parent_id="t3"/>
+	<t_scoreframework_scoretask id="t2" weight="70" parent_id="t3"/>
+</dataset>

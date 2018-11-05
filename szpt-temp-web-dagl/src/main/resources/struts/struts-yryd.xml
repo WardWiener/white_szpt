@@ -1,0 +1,55 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="yryd" extends="szpt-web-dagl" namespace="/yryd">
+		<action name="showYrydOrdinaryPersonPage">
+			<result name="success">/WEB-INF/view/yryd/yrydOrdinaryPerson.jsp</result>
+		</action>
+		<action name="showWdgzPage">
+			<result name="success">/WEB-INF/view/yryd/wdgz.jsp</result>
+		</action>
+		<action name="showYrydHighriskPersonAlertPage">
+			<result name="success">/WEB-INF/view/yryd/yrydHighriskPersonAlert.jsp</result>
+		</action>
+		<action name="showYrydLstPage">
+			<result name="success">/WEB-INF/view/yryd/yrydLst.jsp</result>
+		</action>
+		<!-- 无菜单和导航普通人一人一档详情 -->
+		<action name="showYrydOrdinaryPersonDetailNoMenuPage">
+			<result name="success">/WEB-INF/view/yryd/yrydOrdinaryPersonDetailNoMenu.jsp</result>
+		</action>
+		<!-- 无菜单和导航高危人一人一档详情 -->
+		<action name="showYrydHighriskPersonDetailNoMenuPage">
+			<result name="success">/WEB-INF/view/yryd/yrydHighriskPersonDetailNoMenu.jsp</result>
+		</action>
+		<!-- 弹窗查看实时wifi快照 -->
+		<action name="showLookSswfjkDetailPage">
+			<result name="success">/WEB-INF/view/yryd/fxypkz/lookSswfjkDetail.jsp</result>
+		</action>
+		
+		<action name="findHiPersonAvatarById" class="yrydAction" method="findHiPersonAvatarById">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findPersonInfo" class="yrydAction" method="findPersonInfo">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findOnePersonInfo" class="yrydAction" method="findOnePersonInfo">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<action name="findOnePersonTrankInfo" class="yrydAction" method="findOnePersonTrankInfo">
+			<result name="success" type="json"></result>
+		</action>
+			
+		<action name="findCommonPersonInfo" class="yrydAction" method="findCommonPersonInfo">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 根据身份证号查询采集信息 -->
+		<action name="findCollectInfoSituationByIdcard" class="yrydAction" method="findCollectInfoSituationByIdcard">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

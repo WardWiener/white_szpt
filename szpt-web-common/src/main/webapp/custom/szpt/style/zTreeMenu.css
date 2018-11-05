@@ -1,0 +1,34 @@
+.ztree-MenuContent{
+	z-index: 99999999;
+}
+.ztree-MenuContent-key{
+	margin-bottom:5px;
+}
+.ztree-MenuContent-ul{
+	width:200px;
+	height:300px;
+}
+
+.ztree li span.button.dw_ico_docu {
+	margin-right: 2px;
+	background: url(../images/ztree-icon_dw.png) no-repeat scroll
+		0 0 transparent;
+	vertical-align: top;
+	*vertical-align: middle
+}
+
+.ztree li span.button.dw_ico_open {
+	margin-right: 2px;
+	background: url(../images/ztree-icon_dw.png) no-repeat scroll 0
+		0 transparent;
+	vertical-align: top;
+	*vertical-align: middle
+}
+
+.ztree li span.button.dw_ico_close {
+	margin-right: 2px;
+	background: url(../images/ztree-icon_dw.png) no-repeat scroll
+		0 0 transparent;
+	vertical-align: top;
+	*vertical-align: middle
+}

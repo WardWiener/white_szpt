@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+                          http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd
+                          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+                          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+                          http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd">
+
+  <!-- ############################# 文件扫描器 ###################################### -->
+  <bean id="fileScanner"
+    class="com.taiji.pubsec.ga.datagate.example.proxy.FileSystemRecvMsgProcessor">
+    <property name="reqRecvPath" value="${scanner.directory.reqrecv}" />
+    <property name="rspRecvPath" value="${scanner.directory.rsprecv}" />
+    <property name="jmsTemplate" ref="jmsTemplate" />
+    <property name="reqRecvDestination" ref="QUEUE_REQ_RECV" />
+    <property name="rspRecvDestination" ref="QUEUE_RSP_RECV" />
+  </bean>
+
+  <bean id="fileScannerDetail"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <!--false表示等上一个任务执行完后再开启新的任务 -->
+    <property name="concurrent" value="false" />
+    <property name="targetObject">
+      <ref bean="fileScanner" />
+    </property>
+    <property name="targetMethod">
+      <value>scan</value>
+    </property>
+  </bean>
+
+  <!-- 文件扫描的调度触发器 -->
+  <bean id="fileScannerTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail">
+      <ref bean="fileScannerDetail" />
+    </property>
+    <property name="cronExpression">
+      <value>0/1 * * * * ?</value>
+    </property>
+  </bean>
+
+  <!-- 调度工厂 -->
+  <bean id="scheduler"
+    class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="fileScannerTrigger" />
+      </list>
+    </property>
+  </bean>
+
+<!-- ########## 请求消息发送处理器：侦听请求消息发送队列，将请求消息发送到跨网交换设备 ############### -->
+  <bean id="filesysSenderDevice" class="com.taiji.pubsec.ga.datagate.example.proxy.FileSysemSenderDevice">
+    <property name="reqSendPath" value="${scanner.directory.reqsend}" />
+    <property name="rspSendPath" value="${scanner.directory.rspsend}" />
+  </bean>
+  
+  <bean id="reqMsgListener" class="com.taiji.pubsec.ga.datagate.proxy.SendMsgProcessor">
+    <property name="name" value="'请求消息发送队列'"></property>
+    <property name="senderDevices" >
+      <list>
+        <ref bean="filesysSenderDevice"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="reqMsgContainer"
+    class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="destination" ref="QUEUE_REQ_SEND" />
+    <property name="sessionTransacted" value="false" />
+    <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+    <property name="messageListener" ref="reqMsgListener" />
+  </bean>
+
+<!-- ########## 响应消息发送处理器：侦听响应消息发送队列，将响应消息发送到跨网交换设备 ############### -->
+  <bean id="rspMsgListener" class="com.taiji.pubsec.ga.datagate.proxy.SendMsgProcessor">
+    <property name="name" value="'响应消息发送队列'"></property>
+    <property name="senderDevices" >
+      <list>
+        <ref bean="filesysSenderDevice"/>
+      </list>
+    </property>
+  </bean>
+  <bean id="rspMsgContainer"
+    class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="destination" ref="QUEUE_RSP_SEND" />
+    <property name="sessionTransacted" value="false" />
+    <property name="sessionAcknowledgeModeName" value="AUTO_ACKNOWLEDGE" />
+    <property name="messageListener" ref="rspMsgListener" />
+  </bean>
+</beans>
+	

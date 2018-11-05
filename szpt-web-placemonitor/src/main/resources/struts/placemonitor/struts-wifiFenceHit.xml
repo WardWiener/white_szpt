@@ -1,0 +1,41 @@
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.0//EN" "http://struts.apache.org/dtds/struts-2.0.dtd" >
+<struts>
+	<package name="wifiFenceHit" extends="szpt-web-placemonitor" namespace="/wifiFenceHit">
+		
+		<!-- 重点人轨迹分析页面 -->
+		<action name="showNewWifiPersonLocusSnapshot">
+			<result name="success">/WEB-INF/view/placemonitor/personLocusAnalyze/newWifiPersonLocusSnapshot.jsp</result>
+		</action>
+		
+		<!-- 根据mac地址查询轨迹列表（分页查询） -->
+		<action name="findLocusByMacs" class="wifiFenceHitAction" method="findLocusByMacs">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 查询某人员某时间段经过次数最多的场所 -->
+		<action name="findPlaceSumByMacAndTime" class="wifiFenceHitAction" method="findPlaceSumByMacAndTime">
+			<result name="success" type="json"></result>
+		</action>
+		<!-- 查询某人员某时间段驻留时间最长的场所 -->
+		<action name="findMaxTimePlaceByMacAndTime" class="wifiFenceHitAction" method="findMaxTimePlaceByMacAndTime">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findMacsByIdCode" class="wifiFenceHitAction" method="findMacsByIdCode">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findMacsByPhoneNumber" class="wifiFenceHitAction" method="findMacsByPhoneNumber">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据类型和id查询发给当前单位的指令 -->
+		<action name="findInstructionByUnitId" class="wifiFenceHitAction" method="findInstructionByUnitId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 保存快照 -->
+		<action name="generateWifiLocusSnapshot" class="wifiFenceHitAction" method="generateWifiLocusSnapshot">
+			<result name="success" type="json"></result>
+		</action>
+		
+	</package>
+</struts>

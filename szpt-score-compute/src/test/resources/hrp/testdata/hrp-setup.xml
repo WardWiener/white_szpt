@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataset>
+<!--     <t_scoreframework_scoretask id="sct_id_highriskpopulation" description="积分计算任务" weight="100" warnScore="65" />
+    
+    <t_scoreframework_scorepoint id="重点人员在控类型scorepoint_Id" description="在控类型" />
+    <t_scoreframework_scorepointcfg id="重点人员在控类型scorepointcfg_Id" weight="20" scoreframework_scoretask_id="sct_id_highriskpopulation" scoreframework_scorepoint_id="重点人员在控类型scorepointId" />
+    <t_scoreframework_scorerule id="重点人员在控类型scorerule_Id" description="重点人员在控类型规则" type="com.taiji.pubsec.scoreframework.rules.groovyrule.model.BasedGroovyRule" ruleId="重点人员在控类型rule_id" />
+    <t_scoreframework_szpt_groovyrule id="重点人员在控类型groovyrule_id" script="" /> -->
+    
+    
+    <t_zdlx id="0000000032" bm="zklx" mc="在控类型" zt="1" sjc="2016-11-11 11:11:11" />
+    <t_zdlx id="0000000030" bm="hyqk" mc="婚姻情况" zt="1" sjc="2016-11-11 11:11:11" />
+    <t_zdlx id="0000000031" bm="jyqk" mc="就业情况" zt="1" sjc="2016-11-11 11:11:11" />
+    <t_zdlx id="0000000013" bm="rylx" mc="人员类型" zt="1" sjc="2016-11-11 11:11:11" />
+    <t_zdlx id="0000000014" bm="qklx" mc="前科类型" zt="1" sjc="2016-11-11 11:11:11" />
+    
+    <t_zdx id="0000000032001" bm="0000000032001" mc="高危" zt="1" zdlx_id="0000000032" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000032002" bm="0000000032002" mc="关注" zt="1" zdlx_id="0000000032" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000032003" bm="0000000032003" mc="一般" zt="1" zdlx_id="0000000032" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000032004" bm="0000000032004" mc="无" zt="1" zdlx_id="0000000032" sjc="2016-11-11 11:11:11" />
+    
+    <t_zdx id="0000000030001" bm="0000000030001" mc="未知" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000030002" bm="0000000030002" mc="未婚" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000030003" bm="0000000030003" mc="已婚" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000030004" bm="0000000030004" mc="再婚" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000030005" bm="0000000030005" mc="离异" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000030006" bm="0000000030006" mc="丧偶" zt="1" zdlx_id="0000000030" sjc="2016-11-11 11:11:11" />
+    
+    <t_zdx id="0000000031001" bm="0000000031001" mc="就业" zt="1" zdlx_id="0000000031" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000031002" bm="0000000031002" mc="失业" zt="1" zdlx_id="0000000031" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000031003" bm="0000000031003" mc="待业" zt="1" zdlx_id="0000000031" sjc="2016-11-11 11:11:11" />
+    <t_zdx id="0000000031004" bm="0000000031004" mc="无业" zt="1" zdlx_id="0000000031" sjc="2016-11-11 11:11:11" />    
+    
+    <t_zdx id="cd0184f8-9794-45e9-811f-f56ef4c8ce05" bm="002" mc="在逃人员" zt="1" zdlx_id="0000000013" sjc="2016-11-11 11:11:11" />    
+    
+    <t_zdx id="f16210ce-8b31-4bde-a6cd-7192f52f5505" bm="003" mc="涉毒人员" zt="1" zdlx_id="0000000013" sjc="2016-11-11 11:11:11" />    
+    <t_zdx id="8d90df25-1e6b-4a3f-a814-dac907c1ca2e" bm="003000" mc="吸毒人员" zt="1" zdlx_id="0000000013" sjzdx_id="f16210ce-8b31-4bde-a6cd-7192f52f5505" sjc="2016-11-11 11:11:11" />    
+   
+    <t_zdx id="072168c1-052b-406b-8cb0-58ae137d4188" bm="017" mc="刑事前科" zt="1" zdlx_id="0000000013" sjc="2016-11-11 11:11:11" />    
+   	<t_zdx id="c68e397c-f5aa-4c85-8974-b6eecd1b69e8" bm="017000" mc="危害国家安全案" zt="1" zdlx_id="0000000013" sjzdx_id="072168c1-052b-406b-8cb0-58ae137d4188" sjc="2016-11-11 11:11:11" />    
+    <t_zdx id="2542568d-35a7-4043-8a03-7afa4f776124" bm="017000002" mc="间谍、资敌案" zt="1" zdlx_id="0000000013" sjzdx_id="c68e397c-f5aa-4c85-8974-b6eecd1b69e8" sjc="2016-11-11 11:11:11" />    
+    <t_zdx id="7964bd8b-d599-4841-bd28-d023c55de643" bm="017001" mc="危害公共安全案" zt="1" zdlx_id="0000000013" sjzdx_id="072168c1-052b-406b-8cb0-58ae137d4188" sjc="2016-11-11 11:11:11" />    
+   
+    <t_zdx id="017004000" bm="017004000" mc="抢劫案" zt="1" zdlx_id="0000000014" sjc="2016-11-11 11:11:11" />    
+   
+<!--     <t_gwry_ryxx id="testHrpId1" zdryzklx="0000000032001" jyqk="0000000031001" hyqk="0000000030003" sr="6700"  />
+    <t_gwry_gwrylx id="testHrpId1-personType1" rylx="017000002" gwry_id="testHrpId1" />
+    <t_gwry_gwryqklx id="testHrpId1-criminalRecord1" qklx="017004000" gwryrylx_id="testHrpId1-personType1" /> -->
+    
+    
+</dataset>

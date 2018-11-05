@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+  xmlns:amq="http://activemq.apache.org/schema/core" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xmlns:context="http://www.springframework.org/schema/context"
+  xmlns:tx="http://www.springframework.org/schema/tx" xmlns:jdbc="http://www.springframework.org/schema/jdbc"
+  xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd
+        http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc-4.3.xsd
+    	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+    	http://activemq.apache.org/schema/core http://activemq.apache.org/schema/core/activemq-core.xsd">
+
+  <bean id="ftpClientHolderForScanner" class="com.taiji.pubsec.szpt.dpp.wififilerecv.filereceive.FtpClientHolder" destroy-method="destroy">
+    <property name="server" value="${scanner.ftp.server}" />
+    <property name="port" value="${scanner.ftp.port}" />
+    <property name="username" value="${scanner.ftp.username}" />
+    <property name="password" value="${scanner.ftp.password}" />
+    <property name="dataTimeout" value="${scanner.ftp.dataTimeout}"></property>
+  </bean>
+  <bean id="ftpClientHolderForCleaner" class="com.taiji.pubsec.szpt.dpp.wififilerecv.filereceive.FtpClientHolder" destroy-method="destroy">
+    <property name="server" value="${scanner.ftp.server}" />
+    <property name="port" value="${scanner.ftp.port}" />
+    <property name="username" value="${scanner.ftp.username}" />
+    <property name="password" value="${scanner.ftp.password}" />
+    <property name="dataTimeout" value="${scanner.ftp.dataTimeout}"></property>
+  </bean>
+  
+  <!-- ############################# 文件扫描器 ###################################### -->
+  <bean id="fileScanner"
+    class="com.taiji.pubsec.szpt.dpp.wififilerecv.filereceive.FtpScanner" init-method="init">
+    <property name="ftpfolder" value="${scanner.ftp.ftpfolder}" />
+    <property name="workfolder" value="${scanner.ftp.workfolder}" />
+    <property name="ftpClientHolder" ref="ftpClientHolderForScanner" />
+    <property name="timeout" value="${scanner.ftp.timeout}" />
+    <property name="retry" value="${scanner.ftp.retry}" />
+    <property name="classfiers">
+      <array>
+        <ref bean="placeinfofileMsgClassfier" />
+        <ref bean="equipmentfileMsgClassfier" />
+        <ref bean="wifidatafileMsgClassfier" />
+        <!-- otherfileMsgClassfier必须放在最后 -->
+        <ref bean="otherfileMsgClassfier"/>
+      </array>
+    </property>
+  </bean>
+
+  <bean id="fileScannerDetail"
+    class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+    <!-- false表示等上一个任务执行完后再开启新的任务 -->
+    <property name="concurrent" value="false"/>
+    <property name="targetObject">
+      <ref bean="fileScanner" />
+    </property>
+    <property name="targetMethod">
+      <value>scan</value>
+    </property>
+  </bean>
+
+ <!--  文件扫描的调度触发器 -->
+  <bean id="fileScannerTrigger"
+    class="org.springframework.scheduling.quartz.CronTriggerFactoryBean">
+    <property name="jobDetail">
+      <ref bean="fileScannerDetail" />
+    </property>
+    <property name="cronExpression">
+      <value>0/10 * * * * ?</value>
+    </property>
+  </bean>
+
+  <!-- 调度工厂 -->
+  <bean id="scheduler"
+    class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+    <property name="triggers">
+      <list>
+        <ref bean="fileScannerTrigger" />
+      </list>
+    </property>
+  </bean>
+
+  <!-- ############################# 文件清除器：针对已经处理完成的文件进行清除 ############################# -->
+  <bean id="cleanFileListener"
+    class="com.taiji.pubsec.szpt.dpp.wififilerecv.filereceive.FileCleanListener">
+    <property name="workfolder" value="${scanner.ftp.workfolder}" />
+    <property name="ftpClientHolder" ref="ftpClientHolderForCleaner" />
+    <property name="ftpfolder" value="${scanner.ftp.ftpfolder}" />
+    <property name="backupdir" value="${scanner.ftp.backupdir}"></property>
+    <property name="timeout" value="${scanner.ftp.timeout}" />
+    <property name="retry" value="${scanner.ftp.retry}" />
+    <property name="operate" value="${scanner.ftp.operate}" />
+  </bean>
+  <bean id="cleanFileContainer"
+    class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="jmsConnectionFactory" />
+    <property name="destination" ref="FILECLEAN_QUEUE" />
+    <property name="sessionTransacted" value="false" />
+    <property name="sessionAcknowledgeModeName" value="CLIENT_ACKNOWLEDGE" />
+    <property name="messageListener" ref="cleanFileListener" />
+  </bean>
+
+</beans>
+	

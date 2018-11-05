@@ -1,0 +1,16 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+    <struts>
+	<package name="loginHomePage" extends="szpt-web-customizedmenu" namespace="/loginHomePage">
+		<action name="showLoginPage">
+			<result name="success">/WEB-INF/view/loginHomePage/loginPage.jsp</result>
+		</action>
+		<action name="findAllUserUsedModuleUrl" class="loginPage" method="findAllUserUsedModuleUrl">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="createNewIn" class="loginPage" method="createNewIn">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>

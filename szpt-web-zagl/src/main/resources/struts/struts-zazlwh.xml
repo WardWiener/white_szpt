@@ -1,0 +1,75 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+	<package name="zazlwh" extends="szpt-web-zagl" namespace="/zazlwh">
+       <action name="showZaListUserDetail">
+          <result name="success">/WEB-INF/view/zazl/zaListUserDetail.jsp</result>
+       </action>
+
+        <action name="updateZaData">
+          <result name="success">/WEB-INF/view/zazl/zaUploadLayer.jsp</result>
+       </action>
+      <action name="showLookData">
+          <result name="success">/WEB-INF/view/zazl/lookData.jsp</result>
+       </action>
+         <action name="findPerson">
+          <result name="success">/WEB-INF/view/zazl/zaFindPerson.jsp</result>
+       </action>
+       
+         <action name="attachment">
+          <result name="success">/WEB-INF/view/zazl/attachment.jsp</result>
+       </action>
+       <action name="searchZazl" class="zaListUserDetailAction" method="searchZazl">
+         <result name="success" type="json"></result>
+       </action>
+       <action name="findAllZazllx" class="zaListUserDetailAction" method="findAllZazllx">
+         <result name="success" type="json"></result>
+       </action>
+       <action name="findAllUnitAndDepartment" class="zaFindPersonAction" method="findAllUnitAndDepartment">
+         <result name="success" type="json"></result>
+       </action>
+        <action name="findPersonLstByCondition" class="zaFindPersonAction" method="findPersonLstByCondition">
+         <result name="success" type="json"></result>
+       </action>
+       
+       <action name="findUseZazllx" class="zaListUserDetailAction" method="findUseZazllx">
+         <result name="success" type="json"></result>
+       </action>
+       
+        <action name="saveStorageOut" class="zaListUserDetailAction" method="saveStorageOut">
+         <result name="success" type="json"></result>
+       </action>
+       <action name="findZazlByFileNameAndZaIdAndZllx" class="zaListUserDetailAction" method="findZazlByFileNameAndZaIdAndZllx">
+         <result name="success" type="json"></result>
+       </action>
+       
+      <action name="coverZllx" class="zaListUserDetailAction" method="coverZllx">
+         <result name="success" type="json"></result>
+       </action>
+       
+      <action name="findAttachmentById" class="zaListUserDetailAction" method="findAttachmentById">
+         <result name="success" type="json"></result>
+       </action>
+       
+      <action name="findImgAttachmentById" class="zaListUserDetailAction" method="findImgAttachmentById">
+         <result name="success" type="json"></result>
+       </action>
+        
+        <action name="attachmentId" class="zaListUserDetailAction" method="attachmentId">
+          <result name="success" type="json"></result>
+       </action>
+       
+  <!-- 上传文件 -->
+  <action name="uploadFile" class="uploadAction" method="uploadFile">
+    <result name="success" type="json"></result>
+  </action>
+  <!-- 下载文件 -->
+  <action name="downloadFile" class="downloadAction" method="download">
+    <result name="done" type="chain">
+      <param name="actionName">export</param>
+      <param name="namespace">/</param>
+    </result>
+  </action>
+	</package>
+</struts>

@@ -1,0 +1,359 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<b:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:b="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:s="http://www.springframework.org/schema/security" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="
+		http://www.springframework.org/schema/beans 
+		http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+    	http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-4.2.xsd
+    	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+    	http://www.springframework.org/schema/context
+		http://www.springframework.org/schema/context/spring-context-4.3.xsd">
+
+	<!-- 以下资源不需要过滤,这样缩短请求时间 -->
+	<http pattern="/common/**" security="none" />
+	<http pattern="/css/**" security="none" />
+	<http pattern="/images/**" security="none" />
+	<http pattern="/custom/**" security="none" />
+	<http pattern="/service/**" security="none" />
+	
+	<http pattern="/js/**" security="none" />
+	<http pattern="/scripts/**" security="none" />
+	<http pattern="/login.jsp" security="none" />
+	<http pattern="/jsp/auth/denied.jsp" security="none" />
+	<http pattern="/index.jsp" security="none" />
+	<http pattern="/randomImg.action" security="none" />
+    <http pattern="/examples/**" security="none" />
+    <http pattern="/cometd/**" security="none" />
+    <http pattern="/comet/**" security="none" />
+    <http pattern="/org/**" security="none" />
+    <http pattern="/jquery/**" security="none" />
+    <http pattern="/template/**" security="none" />
+    
+    <http pattern="/interface/**" security="none" />
+    <http pattern="/test/**" security="none" />
+    
+    <b:bean name="systemManagerService" class="com.taiji.pubsec.szpt.security.SzptSystemManagerServiceImpl" />
+    
+	<b:bean class="org.springframework.security.web.access.channel.ChannelDecisionManagerImpl">
+	    <b:property name="channelProcessors">
+	        <b:list>
+	            <b:bean class="org.springframework.security.web.access.channel.SecureChannelProcessor" />
+	            <b:bean class="org.springframework.security.web.access.channel.InsecureChannelProcessor" />
+	        </b:list>
+	    </b:property>
+	</b:bean>    
+
+	<!-- http包含三个过滤器SecurityContextPersistenceFilter, ExceptionTranslationFilter,FilterSecurityInterceptor -->
+	<http entry-point-ref="customizedLoginUrlAuthenticationEntryPoint" access-decision-manager-ref="accessDecisionManager">
+
+		<headers>
+			<!-- the page will be (and can be) displayed in a frame on the same origin as the page itself -->
+        	<frame-options policy="SAMEORIGIN"/>
+    	</headers>
+		
+		<!--spring security 4 默认开启csrf -->
+		<csrf disabled="true" />
+		<!--<intercept-url pattern="/login" requires-channel="https" />-->
+
+		<!-- 当访问被拒绝时，会转到403.jsp -->
+		<access-denied-handler ref="accessDeniedHandler" />
+		<!-- 登出设置 -->
+		<!--<logout logout-success-url="/index.jsp" logout-url="/logout" /> -->
+		<!-- 匿名用户访问控制，这里设置不允许匿名用户登陆 -->
+		<anonymous enabled="false" />
+		<http-basic />
+
+		<!-- 替换默认的LoginFilter -->
+		<custom-filter ref="customLoginFilter" position="FORM_LOGIN_FILTER" />
+		<custom-filter ref="customLogoutFilter" position="LOGOUT_FILTER" />
+
+		<!-- 自定义一个权限filter，位于FILTER_SECURITY_INTERCEPTOR之前 -->
+		<!-- 增加一个filter，这点与Acegi是不一样的，不能修改默认的filter了，这个filter位于FILTER_SECURITY_INTERCEPTOR之前 -->
+		<custom-filter before="FILTER_SECURITY_INTERCEPTOR" ref="customizedSecurityFilter" />
+
+		<session-management session-authentication-strategy-ref="compositeSessionAuthenticationStrategy" />
+		<!-- 测试时关闭，系统上线时开启 <s:session-management invalid-session-url="/index.jsp?session=0"> 
+			<s:concurrency-control max-sessions="1" expired-url="/index.jsp?session=1" 
+			/> </s:session-management> -->
+
+
+		<!-- <custom-filter position="CONCURRENT_SESSION_FILTER" ref="concurrencyFilter" 
+			/> -->
+		<custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER"  />
+
+	</http>
+	
+	<b:bean id="customizedLoginUrlAuthenticationEntryPoint"
+        class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+<!--         org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint -->
+        <!-- 默认登录页的url -->
+        <b:constructor-arg index="0" value="/index.jsp" />
+    </b:bean>  	
+    
+	<b:bean id="compositeSessionAuthenticationStrategy"
+        class="org.springframework.security.web.authentication.session.CompositeSessionAuthenticationStrategy">
+        <b:constructor-arg>
+            <b:list>
+               	<b:ref bean="sessionAuthenticationStrategy" />  
+                <b:bean
+                    class="org.springframework.security.web.authentication.session.SessionFixationProtectionStrategy">
+                </b:bean>
+                <b:bean
+                    class="org.springframework.security.web.authentication.session.RegisterSessionAuthenticationStrategy">
+                    <b:constructor-arg ref="sessionRegistry" />
+                </b:bean>
+            </b:list>
+        </b:constructor-arg>
+    </b:bean>	    
+    
+	<b:bean id="sessionAuthenticationStrategy"  
+        class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">  
+        <b:constructor-arg name="sessionRegistry"  
+            ref="sessionRegistry" />
+        <b:property name="maximumSessions" value="1" />
+    </b:bean>    
+
+	<b:bean id="accessDecisionManager"
+		class="org.springframework.security.access.vote.AffirmativeBased">
+        <b:constructor-arg index="0">
+			<b:list>
+				<b:bean class="org.springframework.security.access.vote.RoleVoter">
+					<!-- 将授权名称的默认前缀由ROLE_改为空. -->
+					<b:property name="rolePrefix" value="">
+					</b:property>
+				</b:bean>
+			</b:list>
+        </b:constructor-arg>		
+	</b:bean>
+
+	<!-- 认证管理器 -->
+	<authentication-manager alias="authenticationManager">
+		<authentication-provider ref="authenticationProvider">
+		</authentication-provider>
+	</authentication-manager>
+
+	<!-- 认证提供者 -->
+	<b:bean id="authenticationProvider"
+		class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+		<b:property name="userDetailsService" ref="userDetailsService" />
+		<b:property name="hideUserNotFoundExceptions" value="false" />
+		<b:property name="passwordEncoder" ref="passwordEncoder" />
+		<!--<b:property name="userCache" ref="userCache"></b:property> -->
+	</b:bean>
+
+	<!-- 认证数据库实现方法 -->
+	<b:bean id="userDetailsService"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.service.impl.DefaultCustomUserDetailsServiceImpl">
+		<b:property name="dataSource" ref="dataSource" />
+	</b:bean>
+
+	<!-- 安全资源白名单(URL) -->
+	<b:bean id="securityMetadataSourceTrustListHolder"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.util.SecurityMetadataSourceTrustListHolder">
+		<b:property name="trustList">
+			<b:list>
+				<b:value>/cometd/*</b:value>
+				<b:value>/instruction/showInstructionListPage.action</b:value>
+				<b:value>/instruction/showInstructionReceiveListPage.action</b:value>
+			</b:list>
+		</b:property>
+	</b:bean>
+
+
+	<!-- 安全用户白名单 -->
+	<b:bean id="securityUserTrustListHolder"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.util.SecurityUserTrustListHolder">
+		<b:property name="trustList">
+			<b:list>
+			</b:list>
+		</b:property>
+		<b:property name="administratorNames">
+			<b:list>
+				<b:value>administrator</b:value>
+			</b:list>
+		</b:property>
+	</b:bean>
+
+	<!-- 一个自定义的filter，必须包含authenticationManager,accessDecisionManager,securityMetadataSource三个属性 -->
+	<b:bean id="customizedSecurityFilter"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.interceptor.CustomizedFilterSecurityInterceptor">
+		<b:property name="authenticationManager" ref="authenticationManager" />
+		<b:property name="accessDecisionManager" ref="accessDecisionManagerBean" />
+		<b:property name="securityMetadataSource" ref="securityMetadataSourceBean" />
+		<b:property name="notLoginRedirectUrl" value="/index.jsp" />
+		<!-- 没有定义的资源则放行，这是默认行为 -->
+		<b:property name="rejectPublicInvocations" value="false"></b:property>
+	</b:bean>
+
+	<!-- 访问决策器，决定某个用户（具有的角色）是否有足够的权限去访问某个资源 -->
+	<b:bean id="accessDecisionManagerBean"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.service.impl.CustomizedAccessDecisionManagerImpl">
+		<!-- 没有显式定义的资源都保护起来。该属性默认值为false -->
+		<b:property name="allowIfAllAbstainDecisions" value="false" />
+	</b:bean>
+
+	<!-- 安全资源定义，即定义某一安全资源可以被哪些角色访问 -->
+	<b:bean id="securityMetadataSourceBean"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.service.impl.CustomizedInvocationSecurityMetadataSourceImpl">
+		<!-- 不检查没有定义的资源 -->
+		<b:property name="rejectPublicInvocations" value="false" />
+	</b:bean>
+
+
+	<b:bean id="customLoginFilter"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.filter.CustomizedUsernamePasswordAuthenticationFilter">
+		<!-- 单点登陆启用用下面这个 -->
+		<!-- class="com.taiji.pubsec.szpt.security.GuiYangJingZongCustomizedUsernamePasswordAuthenticationFilter"> -->
+		<b:property name="postOnly" value="false" />
+		<b:property name="authenticationManager" ref="authenticationManager" />
+		<b:property name="usernameParameter" value="userName" />
+		<b:property name="passwordParameter" value="password" />
+		<!-- 校验登录是否有效的虚拟url -->
+		<b:property name="filterProcessesUrl" value="/login" />
+
+		<b:property name="authenticationSuccessHandler">
+			<!-- 自定义登录成功后的处理handler -->
+			<b:bean
+				class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.handler.CustomizedHttpsSavedRequestAwareAuthenticationSuccessHandler">
+				<!-- org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler -->
+				<!-- 登录成功后的默认url -->
+				<!--<b:property name="defaultTargetUrl" value="/welcome.action" /> -->
+				<b:property name="defaultTargetUrl" value="/xsfxts/showXsfxtsWelcome.action" />
+				<b:property name="alwaysUseDefaultTargetUrl" value="false"></b:property>
+				<b:property name="targetUrlParameter" value="redirect"></b:property>
+			</b:bean>
+		</b:property>
+		<b:property name="authenticationFailureHandler" ref="exceptionMappingAuthenticationFailureHandler" />
+		<b:property name="sessionAuthenticationStrategy" ref="compositeSessionAuthenticationStrategy"></b:property>
+	</b:bean>
+
+	<b:bean id="customLogoutFilter"
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.filter.CustomLogoutFilter">
+		<!-- 处理退出的虚拟url -->
+		<b:property name="filterProcessesUrl" value="/logout" />
+		<!-- 退出处理成功后的默认显示url -->
+		<b:constructor-arg index="0" ref="customizedLogoutSuccessHandler" />
+		<b:constructor-arg index="1">
+			<!-- 退出成功后的handler列表 -->
+			<b:array>
+				<b:bean id="securityContextLogoutHandler"
+					class="org.springframework.security.web.authentication.logout.SecurityContextLogoutHandler" />
+				<!-- 加入了开发人员自定义的退出成功处理 -->
+				<b:bean id="customLogoutSuccessHandler" class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.handler.CustomLogoutHandler" />
+			</b:array>
+		</b:constructor-arg>
+	</b:bean>
+
+	<!-- <b:bean id="myAuthenticationEntryPoint" class="com.project.system.manager.service.security.util.MyAuthenticationEntryPoint"> 
+		</b:bean> -->
+		
+	<b:bean id="customizedLogoutSuccessHandler"
+        class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.filter.CustomizedLogoutSuccessHandler">
+        <b:property name="defaultTargetUrl" value="/index.jsp?session=0" />
+    </b:bean>		
+
+	<b:bean id="myAuthenticationEntryPoint"
+		class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+		<!-- 默认登录页的url -->
+		<b:constructor-arg value="/index.jsp?session=0" />
+	</b:bean>
+
+	<b:bean id="accessDeniedHandler"
+		class="org.springframework.security.web.access.AccessDeniedHandlerImpl">
+		<b:property name="errorPage" value="/jsp/auth/denied.jsp?sign=denied" />
+	</b:bean>
+
+    <b:bean id="concurrencyFilter"  
+        class="org.springframework.security.web.session.ConcurrentSessionFilter">  
+        <b:constructor-arg index="0">
+			<b:ref bean="sessionRegistry" />  
+        </b:constructor-arg>        
+        <b:constructor-arg index="1">
+			<b:value>/index.jsp?session=0</b:value>
+        </b:constructor-arg>               
+    </b:bean>  
+
+	<b:bean id="sessionRegistry"
+		class="org.springframework.security.core.session.SessionRegistryImpl" />
+
+	<!-- 认证异常处理 -->
+	<b:bean id="exceptionMappingAuthenticationFailureHandler"
+		class="org.springframework.security.web.authentication.ExceptionMappingAuthenticationFailureHandler">
+		<!-- 登录失败后的默认Url -->
+		<b:property name="defaultFailureUrl" value="/index.jsp?sign=0" />
+		<b:property name="exceptionMappings">
+			<b:map>
+				<!-- 用户不存在 -->
+				<b:entry
+					key="org.springframework.security.core.userdetails.UsernameNotFoundException"
+					value="/index.jsp?sign=1" />
+				<!-- 用户被锁定 isAccountNonLocked -->
+				<b:entry
+					key="org.springframework.security.authentication.LockedException"
+					value="/index.jsp?sign=2" />
+				<!-- 用户被是否被启用 isEnabled -->
+				<b:entry
+					key="org.springframework.security.authentication.DisabledException"
+					value="/index.jsp?sign=3" />
+				<!-- isAccountNonExpired -->
+				<b:entry
+					key="org.springframework.security.authentication.AccountExpiredException"
+					value="/index.jsp?sign=4" />
+				<!-- isCredentialsNonExpired -->
+				<b:entry
+					key="org.springframework.security.authentication.CredentialsExpiredException"
+					value="/index.jsp?sign=5" />
+				<!-- 凭证错误(密码不正确) -->
+				<b:entry
+					key="org.springframework.security.authentication.BadCredentialsException"
+					value="/index.jsp?sign=6" />
+				<!-- 登陆凭证错误 -->
+				<b:entry key="org.springframework.security.core.AuthenticationException"
+					value="/index.jsp?sign=7" />
+				<!-- 验证码错误 -->
+				<b:entry
+					key="com.taiji.pubsec.businesscomponents.springsecurity.rbac.exception.MyCaptchaException"
+					value="/index.jsp?sign=8" />
+
+				<!-- <b:entry key="org.springframework.security.authentication.AuthenticationCredentialsNotFoundException" 
+					value="/index.jsp?session=0" /> -->
+
+			</b:map>
+		</b:property>
+	</b:bean>
+
+	<b:bean id="sharedCacheManager"
+		class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
+		<b:property name="shared" value="true" />
+		<b:property name="configLocation">
+			<b:value>classpath:ehcache.xml</b:value>
+		</b:property>
+	</b:bean>
+
+	<!-- 用户信息缓存 -->
+	<b:bean id="userCache"
+		class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
+		<b:property name="cache">
+			<b:bean class="org.springframework.cache.ehcache.EhCacheFactoryBean">
+				<b:property name="cacheManager" ref="sharedCacheManager" />
+				<b:property name="cacheName" value="commonCache" />
+			</b:bean>
+		</b:property>
+	</b:bean>
+
+	<!-- 用户的密码加密方式 -->
+	<b:bean id="passwordEncoder"
+		class="org.springframework.security.authentication.encoding.PlaintextPasswordEncoder">
+	</b:bean>
+
+	<!-- 监听事件 -->
+<!-- 	<b:bean 
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.listener.AuthenticationSuccessEventListener">
+	</b:bean>		
+	<b:bean 
+		class="com.taiji.pubsec.businesscomponents.springsecurity.rbac.listener.AuthenticationFailureListener">
+	</b:bean>	 -->
+
+</b:beans>

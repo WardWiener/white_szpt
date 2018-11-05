@@ -1,0 +1,35 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="heatAnalyze" extends="szpt-web-highRiskPersonAlert" namespace="/heatAnalyze">
+		
+		<!-- 热点分析页面 -->
+		<action name="showHeatAnalyzePage">
+			<result name="success">/WEB-INF/view/highRiskPersonAlert/heatAnalyze/heatAnalyze.jsp</result>
+		</action>
+		
+		<action name="findHeatByPeopleType" class="heatAnalyzeAction" method="findHeatByPeopleType">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="findHeatByJqlx" class="heatAnalyzeAction" method="findHeatByJqlx">
+			<result name="success" type="json"></result>
+		</action>
+        <action name="findHeatByAjlb" class="heatAnalyzeAction" method="findHeatByAjlb">
+          <result name="success" type="json"></result>
+        </action>
+        
+		<action name="queryPersonTypeTree" class="heatAnalyzeAction" method="queryPersonTypeTree">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryJqlxTree" class="heatAnalyzeAction" method="queryJqlxTree">
+			<result name="success" type="json"></result>
+		</action>
+		<action name="queryAjlbTree" class="heatAnalyzeAction" method="queryAjlbTree">
+          <result name="success" type="json"></result>
+        </action>
+        
+        <action name="jumpHeatAnalyzePage" class="heatAnalyzeAction" method="jumpHeatAnalyzePage">
+             <result name="success">/WEB-INF/view/highRiskPersonAlert/heatAnalyze/heatAnalyze.jsp</result>
+        </action>
+	</package>
+</struts>

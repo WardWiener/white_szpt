@@ -1,0 +1,21 @@
+<!DOCTYPE struts PUBLIC
+    "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+    "http://struts.apache.org/dtds/struts-2.5.dtd"><struts>
+	<package name="webUtil" extends="szpt-web-highRiskPersonAlert" namespace="/webUtil">
+		
+		<!-- 根据字典类型code获取字典项 -->
+		<action name="findDictionaryItemByType" class="dictionaryItemAction" method="findDictionaryItemsByType">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据字典项id获取子字典项 -->
+		<action name="findAllSubDictionaryItemsByParentItemId" class="dictionaryItemAction" method="findAllSubDictionaryItemsByParentItemId">
+			<result name="success" type="json"></result>
+		</action>
+		
+		<!-- 根据字典项类型code获取所有子字典项 -->
+		<action name="findAllSubDictionaryItemsByTypeCode" class="dictionaryItemAction" method="findAllSubDictionaryItemsByTypeCode">
+			<result name="success" type="json"></result>
+		</action>
+	</package>
+</struts>
